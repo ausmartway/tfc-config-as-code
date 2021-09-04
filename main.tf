@@ -10,6 +10,7 @@ terraform {
 }
 
 resource "tfe_workspace" "aws-s3-demo" {
+  description = "A simple demo to show how sentinel can make sure s3 are provisioned securely."
   allow_destroy_plan            = true
   auto_apply                    = true
   execution_mode                = "remote"
