@@ -319,6 +319,7 @@ resource "tfe_workspace" "tfc-config-as-code" {
     vcs_repo {
         identifier         = "ausmartway/tfc-config-as-code"
         ingress_submodules = false
+            oauth_token_id     = "ot-tkpMwbbMB59jSYiE"
     }
 
 }
