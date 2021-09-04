@@ -299,7 +299,8 @@ resource "tfe_workspace" "aws-lambda-example" {
 }
 
 resource "tfe_workspace" "tfc-config-as-code" {
-      allow_destroy_plan            = true
+
+    allow_destroy_plan            = true
     auto_apply                    = false
     execution_mode                = "remote"
     file_triggers_enabled         = true
@@ -319,7 +320,7 @@ resource "tfe_workspace" "tfc-config-as-code" {
     vcs_repo {
         identifier         = "ausmartway/tfc-config-as-code"
         ingress_submodules = false
-            oauth_token_id     = "ot-tkpMwbbMB59jSYiE"
+        oauth_token_id     = "ot-tkpMwbbMB59jSYiE"
     }
 
 }
