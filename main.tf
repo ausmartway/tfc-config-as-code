@@ -329,7 +329,7 @@ resource "tfe_workspace" "aws-lambda-example" {
 
 resource "tfe_workspace" "tfc-config-as-code" {
   allow_destroy_plan    = true
-  auto_apply            = false
+  auto_apply            = true
   execution_mode        = "remote"
   file_triggers_enabled = true
   global_remote_state   = false
