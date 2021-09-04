@@ -341,7 +341,7 @@ resource "tfe_workspace" "tfc-config-as-code" {
   remote_state_consumer_ids     = []
   speculative_enabled           = true
   structured_run_output_enabled = false
-  tag_names                     = ["tfc", "internal"]
+  tag_names                     = ["tfc", "internal","test"]
   terraform_version             = "1.0.6"
   trigger_prefixes              = []
 
