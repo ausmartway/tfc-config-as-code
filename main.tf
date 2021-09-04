@@ -327,26 +327,26 @@ resource "tfe_workspace" "aws-lambda-example" {
 
 
 resource "tfe_workspace" "tfc-config-as-code" {
-    allow_destroy_plan            = true
-    auto_apply                    = false
-    execution_mode                = "remote"
-    file_triggers_enabled         = true
-    global_remote_state           = false
+  allow_destroy_plan    = true
+  auto_apply            = false
+  execution_mode        = "remote"
+  file_triggers_enabled = true
+  global_remote_state   = false
 
-    name                          = "tfc-config-as-code"
+  name = "tfc-config-as-code"
 
-    organization                  = "yulei"
-    queue_all_runs                = false
-    remote_state_consumer_ids     = []
-    speculative_enabled           = true
-    structured_run_output_enabled = true
-    tag_names                     = ["tfc","internal"]
-    terraform_version             = "1.0.6"
-    trigger_prefixes              = []
+  organization                  = "yulei"
+  queue_all_runs                = false
+  remote_state_consumer_ids     = []
+  speculative_enabled           = true
+  structured_run_output_enabled = true
+  tag_names                     = ["tfc", "internal"]
+  terraform_version             = "1.0.6"
+  trigger_prefixes              = []
 
-    vcs_repo {
-        identifier         = "ausmartway/tfc-config-as-code"
-        ingress_submodules = false
-        oauth_token_id     = "ot-tkpMwbbMB59jSYiE"
-    }
+  vcs_repo {
+    identifier         = "ausmartway/tfc-config-as-code"
+    ingress_submodules = false
+    oauth_token_id     = "ot-tkpMwbbMB59jSYiE"
+  }
 }
