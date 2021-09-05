@@ -124,7 +124,7 @@ resource "tfe_workspace" "multi-env-provisioning-example-2-prod" {
   speculative_enabled           = true
   structured_run_output_enabled = false
   tag_names                     = ["customerfacing", "aws"]
-  terraform_version             = "0.12.29"
+  terraform_version             = "0.12.31"
   trigger_prefixes              = []
 
   vcs_repo {
@@ -276,7 +276,7 @@ resource "tfe_workspace" "multicloud-dns-management" {
   speculative_enabled           = true
   structured_run_output_enabled = false
   tag_names                     = ["internal", "aws", "gcp", "azure"]
-  terraform_version             = "0.12.29"
+  terraform_version             = "0.12.31"
   trigger_prefixes              = []
 
   vcs_repo {
