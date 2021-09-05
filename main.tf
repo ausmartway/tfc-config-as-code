@@ -324,20 +324,3 @@ resource "tfe_workspace" "tfc-config-as-code" {
   }
 }
 
-resource "tfe_workspace" "standingup-bigip-f5" {
-      allow_destroy_plan            = true
-    auto_apply                    = false
-    execution_mode                = "remote"
-    file_triggers_enabled         = true
-    global_remote_state           = true
-
-    name                          = "standingup-bigip-f5"
-
-    organization                  = "yulei"
-    queue_all_runs                = false
-    speculative_enabled           = true
-    structured_run_output_enabled = false
-    tag_names                     = []
-    terraform_version             = "0.12.18"
-    trigger_prefixes              = []
-}
