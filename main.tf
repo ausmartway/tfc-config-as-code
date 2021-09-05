@@ -59,80 +59,80 @@ resource "tfe_workspace" "azure-simple-demo" {
   }
 }
 
-resource "tfe_workspace" "multi-env-provisioning-example-0-test" {
-  description                   = "A demo showing how to manage multiple enviroments using one set of terraform code."
-  allow_destroy_plan            = true
-  auto_apply                    = true
-  execution_mode                = "remote"
-  file_triggers_enabled         = false
-  global_remote_state           = true
-  name                          = "multi-env-provisioning-example-0-test"
-  organization                  = "yulei"
-  queue_all_runs                = false
-  speculative_enabled           = true
-  structured_run_output_enabled = false
-  tag_names                     = ["customerfacing", "aws"]
-  terraform_version             = "1.0.6"
-  trigger_prefixes              = []
+# resource "tfe_workspace" "multi-env-provisioning-example-0-test" {
+#   description                   = "A demo showing how to manage multiple enviroments using one set of terraform code."
+#   allow_destroy_plan            = true
+#   auto_apply                    = true
+#   execution_mode                = "remote"
+#   file_triggers_enabled         = false
+#   global_remote_state           = true
+#   name                          = "multi-env-provisioning-example-0-test"
+#   organization                  = "yulei"
+#   queue_all_runs                = false
+#   speculative_enabled           = true
+#   structured_run_output_enabled = false
+#   tag_names                     = ["customerfacing", "aws"]
+#   terraform_version             = "1.0.6"
+#   trigger_prefixes              = []
 
-  vcs_repo {
-    identifier         = "ausmartway/multi-env-provisioning-example"
-    ingress_submodules = false
-    oauth_token_id     = local.tfc_oauth_token
-  }
+#   vcs_repo {
+#     identifier         = "ausmartway/multi-env-provisioning-example"
+#     ingress_submodules = false
+#     oauth_token_id     = local.tfc_oauth_token
+#   }
 
-}
+# }
 
-resource "tfe_workspace" "multi-env-provisioning-example-1-staging" {
-  description           = "A demo showing how to manage multiple enviroments using one set of terraform code."
-  allow_destroy_plan    = true
-  auto_apply            = true
-  execution_mode        = "remote"
-  file_triggers_enabled = false
-  global_remote_state   = true
+# resource "tfe_workspace" "multi-env-provisioning-example-1-staging" {
+#   description           = "A demo showing how to manage multiple enviroments using one set of terraform code."
+#   allow_destroy_plan    = true
+#   auto_apply            = true
+#   execution_mode        = "remote"
+#   file_triggers_enabled = false
+#   global_remote_state   = true
 
-  name = "multi-env-provisioning-example-1-staging"
+#   name = "multi-env-provisioning-example-1-staging"
 
-  organization                  = "yulei"
-  queue_all_runs                = false
-  speculative_enabled           = true
-  structured_run_output_enabled = false
-  tag_names                     = ["customerfacing", "aws"]
-  terraform_version             = "1.0.6"
-  trigger_prefixes              = []
+#   organization                  = "yulei"
+#   queue_all_runs                = false
+#   speculative_enabled           = true
+#   structured_run_output_enabled = false
+#   tag_names                     = ["customerfacing", "aws"]
+#   terraform_version             = "1.0.6"
+#   trigger_prefixes              = []
 
-  vcs_repo {
-    identifier         = "ausmartway/multi-env-provisioning-example"
-    ingress_submodules = false
-    oauth_token_id     = local.tfc_oauth_token
-  }
+#   vcs_repo {
+#     identifier         = "ausmartway/multi-env-provisioning-example"
+#     ingress_submodules = false
+#     oauth_token_id     = local.tfc_oauth_token
+#   }
 
-}
+# }
 
-resource "tfe_workspace" "multi-env-provisioning-example-2-prod" {
-  description           = "A demo showing how to manage multiple enviroments using one set of terraform code."
-  allow_destroy_plan    = true
-  auto_apply            = true
-  execution_mode        = "remote"
-  file_triggers_enabled = false
-  global_remote_state   = true
+# resource "tfe_workspace" "multi-env-provisioning-example-2-prod" {
+#   description           = "A demo showing how to manage multiple enviroments using one set of terraform code."
+#   allow_destroy_plan    = true
+#   auto_apply            = true
+#   execution_mode        = "remote"
+#   file_triggers_enabled = false
+#   global_remote_state   = true
 
-  name = "multi-env-provisioning-example-2-prod"
+#   name = "multi-env-provisioning-example-2-prod"
 
-  organization                  = "yulei"
-  queue_all_runs                = false
-  speculative_enabled           = true
-  structured_run_output_enabled = false
-  tag_names                     = ["customerfacing", "aws"]
-  terraform_version             = "1.0.6"
-  trigger_prefixes              = []
+#   organization                  = "yulei"
+#   queue_all_runs                = false
+#   speculative_enabled           = true
+#   structured_run_output_enabled = false
+#   tag_names                     = ["customerfacing", "aws"]
+#   terraform_version             = "1.0.6"
+#   trigger_prefixes              = []
 
-  vcs_repo {
-    identifier         = "ausmartway/multi-env-provisioning-example"
-    ingress_submodules = false
-    oauth_token_id     = local.tfc_oauth_token
-  }
-}
+#   vcs_repo {
+#     identifier         = "ausmartway/multi-env-provisioning-example"
+#     ingress_submodules = false
+#     oauth_token_id     = local.tfc_oauth_token
+#   }
+# }
 
 resource "tfe_workspace" "terraform-aws-vault-demo" {
   description                   = "A workspace that standup a demo vault instance."
