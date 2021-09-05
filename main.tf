@@ -290,7 +290,7 @@ resource "tfe_workspace" "multicloud-dns-management" {
 resource "tfe_workspace" "aws-lambda-example" {
   description           = "Demo workspace for deploying lambda functions."
   allow_destroy_plan    = true
-  auto_apply            = false
+  auto_apply            = true
   execution_mode        = "remote"
   file_triggers_enabled = false
   global_remote_state   = true
@@ -302,7 +302,7 @@ resource "tfe_workspace" "aws-lambda-example" {
   speculative_enabled           = true
   structured_run_output_enabled = false
   tag_names                     = ["aws", "customerfacing"]
-  terraform_version             = "0.11.15"
+  terraform_version             = "1.0.6"
   trigger_prefixes              = []
 
   vcs_repo {
