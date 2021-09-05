@@ -7,3 +7,8 @@ variable "vsc-oauth_token_id" {
     error_message = "The vsc-oauth_token_id value must be a valid TFC/TFE VCS provider oauth token, starting with \"ot-\"."
   }
 }
+
+variable "github_personal_token" {
+  type = string
+  description = "The github.com personal token"
+}
