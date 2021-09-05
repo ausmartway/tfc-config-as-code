@@ -302,7 +302,7 @@ resource "tfe_workspace" "aws-lambda-example" {
   speculative_enabled           = true
   structured_run_output_enabled = false
   tag_names                     = ["aws", "customerfacing"]
-  terraform_version             = "0.11.14"
+  terraform_version             = "0.11.15"
   trigger_prefixes              = []
 
   vcs_repo {
