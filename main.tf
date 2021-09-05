@@ -72,7 +72,7 @@ resource "tfe_workspace" "multi-env-provisioning-example-0-test" {
   speculative_enabled           = true
   structured_run_output_enabled = false
   tag_names                     = ["customerfacing", "aws"]
-  terraform_version             = "0.13.7"
+  terraform_version             = "1.0.6"
   trigger_prefixes              = []
 
   vcs_repo {
@@ -98,7 +98,7 @@ resource "tfe_workspace" "multi-env-provisioning-example-1-staging" {
   speculative_enabled           = true
   structured_run_output_enabled = false
   tag_names                     = ["customerfacing", "aws"]
-  terraform_version             = "0.13.7"
+  terraform_version             = "1.0.6"
   trigger_prefixes              = []
 
   vcs_repo {
@@ -124,7 +124,7 @@ resource "tfe_workspace" "multi-env-provisioning-example-2-prod" {
   speculative_enabled           = true
   structured_run_output_enabled = false
   tag_names                     = ["customerfacing", "aws"]
-  terraform_version             = "0.13.7"
+  terraform_version             = "1.0.6"
   trigger_prefixes              = []
 
   vcs_repo {
@@ -250,7 +250,7 @@ resource "tfe_workspace" "aws-shared-infra" {
   speculative_enabled           = true
   structured_run_output_enabled = false
   tag_names                     = ["aws", "internal", ]
-  terraform_version             = "0.13.7"
+  terraform_version             = "1.0.6"
   trigger_prefixes              = []
 
   vcs_repo {
