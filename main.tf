@@ -250,7 +250,7 @@ resource "tfe_workspace" "aws-shared-infra" {
   speculative_enabled           = true
   structured_run_output_enabled = false
   tag_names                     = ["aws", "internal", ]
-  terraform_version             = "0.13.6"
+  terraform_version             = "0.13.7"
   trigger_prefixes              = []
 
   vcs_repo {
