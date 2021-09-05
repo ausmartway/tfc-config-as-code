@@ -9,6 +9,10 @@ terraform {
   }
 }
 
+locals {
+  tfc_oauth_token = tfe_oauth_client.github-a.oauth_token_id
+}
+
 resource "tfe_workspace" "aws-s3-demo" {
   description                   = "A simple demo to show how sentinel policy as code engine can make sure s3 are provisioned securely."
   allow_destroy_plan            = true
@@ -27,7 +31,7 @@ resource "tfe_workspace" "aws-s3-demo" {
   vcs_repo {
     identifier         = "ausmartway/aws-s3-demo"
     ingress_submodules = false
-    oauth_token_id     = tfe_oauth_client.github-a.oauth_token_id
+    oauth_token_id     = local.tfc_oauth_token
   }
 
 }
@@ -51,7 +55,7 @@ resource "tfe_workspace" "azure-simple-demo" {
   vcs_repo {
     identifier         = "ausmartway/azure-basic-demo"
     ingress_submodules = false
-    oauth_token_id     = tfe_oauth_client.github-a.oauth_token_id
+    oauth_token_id     = local.tfc_oauth_token
   }
 }
 
@@ -74,7 +78,7 @@ resource "tfe_workspace" "multi-env-provisioning-example-0-test" {
   vcs_repo {
     identifier         = "ausmartway/multi-env-provisioning-example"
     ingress_submodules = false
-    oauth_token_id     = tfe_oauth_client.github-a.oauth_token_id
+    oauth_token_id     = local.tfc_oauth_token
   }
 
 }
@@ -100,7 +104,7 @@ resource "tfe_workspace" "multi-env-provisioning-example-1-staging" {
   vcs_repo {
     identifier         = "ausmartway/multi-env-provisioning-example"
     ingress_submodules = false
-    oauth_token_id     = tfe_oauth_client.github-a.oauth_token_id
+    oauth_token_id     = local.tfc_oauth_token
   }
 
 }
@@ -126,7 +130,7 @@ resource "tfe_workspace" "multi-env-provisioning-example-2-prod" {
   vcs_repo {
     identifier         = "ausmartway/multi-env-provisioning-example"
     ingress_submodules = false
-    oauth_token_id     = tfe_oauth_client.github-a.oauth_token_id
+    oauth_token_id     = local.tfc_oauth_token
   }
 }
 
@@ -149,7 +153,7 @@ resource "tfe_workspace" "terraform-aws-vault-demo" {
   vcs_repo {
     identifier         = "ausmartway/terraform-aws-vault-demo"
     ingress_submodules = false
-    oauth_token_id     = tfe_oauth_client.github-a.oauth_token_id
+    oauth_token_id     = local.tfc_oauth_token
   }
 }
 
@@ -175,7 +179,7 @@ resource "tfe_workspace" "vault-config-as-code" {
   vcs_repo {
     identifier         = "ausmartway/vault-config-as-code"
     ingress_submodules = false
-    oauth_token_id     = tfe_oauth_client.github-a.oauth_token_id
+    oauth_token_id     = local.tfc_oauth_token
   }
 }
 
@@ -200,7 +204,7 @@ resource "tfe_workspace" "tfe-v5-aws-install" {
   vcs_repo {
     identifier         = "ausmartway/tfe-v5-aws-install"
     ingress_submodules = false
-    oauth_token_id     = tfe_oauth_client.github-a.oauth_token_id
+    oauth_token_id     = local.tfc_oauth_token
   }
 }
 
@@ -225,7 +229,7 @@ resource "tfe_workspace" "tfe-v5-aws-prepare" {
   vcs_repo {
     identifier         = "ausmartway/tfe-v5-aws-prepare"
     ingress_submodules = false
-    oauth_token_id     = tfe_oauth_client.github-a.oauth_token_id
+    oauth_token_id     = local.tfc_oauth_token
   }
 
 }
@@ -252,7 +256,7 @@ resource "tfe_workspace" "aws-shared-infra" {
   vcs_repo {
     identifier         = "ausmartway/terraform-aws-core"
     ingress_submodules = false
-    oauth_token_id     = tfe_oauth_client.github-a.oauth_token_id
+    oauth_token_id     = local.tfc_oauth_token
   }
 
 }
@@ -278,7 +282,7 @@ resource "tfe_workspace" "multicloud-dns-management" {
   vcs_repo {
     identifier         = "ausmartway/dns-multicloud"
     ingress_submodules = false
-    oauth_token_id     = tfe_oauth_client.github-a.oauth_token_id
+    oauth_token_id     = local.tfc_oauth_token
   }
 
 }
@@ -304,7 +308,7 @@ resource "tfe_workspace" "aws-lambda-example" {
   vcs_repo {
     identifier         = "ausmartway/aws-lambda-demo"
     ingress_submodules = false
-    oauth_token_id     = tfe_oauth_client.github-a.oauth_token_id
+    oauth_token_id     = local.tfc_oauth_token
   }
 }
 
@@ -330,7 +334,7 @@ resource "tfe_workspace" "tfc-config-as-code" {
   vcs_repo {
     identifier         = "ausmartway/tfc-config-as-code"
     ingress_submodules = false
-    oauth_token_id     = tfe_oauth_client.github-a.oauth_token_id
+    oauth_token_id     = local.tfc_oauth_token
   }
 }
 
