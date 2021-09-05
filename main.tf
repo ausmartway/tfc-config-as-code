@@ -324,7 +324,7 @@ resource "tfe_workspace" "tfc-config-as-code" {
   }
 }
 
-resource "tfe_oauth_client" "test" {
+resource "tfe_oauth_client" "github" {
   organization     = "yulei"
   api_url          = "https://api.github.com"
   http_url         = "https://github.com"
