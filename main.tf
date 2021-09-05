@@ -151,6 +151,7 @@ resource "tfe_workspace" "terraform-aws-vault-demo" {
 }
 
 resource "tfe_workspace" "vault-config-as-code" {
+  description           = "A workspace that's used to manage my own TFC orgnisation configuration as code."
   allow_destroy_plan    = true
   auto_apply            = true
   execution_mode        = "remote"
