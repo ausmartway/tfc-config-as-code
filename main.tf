@@ -147,7 +147,7 @@ resource "tfe_workspace" "terraform-aws-vault-demo" {
   speculative_enabled           = true
   structured_run_output_enabled = false
   tag_names                     = ["internal", "aws"]
-  terraform_version             = "1.0.5"
+  terraform_version             = "1.0.6"
   trigger_prefixes              = []
 
   vcs_repo {
@@ -173,7 +173,7 @@ resource "tfe_workspace" "vault-config-as-code" {
   speculative_enabled           = true
   structured_run_output_enabled = true
   tag_names                     = ["customerfacing", "vault", "aws"]
-  terraform_version             = "1.0.5"
+  terraform_version             = "1.0.6"
   trigger_prefixes              = []
 
   vcs_repo {
