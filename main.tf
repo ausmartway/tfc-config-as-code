@@ -72,7 +72,7 @@ resource "tfe_workspace" "multi-env-provisioning-example-0-test" {
   speculative_enabled           = true
   structured_run_output_enabled = false
   tag_names                     = ["customerfacing", "aws"]
-  terraform_version             = "0.12.18"
+  terraform_version             = "0.12.31"
   trigger_prefixes              = []
 
   vcs_repo {
@@ -98,7 +98,7 @@ resource "tfe_workspace" "multi-env-provisioning-example-1-staging" {
   speculative_enabled           = true
   structured_run_output_enabled = false
   tag_names                     = ["customerfacing", "aws"]
-  terraform_version             = "0.12.18"
+  terraform_version             = "0.12.31"
   trigger_prefixes              = []
 
   vcs_repo {
@@ -124,7 +124,7 @@ resource "tfe_workspace" "multi-env-provisioning-example-2-prod" {
   speculative_enabled           = true
   structured_run_output_enabled = false
   tag_names                     = ["customerfacing", "aws"]
-  terraform_version             = "0.12.29"
+  terraform_version             = "0.12.31"
   trigger_prefixes              = []
 
   vcs_repo {
@@ -147,7 +147,7 @@ resource "tfe_workspace" "terraform-aws-vault-demo" {
   speculative_enabled           = true
   structured_run_output_enabled = false
   tag_names                     = ["internal", "aws"]
-  terraform_version             = "1.0.5"
+  terraform_version             = "1.0.6"
   trigger_prefixes              = []
 
   vcs_repo {
@@ -173,7 +173,7 @@ resource "tfe_workspace" "vault-config-as-code" {
   speculative_enabled           = true
   structured_run_output_enabled = true
   tag_names                     = ["customerfacing", "vault", "aws"]
-  terraform_version             = "1.0.5"
+  terraform_version             = "1.0.6"
   trigger_prefixes              = []
 
   vcs_repo {
@@ -276,7 +276,7 @@ resource "tfe_workspace" "multicloud-dns-management" {
   speculative_enabled           = true
   structured_run_output_enabled = false
   tag_names                     = ["internal", "aws", "gcp", "azure"]
-  terraform_version             = "0.12.29"
+  terraform_version             = "0.12.31"
   trigger_prefixes              = []
 
   vcs_repo {
@@ -302,7 +302,7 @@ resource "tfe_workspace" "aws-lambda-example" {
   speculative_enabled           = true
   structured_run_output_enabled = false
   tag_names                     = ["aws", "customerfacing"]
-  terraform_version             = "0.11.14"
+  terraform_version             = "0.11.15"
   trigger_prefixes              = []
 
   vcs_repo {
