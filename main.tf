@@ -164,11 +164,6 @@ resource "tfe_variable" "multi-env-provisioning-example-0-test-aws_session_token
   }
 }
 
-resource "tfe_variable" "azure-simple-demo-aws_region" {
-  key          = "AWS_REGION"
-  value        = var.aws_default_region
-}
-
 resource "tfe_workspace" "multi-env-provisioning-example-1-staging" {
   description           = "A demo showing how to manage multiple enviroments using one set of terraform code."
   allow_destroy_plan    = true
