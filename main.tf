@@ -164,6 +164,15 @@ resource "tfe_variable" "multi-env-provisioning-example-0-test-aws_session_token
   }
 }
 
+resource "tfe_variable" "multi-env-provisioning-example-0-test-aws_region" {
+  key          = "AWS_REGION"
+  value        = var.aws_default_region
+  category     = "env"
+  workspace_id = tfe_workspace.multi-env-provisioning-example-0-test.id
+  description  = "AWS REGION"
+}
+
+
 resource "tfe_workspace" "multi-env-provisioning-example-1-staging" {
   description           = "A demo showing how to manage multiple enviroments using one set of terraform code."
   allow_destroy_plan    = true
@@ -224,6 +233,14 @@ resource "tfe_variable" "multi-env-provisioning-example-1-staging-aws_session_to
   lifecycle {
     ignore_changes = [value]
   }
+}
+
+resource "tfe_variable" "multi-env-provisioning-example-1-staging-aws_region" {
+  key          = "AWS_REGION"
+  value        = var.aws_default_region
+  category     = "env"
+  workspace_id = tfe_workspace.multi-env-provisioning-example-1-staging.id
+  description  = "AWS REGION"
 }
 
 
@@ -288,6 +305,14 @@ resource "tfe_variable" "multi-env-provisioning-example-2-prod-aws_session_token
   }
 }
 
+resource "tfe_variable" "multi-env-provisioning-example-2-prod-aws_region" {
+  key          = "AWS_REGION"
+  value        = var.aws_default_region
+  category     = "env"
+  workspace_id = tfe_workspace.multi-env-provisioning-example-2-prod.id
+  description  = "AWS REGION"
+}
+
 
 resource "tfe_workspace" "terraform-aws-vault-demo" {
   description                   = "A workspace that standup a demo vault instance."
@@ -348,6 +373,13 @@ resource "tfe_variable" "terraform-aws-vault-demo-aws_session_token" {
   }
 }
 
+resource "tfe_variable" "terraform-aws-vault-demo-aws_region" {
+  key          = "AWS_REGION"
+  value        = var.aws_default_region
+  category     = "env"
+  workspace_id = tfe_workspace.terraform-aws-vault-demo.id
+  description  = "AWS REGION"
+}
 
 
 resource "tfe_workspace" "vault-config-as-code" {
@@ -437,6 +469,13 @@ resource "tfe_variable" "tfe-v5-aws-install-aws_session_token" {
   }
 }
 
+resource "tfe_variable" "tfe-v5-aws-install-aws_region" {
+  key          = "AWS_REGION"
+  value        = var.aws_default_region
+  category     = "env"
+  workspace_id = tfe_workspace.tfe-v5-aws-install.id
+  description  = "AWS REGION"
+}
 
 
 resource "tfe_workspace" "tfe-v5-aws-prepare" {
@@ -501,6 +540,13 @@ resource "tfe_variable" "tfe-v5-aws-prepare-aws_session_token" {
   }
 }
 
+resource "tfe_variable" "tfe-v5-aws-prepare-aws_region" {
+  key          = "AWS_REGION"
+  value        = var.aws_default_region
+  category     = "env"
+  workspace_id = tfe_workspace.tfe-v5-aws-prepare.id
+  description  = "AWS REGION"
+}
 
 
 
@@ -566,6 +612,13 @@ resource "tfe_variable" "aws-shared-infra_session_token" {
   }
 }
 
+resource "tfe_variable" "aws-shared-infra-aws_region" {
+  key          = "AWS_REGION"
+  value        = var.aws_default_region
+  category     = "env"
+  workspace_id = tfe_workspace.aws-shared-infra.id
+  description  = "AWS REGION"
+}
 
 
 resource "tfe_workspace" "multicloud-dns-management" {
@@ -630,6 +683,13 @@ resource "tfe_variable" "multicloud-dns-management_session_token" {
   }
 }
 
+resource "tfe_variable" "multicloud-dns-management-aws_region" {
+  key          = "AWS_REGION"
+  value        = var.aws_default_region
+  category     = "env"
+  workspace_id = tfe_workspace.multicloud-dns-management.id
+  description  = "AWS REGION"
+}
 
 
 resource "tfe_workspace" "aws-lambda-example" {
@@ -693,6 +753,13 @@ resource "tfe_variable" "aws-lambda-example_session_token" {
   }
 }
 
+resource "tfe_variable" "aws-lambda-example-aws_region" {
+  key          = "AWS_REGION"
+  value        = var.aws_default_region
+  category     = "env"
+  workspace_id = tfe_workspace.aws-lambda-example.id
+  description  = "AWS REGION"
+}
 
 
 resource "tfe_workspace" "tfc-config-as-code" {
