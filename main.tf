@@ -36,11 +36,11 @@ resource "tfe_workspace" "aws-s3-demo" {
 
 }
 
-resource "tfe_variable" "aws-s3-demo.aws_access_key_id" {
+resource "tfe_variable" "aws-s3-demo-aws_access_key_id" {
   key          = "AWS_ACCESS_KEY_ID"
   value        = "my_value_name"
   category     = "env"
-  workspace_id = tfe_workspace-aws-s3-demo.id
+  workspace_id = tfe_workspace.aws-s3-demo.id
   description  = "AWS Access Key ID"
 }
 
