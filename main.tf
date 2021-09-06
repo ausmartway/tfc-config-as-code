@@ -36,14 +36,6 @@ resource "tfe_workspace" "aws-s3-demo" {
 
 }
 
-resource "tfe_variable" "aws-s3-demo-aws_region" {
-  key          = "AWS_REGION"
-  value        = var.aws_default_region
-  category     = "env"
-  workspace_id = tfe_workspace.aws-s3-demo.id
-  description  = "AWS Access Key ID"
-}
-
 resource "tfe_variable" "aws-s3-demo-aws_access_key_id" {
   key          = "AWS_ACCESS_KEY_ID"
   value        = "my_value_name"
@@ -79,7 +71,13 @@ resource "tfe_variable" "aws-s3-demo-aws_session_token" {
   }
 }
 
-
+resource "tfe_variable" "aws-s3-demo-aws_region" {
+  key          = "AWS_REGION"
+  value        = var.aws_default_region
+  category     = "env"
+  workspace_id = tfe_workspace.aws-s3-demo.id
+  description  = "AWS Access Key ID"
+}
 
 resource "tfe_workspace" "azure-simple-demo" {
   description                   = "A simple demo of deploying Azure resources."
