@@ -120,6 +120,42 @@ resource "tfe_workspace" "multi-env-provisioning-example-0-test" {
 
 }
 
+
+resource "tfe_variable" "multi-env-provisioning-example-0-test-aws_access_key_id" {
+  key          = "AWS_ACCESS_KEY_ID"
+  value        = "my_value_name"
+  category     = "env"
+  workspace_id = tfe_workspace.multi-env-provisioning-example-0-test.id
+  description  = "AWS Access Key ID"
+  lifecycle {
+    ignore_changes = [value]
+  }
+}
+
+resource "tfe_variable" "multi-env-provisioning-example-0-test-aws_secret_access_key" {
+  key          = "AWS_SECRET_ACCESS_KEY"
+  value        = "my_value_name"
+  sensitive    = true
+  category     = "env"
+  workspace_id = tfe_workspace.multi-env-provisioning-example-0-test.id
+  description  = "AWS Secret Access Key"
+  lifecycle {
+    ignore_changes = [value]
+  }
+}
+
+resource "tfe_variable" "multi-env-provisioning-example-0-test-aws_session_token" {
+  key          = "AWS_SESSION_TOKEN"
+  sensitive    = true
+  value        = "my_value_name"
+  category     = "env"
+  workspace_id = tfe_workspace.multi-env-provisioning-example-0-test.id
+  description  = "AWS Session Token"
+  lifecycle {
+    ignore_changes = [value]
+  }
+}
+
 resource "tfe_workspace" "multi-env-provisioning-example-1-staging" {
   description           = "A demo showing how to manage multiple enviroments using one set of terraform code."
   allow_destroy_plan    = true
@@ -146,6 +182,44 @@ resource "tfe_workspace" "multi-env-provisioning-example-1-staging" {
 
 }
 
+
+resource "tfe_variable" "multi-env-provisioning-example-1-staging-aws_access_key_id" {
+  key          = "AWS_ACCESS_KEY_ID"
+  value        = "my_value_name"
+  category     = "env"
+  workspace_id = tfe_workspace.multi-env-provisioning-example-1-staging.id
+  description  = "AWS Access Key ID"
+  lifecycle {
+    ignore_changes = [value]
+  }
+}
+
+resource "tfe_variable" "multi-env-provisioning-example-1-staging-aws_secret_access_key" {
+  key          = "AWS_SECRET_ACCESS_KEY"
+  value        = "my_value_name"
+  sensitive    = true
+  category     = "env"
+  workspace_id = tfe_workspace.multi-env-provisioning-example-1-staging.id
+  description  = "AWS Secret Access Key"
+  lifecycle {
+    ignore_changes = [value]
+  }
+}
+
+resource "tfe_variable" "multi-env-provisioning-example-1-staging-aws_session_token" {
+  key          = "AWS_SESSION_TOKEN"
+  sensitive    = true
+  value        = "my_value_name"
+  category     = "env"
+  workspace_id = tfe_workspace.multi-env-provisioning-example-1-staging.id
+  description  = "AWS Session Token"
+  lifecycle {
+    ignore_changes = [value]
+  }
+}
+
+
+
 resource "tfe_workspace" "multi-env-provisioning-example-2-prod" {
   description           = "A demo showing how to manage multiple enviroments using one set of terraform code."
   allow_destroy_plan    = true
@@ -171,6 +245,44 @@ resource "tfe_workspace" "multi-env-provisioning-example-2-prod" {
   }
 }
 
+
+resource "tfe_variable" "multi-env-provisioning-example-2-prod-aws_access_key_id" {
+  key          = "AWS_ACCESS_KEY_ID"
+  value        = "my_value_name"
+  category     = "env"
+  workspace_id = tfe_workspace.multi-env-provisioning-example-2-prod.id
+  description  = "AWS Access Key ID"
+  lifecycle {
+    ignore_changes = [value]
+  }
+}
+
+resource "tfe_variable" "multi-env-provisioning-example-2-prod-aws_secret_access_key" {
+  key          = "AWS_SECRET_ACCESS_KEY"
+  value        = "my_value_name"
+  sensitive    = true
+  category     = "env"
+  workspace_id = tfe_workspace.multi-env-provisioning-example-2-prod.id
+  description  = "AWS Secret Access Key"
+  lifecycle {
+    ignore_changes = [value]
+  }
+}
+
+resource "tfe_variable" "multi-env-provisioning-example-2-prod-aws_session_token" {
+  key          = "AWS_SESSION_TOKEN"
+  sensitive    = true
+  value        = "my_value_name"
+  category     = "env"
+  workspace_id = tfe_workspace.multi-env-provisioning-example-2-prod.id
+  description  = "AWS Session Token"
+  lifecycle {
+    ignore_changes = [value]
+  }
+}
+
+
+
 resource "tfe_workspace" "terraform-aws-vault-demo" {
   description                   = "A workspace that standup a demo vault instance."
   allow_destroy_plan            = true
@@ -193,6 +305,44 @@ resource "tfe_workspace" "terraform-aws-vault-demo" {
     oauth_token_id     = local.tfc_oauth_token
   }
 }
+
+
+resource "tfe_variable" "terraform-aws-vault-demo-aws_access_key_id" {
+  key          = "AWS_ACCESS_KEY_ID"
+  value        = "my_value_name"
+  category     = "env"
+  workspace_id = tfe_workspace.terraform-aws-vault-demo.id
+  description  = "AWS Access Key ID"
+  lifecycle {
+    ignore_changes = [value]
+  }
+}
+
+resource "tfe_variable" "terraform-aws-vault-demo-aws_secret_access_key" {
+  key          = "AWS_SECRET_ACCESS_KEY"
+  value        = "my_value_name"
+  sensitive    = true
+  category     = "env"
+  workspace_id = tfe_workspace.terraform-aws-vault-demo.id
+  description  = "AWS Secret Access Key"
+  lifecycle {
+    ignore_changes = [value]
+  }
+}
+
+resource "tfe_variable" "terraform-aws-vault-demo-aws_session_token" {
+  key          = "AWS_SESSION_TOKEN"
+  sensitive    = true
+  value        = "my_value_name"
+  category     = "env"
+  workspace_id = tfe_workspace.terraform-aws-vault-demo.id
+  description  = "AWS Session Token"
+  lifecycle {
+    ignore_changes = [value]
+  }
+}
+
+
 
 resource "tfe_workspace" "vault-config-as-code" {
   description           = "A workspace that's used to manage my own Vault's configuration as code."
@@ -245,6 +395,44 @@ resource "tfe_workspace" "tfe-v5-aws-install" {
   }
 }
 
+
+resource "tfe_variable" "tfe-v5-aws-install-aws_access_key_id" {
+  key          = "AWS_ACCESS_KEY_ID"
+  value        = "my_value_name"
+  category     = "env"
+  workspace_id = tfe_workspace.tfe-v5-aws-install.id
+  description  = "AWS Access Key ID"
+  lifecycle {
+    ignore_changes = [value]
+  }
+}
+
+resource "tfe_variable" "tfe-v5-aws-install-aws_secret_access_key" {
+  key          = "AWS_SECRET_ACCESS_KEY"
+  value        = "my_value_name"
+  sensitive    = true
+  category     = "env"
+  workspace_id = tfe_workspace.tfe-v5-aws-install.id
+  description  = "AWS Secret Access Key"
+  lifecycle {
+    ignore_changes = [value]
+  }
+}
+
+resource "tfe_variable" "tfe-v5-aws-install-aws_session_token" {
+  key          = "AWS_SESSION_TOKEN"
+  sensitive    = true
+  value        = "my_value_name"
+  category     = "env"
+  workspace_id = tfe_workspace.tfe-v5-aws-install.id
+  description  = "AWS Session Token"
+  lifecycle {
+    ignore_changes = [value]
+  }
+}
+
+
+
 resource "tfe_workspace" "tfe-v5-aws-prepare" {
   description           = "Setup resources for a TFE v5 installation."
   allow_destroy_plan    = true
@@ -269,6 +457,42 @@ resource "tfe_workspace" "tfe-v5-aws-prepare" {
     oauth_token_id     = local.tfc_oauth_token
   }
 
+}
+
+
+resource "tfe_variable" "tfe-v5-aws-prepare-aws_access_key_id" {
+  key          = "AWS_ACCESS_KEY_ID"
+  value        = "my_value_name"
+  category     = "env"
+  workspace_id = tfe_workspace.tfe-v5-aws-prepare.id
+  description  = "AWS Access Key ID"
+  lifecycle {
+    ignore_changes = [value]
+  }
+}
+
+resource "tfe_variable" "tfe-v5-aws-prepare-aws_secret_access_key" {
+  key          = "AWS_SECRET_ACCESS_KEY"
+  value        = "my_value_name"
+  sensitive    = true
+  category     = "env"
+  workspace_id = tfe_workspace.tfe-v5-aws-prepare.id
+  description  = "AWS Secret Access Key"
+  lifecycle {
+    ignore_changes = [value]
+  }
+}
+
+resource "tfe_variable" "tfe-v5-aws-prepare-aws_session_token" {
+  key          = "AWS_SESSION_TOKEN"
+  sensitive    = true
+  value        = "my_value_name"
+  category     = "env"
+  workspace_id = tfe_workspace.tfe-v5-aws-prepare.id
+  description  = "AWS Session Token"
+  lifecycle {
+    ignore_changes = [value]
+  }
 }
 
 resource "tfe_workspace" "aws-shared-infra" {
@@ -298,6 +522,44 @@ resource "tfe_workspace" "aws-shared-infra" {
 
 }
 
+resource "tfe_variable" "aws-shared-infra_access_key_id" {
+  key          = "AWS_ACCESS_KEY_ID"
+  value        = "my_value_name"
+  category     = "env"
+  workspace_id = tfe_workspace.aws-shared-infra.id
+  description  = "AWS Access Key ID"
+  lifecycle {
+    ignore_changes = [value]
+  }
+}
+
+resource "tfe_variable" "aws-shared-infra_secret_access_key" {
+  key          = "AWS_SECRET_ACCESS_KEY"
+  value        = "my_value_name"
+  sensitive    = true
+  category     = "env"
+  workspace_id = tfe_workspace.aws-shared-infra.id
+  description  = "AWS Secret Access Key"
+  lifecycle {
+    ignore_changes = [value]
+  }
+}
+
+resource "tfe_variable" "aws-shared-infra_session_token" {
+  key          = "AWS_SESSION_TOKEN"
+  sensitive    = true
+  value        = "my_value_name"
+  category     = "env"
+  workspace_id = tfe_workspace.aws-shared-infra.id
+  description  = "AWS Session Token"
+  lifecycle {
+    ignore_changes = [value]
+  }
+}
+
+
+
+
 resource "tfe_workspace" "multicloud-dns-management" {
   description           = "Manages my aws/azure/gcp DNS records using aws route53."
   allow_destroy_plan    = true
@@ -324,6 +586,44 @@ resource "tfe_workspace" "multicloud-dns-management" {
 
 }
 
+
+resource "tfe_variable" "multicloud-dns-management_access_key_id" {
+  key          = "AWS_ACCESS_KEY_ID"
+  value        = "my_value_name"
+  category     = "env"
+  workspace_id = tfe_workspace.multicloud-dns-management.id
+  description  = "AWS Access Key ID"
+  lifecycle {
+    ignore_changes = [value]
+  }
+}
+
+resource "tfe_variable" "multicloud-dns-management_secret_access_key" {
+  key          = "AWS_SECRET_ACCESS_KEY"
+  value        = "my_value_name"
+  sensitive    = true
+  category     = "env"
+  workspace_id = tfe_workspace.multicloud-dns-management.id
+  description  = "AWS Secret Access Key"
+  lifecycle {
+    ignore_changes = [value]
+  }
+}
+
+resource "tfe_variable" "multicloud-dns-management_session_token" {
+  key          = "AWS_SESSION_TOKEN"
+  sensitive    = true
+  value        = "my_value_name"
+  category     = "env"
+  workspace_id = tfe_workspace.multicloud-dns-management.id
+  description  = "AWS Session Token"
+  lifecycle {
+    ignore_changes = [value]
+  }
+}
+
+
+
 resource "tfe_workspace" "aws-lambda-example" {
   description           = "Demo workspace for deploying lambda functions."
   allow_destroy_plan    = true
@@ -348,6 +648,44 @@ resource "tfe_workspace" "aws-lambda-example" {
     oauth_token_id     = local.tfc_oauth_token
   }
 }
+
+
+resource "tfe_variable" "aws-lambda-example_access_key_id" {
+  key          = "AWS_ACCESS_KEY_ID"
+  value        = "my_value_name"
+  category     = "env"
+  workspace_id = tfe_workspace.aws-lambda-example.id
+  description  = "AWS Access Key ID"
+  lifecycle {
+    ignore_changes = [value]
+  }
+}
+
+resource "tfe_variable" "aws-lambda-example_secret_access_key" {
+  key          = "AWS_SECRET_ACCESS_KEY"
+  value        = "my_value_name"
+  sensitive    = true
+  category     = "env"
+  workspace_id = tfe_workspace.aws-lambda-example.id
+  description  = "AWS Secret Access Key"
+  lifecycle {
+    ignore_changes = [value]
+  }
+}
+
+resource "tfe_variable" "aws-lambda-example_session_token" {
+  key          = "AWS_SESSION_TOKEN"
+  sensitive    = true
+  value        = "my_value_name"
+  category     = "env"
+  workspace_id = tfe_workspace.aws-lambda-example.id
+  description  = "AWS Session Token"
+  lifecycle {
+    ignore_changes = [value]
+  }
+}
+
+
 
 resource "tfe_workspace" "tfc-config-as-code" {
   description           = "Workspace for managing my own TFC orgnisation's configuration as code, using terraform."
