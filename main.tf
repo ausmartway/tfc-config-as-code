@@ -40,11 +40,11 @@ resource "tfe_variable" "aws-s3-demo.aws_access_key_id" {
   key          = "AWS_ACCESS_KEY_ID"
   value        = "my_value_name"
   category     = "env"
-  workspace_id = tfe_workspace.aws-s3-demo.id
+  workspace_id = tfe_workspace-aws-s3-demo.id
   description  = "AWS Access Key ID"
 }
 
-resource "tfe_variable" "aws-s3-demo.aws_secret_access_key" {
+resource "tfe_variable" "aws-s3-demo-aws_secret_access_key" {
   key          = "AWS_SECRET_ACCESS_KEY"
   value        = "my_value_name"
   sensitive    = true
@@ -53,7 +53,7 @@ resource "tfe_variable" "aws-s3-demo.aws_secret_access_key" {
   description  = "AWS Secret Access Key"
 }
 
-resource "tfe_variable" "aws-s3-demo.aws_session_token" {
+resource "tfe_variable" "aws-s3-demo-aws_session_token" {
   key          = "AWS_SESSION_TOKEN"
   sensitive    = true
   value        = "my_value_name"
