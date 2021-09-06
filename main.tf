@@ -42,6 +42,9 @@ resource "tfe_variable" "aws-s3-demo-aws_access_key_id" {
   category     = "env"
   workspace_id = tfe_workspace.aws-s3-demo.id
   description  = "AWS Access Key ID"
+  lifecycle {
+    ignore_changes = [value]
+  }
 }
 
 resource "tfe_variable" "aws-s3-demo-aws_secret_access_key" {
@@ -51,6 +54,9 @@ resource "tfe_variable" "aws-s3-demo-aws_secret_access_key" {
   category     = "env"
   workspace_id = tfe_workspace.aws-s3-demo.id
   description  = "AWS Secret Access Key"
+  lifecycle {
+    ignore_changes = [value]
+  }
 }
 
 resource "tfe_variable" "aws-s3-demo-aws_session_token" {
@@ -60,6 +66,9 @@ resource "tfe_variable" "aws-s3-demo-aws_session_token" {
   category     = "env"
   workspace_id = tfe_workspace.aws-s3-demo.id
   description  = "AWS Session Token"
+  lifecycle {
+    ignore_changes = [value]
+  }
 }
 
 
