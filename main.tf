@@ -76,7 +76,7 @@ resource "tfe_variable" "aws-s3-demo-aws_region" {
   value        = var.aws_default_region
   category     = "env"
   workspace_id = tfe_workspace.aws-s3-demo.id
-  description  = "AWS Access Key ID"
+  description  = "AWS REGION"
 }
 
 resource "tfe_workspace" "azure-simple-demo" {
