@@ -6,21 +6,21 @@ locals {
   inputworkspacemap = { for workspace in toset(local.inputworkspacevar) : workspace.name => workspace }
 
   # Get the data and filter it with workspace.enable_aws_credential set to true, convert it to terraform map
-  inputworkspace_with_aws_map = { for workspace in toset(local.inputworkspacevar) : workspace.name => workspace 
-                                      if workspace.enable_aws_credential}
+  inputworkspace_with_aws_map = { for workspace in toset(local.inputworkspacevar) : workspace.name => workspace
+  if workspace.enable_aws_credential }
 
   # Get the data and filter it with workspace.enable_azure_credential set to true, convert it to terraform map
-  inputworkspace_with_azure_map = { for workspace in toset(local.inputworkspacevar) : workspace.name => workspace 
-                                      if workspace.enable_azure_credential}
+  inputworkspace_with_azure_map = { for workspace in toset(local.inputworkspacevar) : workspace.name => workspace
+  if workspace.enable_azure_credential }
 }
 
 output "debugvar" {
- value=local.inputworkspacevar
+  value = local.inputworkspacevar
 }
 
 
 output "debugmap" {
- value=local.inputworkspacemap
+  value = local.inputworkspacemap
 }
 
 
@@ -37,42 +37,42 @@ output "workspacenames" {
 }
 
 resource "tfe_workspace" "workspace" {
-    for_each    = local.inputworkspacemap
-    allow_destroy_plan            = true
-    auto_apply                    = false
-    description                   = each.value.name
-    execution_mode                = "remote"
-    file_triggers_enabled         = false
-    global_remote_state           = false
-    name                          = each.value.name
-    organization                  = "yulei"
-    queue_all_runs                = false
-    remote_state_consumer_ids     = []
-    speculative_enabled           = false
-    structured_run_output_enabled = true
-    tag_names                     = each.value.tags
-    terraform_version             = each.value.version
-    trigger_prefixes              = []
+  for_each                      = local.inputworkspacemap
+  allow_destroy_plan            = true
+  auto_apply                    = false
+  description                   = each.value.name
+  execution_mode                = "remote"
+  file_triggers_enabled         = false
+  global_remote_state           = false
+  name                          = each.value.name
+  organization                  = "yulei"
+  queue_all_runs                = false
+  remote_state_consumer_ids     = []
+  speculative_enabled           = false
+  structured_run_output_enabled = true
+  tag_names                     = each.value.tags
+  terraform_version             = each.value.version
+  trigger_prefixes              = []
 }
 
 data "tfe_workspace_ids" "aws-apps" {
-  names = keys(local.inputworkspacemap)
+  names        = keys(local.inputworkspacemap)
   tag_names    = ["aws"]
   organization = "yulei"
-  depends_on = [tfe_workspace.workspace]
+  depends_on   = [tfe_workspace.workspace]
 }
 
 data "tfe_workspace_ids" "azure-apps" {
-  names = keys(local.inputworkspacemap)
+  names        = keys(local.inputworkspacemap)
   tag_names    = ["azure"]
   organization = "yulei"
-  depends_on = [tfe_workspace.workspace]
+  depends_on   = [tfe_workspace.workspace]
 }
 
 
 
 resource "tfe_variable" "aws_access_key_id" {
-  for_each    = data.tfe_workspace_ids.aws-apps
+  for_each     = data.tfe_workspace_ids.aws-apps.ids
   key          = "AWS_ACCESS_KEY_ID"
   value        = ""
   category     = "env"
@@ -83,34 +83,86 @@ resource "tfe_variable" "aws_access_key_id" {
   }
 }
 
-# resource "tfe_variable" "aws_secret_access_key" {
-#   key          = "AWS_SECRET_ACCESS_KEY"
-#   value        = "my_value_name"
-#   sensitive    = true
-#   category     = "env"
-#   workspace_id = tfe_workspace.aws-s3-demo.id
-#   description  = "AWS Secret Access Key"
-#   lifecycle {
-#     ignore_changes = [value]
-#   }
-# }
+resource "tfe_variable" "aws_secret_access_key" {
+  for_each     = data.tfe_workspace_ids.aws-apps.ids
+  key          = "AWS_SECRET_ACCESS_KEY"
+  value        = "my_value_name"
+  sensitive    = true
+  category     = "env"
+  workspace_id = each.value
+  description  = "AWS Secret Access Key"
+  lifecycle {
+    ignore_changes = [value]
+  }
+}
 
-# resource "tfe_variable" "aws_session_token" {
-#   key          = "AWS_SESSION_TOKEN"
-#   sensitive    = true
-#   value        = "my_value_name"
-#   category     = "env"
-#   workspace_id = tfe_workspace.aws-s3-demo.id
-#   description  = "AWS Session Token"
-#   lifecycle {
-#     ignore_changes = [value]
-#   }
-# }
+resource "tfe_variable" "aws_session_token" {
+  for_each     = data.tfe_workspace_ids.aws-apps.ids
+  key = "AWS_SESSION_TOKEN"
+  sensitive    = true
+  value        = "my_value_name"
+  category     = "env"
+  workspace_id = each.value
+  description  = "AWS Session Token"
+  lifecycle {
+    ignore_changes = [value]
+  }
+}
 
-# resource "tfe_variable" "aws_region" {
-#   key          = "AWS_REGION"
-#   value        = var.aws_default_region
-#   category     = "env"
-#   workspace_id = tfe_workspace.aws-s3-demo.id
-#   description  = "AWS REGION"
-# }
+resource "tfe_variable" "aws_region" {
+  for_each     = data.tfe_workspace_ids.aws-apps.ids
+  key          = "AWS_REGION"
+  value        = var.aws_default_region
+  category     = "env"
+  workspace_id = each.value
+  description  = "AWS REGION"
+}
+
+resource "tfe_variable" "azure_subscription_id" {
+  for_each     = data.tfe_workspace_ids.azure-apps.ids
+  key          = "ARM_SUBSCRIPTION_ID"
+  value        = ""
+  category     = "env"
+  workspace_id = each.value
+  description  = "Azure Subscription Id"
+  lifecycle {
+    ignore_changes = [value]
+  }
+}
+
+resource "tfe_variable" "azure_tenant_id" {
+  for_each     = data.tfe_workspace_ids.azure-apps.ids
+  key          = "ARM_TENANT_ID"
+  value        = ""
+  category     = "env"
+  workspace_id = each.value
+  description  = "Azure Tenant Id"
+  lifecycle {
+    ignore_changes = [value]
+  }
+}
+
+resource "tfe_variable" "azure_client_id" {
+  for_each     = data.tfe_workspace_ids.azure-apps.ids
+  key          = "ARM_CLIENT_ID"
+  value        = ""
+  category     = "env"
+  workspace_id = each.value
+  description  = "Azure Client Id"
+  lifecycle {
+    ignore_changes = [value]
+  }
+}
+
+resource "tfe_variable" "azure_client_secret" {
+  for_each     = data.tfe_workspace_ids.azure-apps.ids
+  key          = "ARM_CLIENT_SECRET"
+  value        = ""
+  category     = "env"
+  workspace_id = each.value
+  sensitive = true
+  description  = "Azure Client Secret"
+  lifecycle {
+    ignore_changes = [value]
+  }
+}
