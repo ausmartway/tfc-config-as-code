@@ -4,7 +4,8 @@ locals {
   # Take that data set and format it so that it can be used with the for_each command by converting it to a map where each top level key is a unique identifier.
   # In this case I am using the appid key from my example YAML files
   inputworkspacemap = { for workspace in toset(local.inputworkspacevar) : workspace.name => workspace }
-  inputworkspace_with_aws_map = {for workspace in toset(local.inputworspacevar): workspace.name => workspace if workspace.enable_aws_credential is true}
+  inputworkspace_with_aws_map = { for workspace in toset(local.inputworspacevar) : workspace.name => workspace 
+                                      if workspace.enable_aws_credential}
 }
 
 output "debugvar" {
