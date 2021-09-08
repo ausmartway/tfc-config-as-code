@@ -52,7 +52,7 @@ resource "tfe_workspace" "workspace" {
 }
 
 data "tfe_workspace_ids" "aws-apps" {
-  [tfe_workspace.workspace[*].name]
+  name = [tfe_workspace.workspace[*].name]
   tag_names    = ["aws"]
   organization = "yulei"
   depends_on = [tfe_workspace.workspace]
