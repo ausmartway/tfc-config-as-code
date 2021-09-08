@@ -32,6 +32,10 @@ output "aws-apps" {
   value = data.tfe_workspace_ids.aws-apps.ids
 }
 
+output "workspacenames" {
+  value = keys(local.inputworkspacemap)
+}
+
 resource "tfe_workspace" "workspace" {
     for_each    = local.inputworkspacemap
     allow_destroy_plan            = true
@@ -60,7 +64,7 @@ data "tfe_workspace_ids" "aws-apps" {
 
 data "tfe_workspace_ids" "azure-apps" {
   names = keys(local.inputworkspacemap)
-  tag_names    = ["aws"]
+  tag_names    = ["azure"]
   organization = "yulei"
   depends_on = [tfe_workspace.workspace]
 }
