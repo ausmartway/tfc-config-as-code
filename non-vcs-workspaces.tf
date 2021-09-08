@@ -6,8 +6,12 @@ locals {
   inputworkspacemap = { for workspace in toset(local.inputworkspacevar) : workspace.name => workspace }
 }
 
-output "debug" {
+output "debugvar" {
  value=local.inputworkspacevar
+}
+
+output "debugmap" {
+  value = local.inputworkspacemap
 }
 
 resource "tfe_workspace" "workspace" {
