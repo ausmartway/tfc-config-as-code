@@ -803,4 +803,3 @@ resource "tfe_oauth_client" "github-b" {
   oauth_token      = var.github_personal_token
   service_provider = "github"
 }
-
