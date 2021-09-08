@@ -1,0 +1,6 @@
+name: non-vcs-workspace-example
+version: 1.0.6
+tags:
+  - tfc
+  - customerfacing
+  - bhp
