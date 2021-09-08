@@ -1,9 +1,13 @@
 locals {
   # Take a directory of YAML files, read each one that matches naming pattern and bring them in to Terraform's native data set
-  inputworkspacevar = [for f in fileset(path.module, "non-vcs-workspaces/{workspaces}*.yaml") : yamldecode(file(f))]
+  inputworkspacevar = [for f in fileset(path.module, "non-vcs-workspaces/{workspace}*.yaml") : yamldecode(file(f))]
   # Take that data set and format it so that it can be used with the for_each command by converting it to a map where each top level key is a unique identifier.
   # In this case I am using the appid key from my example YAML files
   inputworkspacemap = { for workspace in toset(local.inputworkspacevar) : workspace.name => workspace }
+}
+
+output "debug" {
+ value=local.inputworkspacevar
 }
 
 resource "tfe_workspace" "workspace" {
