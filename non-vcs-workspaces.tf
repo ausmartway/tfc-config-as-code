@@ -19,7 +19,7 @@ output "debugvar" {
 }
 
 output "azure-apps" {
-  data.tfe_workspace_ids.azure-apps
+  value = data.tfe_workspace_ids.azure-apps
 }
 
 output "aws-apps" {
