@@ -52,14 +52,14 @@ resource "tfe_workspace" "workspace" {
 }
 
 data "tfe_workspace_ids" "aws-apps" {
-  name = [tfe_workspace.workspace[*].name]
+  names = [tfe_workspace.workspace[*].name]
   tag_names    = ["aws"]
   organization = "yulei"
   depends_on = [tfe_workspace.workspace]
 }
 
 data "tfe_workspace_ids" "azure-apps" {
-  name = [tfe_workspace.workspace[*].name]
+  names = [tfe_workspace.workspace[*].name]
   tag_names    = ["aws"]
   organization = "yulei"
   depends_on = [tfe_workspace.workspace]
