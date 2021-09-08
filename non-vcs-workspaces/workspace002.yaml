@@ -1,4 +1,4 @@
-name: non-vcs-workspace-example-2
+name: non-vcs-workspace-example-azure
 version: 1.0.6
 enable_aws_credential: false
 enable_azure_credential: true
