@@ -71,17 +71,17 @@ data "tfe_workspace_ids" "azure-apps" {
 
 
 
-# resource "tfe_variable" "aws_access_key_id" {
-#   for_each    = data.tfe_workspace_ids.aws-apps
-#   key          = "AWS_ACCESS_KEY_ID"
-#   value        = ""
-#   category     = "env"
-#   workspace_id = tfe_workspace.workspace.id
-#   description  = "AWS Access Key ID"
-#   lifecycle {
-#     ignore_changes = [value]
-#   }
-# }
+resource "tfe_variable" "aws_access_key_id" {
+  for_each    = data.tfe_workspace_ids.aws-apps
+  key          = "AWS_ACCESS_KEY_ID"
+  value        = ""
+  category     = "env"
+  workspace_id = each.value
+  description  = "AWS Access Key ID"
+  lifecycle {
+    ignore_changes = [value]
+  }
+}
 
 # resource "tfe_variable" "aws_secret_access_key" {
 #   key          = "AWS_SECRET_ACCESS_KEY"
