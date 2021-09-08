@@ -6,6 +6,10 @@ locals {
   inputworkspacemap = { for workspace in toset(local.inputworkspacevar) : workspace.name => workspace }
 }
 
+output "debug" {
+ value=local.inputworkspacevar
+}
+
 resource "tfe_workspace" "workspace" {
     for_each    = local.inputworkspacemap
     allow_destroy_plan            = true
