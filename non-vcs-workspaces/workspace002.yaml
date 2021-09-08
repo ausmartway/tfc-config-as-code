@@ -1,0 +1,9 @@
+name: non-vcs-workspace-example-azure
+version: 1.0.6
+# enable_aws_credential: false
+# enable_azure_credential: true
+tags:
+  - tfc
+  - azure
+  - customerfacing
+  - bhp
