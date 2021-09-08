@@ -25,11 +25,11 @@ output "debugmap" {
 
 
 output "azure-apps" {
-  value = data.tfe_workspace_ids.azure-apps
+  value = data.tfe_workspace_ids.azure-apps.ids
 }
 
 output "aws-apps" {
-  value = data.tfe_workspace_ids.aws-apps
+  value = data.tfe_workspace_ids.aws-apps.ids
 }
 
 output "workspacenames" {
