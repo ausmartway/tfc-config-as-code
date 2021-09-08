@@ -1,5 +1,7 @@
 name: non-vcs-workspace-example
 version: 1.0.6
+enable_aws_credential: true
+enable_azure_credential: true
 tags:
   - tfc
   - customerfacing
