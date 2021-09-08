@@ -5,36 +5,36 @@ locals {
   # In this case I am using the appid key from my example YAML files
   inputworkspacemap = { for workspace in toset(local.inputworkspacevar) : workspace.name => workspace }
 
-  # Get the data and filter it with workspace.enable_aws_credential set to true, convert it to terraform map
-  inputworkspace_with_aws_map = { for workspace in toset(local.inputworkspacevar) : workspace.name => workspace
-  if workspace.enable_aws_credential }
+  # # Get the data and filter it with workspace.enable_aws_credential set to true, convert it to terraform map
+  # inputworkspace_with_aws_map = { for workspace in toset(local.inputworkspacevar) : workspace.name => workspace
+  # if workspace.enable_aws_credential }
 
-  # Get the data and filter it with workspace.enable_azure_credential set to true, convert it to terraform map
-  inputworkspace_with_azure_map = { for workspace in toset(local.inputworkspacevar) : workspace.name => workspace
-  if workspace.enable_azure_credential }
+  # # Get the data and filter it with workspace.enable_azure_credential set to true, convert it to terraform map
+  # inputworkspace_with_azure_map = { for workspace in toset(local.inputworkspacevar) : workspace.name => workspace
+  # if workspace.enable_azure_credential }
 }
 
-output "debugvar" {
-  value = local.inputworkspacevar
-}
+# output "debugvar" {
+#   value = local.inputworkspacevar
+# }
 
 
-output "debugmap" {
-  value = local.inputworkspacemap
-}
+# output "debugmap" {
+#   value = local.inputworkspacemap
+# }
 
 
-output "azure-apps" {
-  value = data.tfe_workspace_ids.azure-apps.ids
-}
+# output "azure-apps" {
+#   value = data.tfe_workspace_ids.azure-apps.ids
+# }
 
-output "aws-apps" {
-  value = data.tfe_workspace_ids.aws-apps.ids
-}
+# output "aws-apps" {
+#   value = data.tfe_workspace_ids.aws-apps.ids
+# }
 
-output "workspacenames" {
-  value = keys(local.inputworkspacemap)
-}
+# output "workspacenames" {
+#   value = keys(local.inputworkspacemap)
+# }
 
 resource "tfe_workspace" "workspace" {
   for_each                      = local.inputworkspacemap
