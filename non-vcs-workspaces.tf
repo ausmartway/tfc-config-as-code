@@ -25,11 +25,15 @@ output "debugmap" {
 
 
 output "azure-apps" {
-  value = data.tfe_workspace_ids.azure-apps.ids
+  value = data.tfe_workspace_ids.azure-apps
 }
 
 output "aws-apps" {
-  value = data.tfe_workspace_ids.aws-apps.ids
+  value = data.tfe_workspace_ids.aws-apps
+}
+
+output "workspacenames" {
+  value = keys(local.inputworkspacemap)
 }
 
 resource "tfe_workspace" "workspace" {
@@ -60,7 +64,7 @@ data "tfe_workspace_ids" "aws-apps" {
 
 data "tfe_workspace_ids" "azure-apps" {
   names = keys(local.inputworkspacemap)
-  tag_names    = ["aws"]
+  tag_names    = ["azure"]
   organization = "yulei"
   depends_on = [tfe_workspace.workspace]
 }
