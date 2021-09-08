@@ -5,6 +5,5 @@ enable_azure_credential: true
 tags:
   - tfc
   - aws
-  - azure
   - customerfacing
   - bhp
