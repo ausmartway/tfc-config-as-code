@@ -18,6 +18,12 @@ output "debugvar" {
  value=local.inputworkspacevar
 }
 
+
+output "debugmap" {
+ value=local.inputworkspacemap
+}
+
+
 output "azure-apps" {
   value = data.tfe_workspace_ids.azure-apps.ids
 }
@@ -46,14 +52,14 @@ resource "tfe_workspace" "workspace" {
 }
 
 data "tfe_workspace_ids" "aws-apps" {
-  [tfe_workspace.workspace.*.name]
+  [tfe_workspace.workspace[*].name]
   tag_names    = ["aws"]
   organization = "yulei"
   depends_on = [tfe_workspace.workspace]
 }
 
 data "tfe_workspace_ids" "azure-apps" {
-  name = [tfe_workspace.workspace.*.name]
+  name = [tfe_workspace.workspace[*].name]
   tag_names    = ["aws"]
   organization = "yulei"
   depends_on = [tfe_workspace.workspace]
