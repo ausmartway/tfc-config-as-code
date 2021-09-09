@@ -59,14 +59,14 @@ data "tfe_workspace_ids" "aws-apps" {
   names        = keys(local.inputworkspacemap)
   tag_names    = ["aws"]
   organization = "yulei"
-  depends_on   = [tfe_workspace.workspace]
+  # depends_on   = [tfe_workspace.workspace]
 }
 
 data "tfe_workspace_ids" "azure-apps" {
   names        = keys(local.inputworkspacemap)
   tag_names    = ["azure"]
   organization = "yulei"
-  depends_on   = [tfe_workspace.workspace]
+  # depends_on   = [tfe_workspace.workspace]
 }
 
 
