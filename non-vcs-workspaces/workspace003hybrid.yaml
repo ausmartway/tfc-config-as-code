@@ -1,4 +1,4 @@
-name: non-vcs-workspace-example-azure
+name: non-vcs-workspace-example-hybrid
 version: 1.0.6
 owner: yulei@hashicorp.com
 description: This is an example workspace for hybrid workload accross aws and azure
