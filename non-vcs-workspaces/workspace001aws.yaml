@@ -1,5 +1,7 @@
 name: non-vcs-workspace-example-aws
 version: 1.0.6
+owner: yulei@hashicorp.com
+description: This is an workspace for aws workload
 tags:
   - tfc
   - aws

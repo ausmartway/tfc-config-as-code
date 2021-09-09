@@ -1,0 +1,9 @@
+name: non-vcs-workspace-example-azure
+version: 1.0.6
+owner: yulei@hashicorp.com
+description: This is an example workspace for Azure workload
+tags:
+  - tfc
+  - azure
+  - customerfacing
+  - bhp
