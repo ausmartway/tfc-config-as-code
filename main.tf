@@ -363,7 +363,6 @@ resource "tfe_workspace" "multicloud-dns-management" {
     ingress_submodules = false
     oauth_token_id     = local.tfc_oauth_token
   }
-
 }
 
 
@@ -454,27 +453,27 @@ resource "tfe_oauth_client" "github-b" {
 }
 
 resource "tfe_workspace" "tfc-credential-injector" {
-    allow_destroy_plan            = true
-    auto_apply                    = false
-    description                   = "A workspace that will inject aws and azure credentials to other workspaces automaticly."
-    execution_mode                = "remote"
-    file_triggers_enabled         = false
-    global_remote_state           = false
+  allow_destroy_plan    = true
+  auto_apply            = false
+  description           = "A workspace that will inject aws and azure credentials to other workspaces automaticly."
+  execution_mode        = "remote"
+  file_triggers_enabled = false
+  global_remote_state   = false
 
-    name                          = "tfc-credential-injector"
+  name = "tfc-credential-injector"
 
-    organization                  = "yulei"
-    queue_all_runs                = false
-    remote_state_consumer_ids     = []
-    speculative_enabled           = true
-    structured_run_output_enabled = true
-    tag_names                     = []
-    terraform_version             = "1.0.6"
-    trigger_prefixes              = []
+  organization                  = "yulei"
+  queue_all_runs                = false
+  remote_state_consumer_ids     = []
+  speculative_enabled           = true
+  structured_run_output_enabled = true
+  tag_names                     = []
+  terraform_version             = "1.0.6"
+  trigger_prefixes              = []
 
-    vcs_repo {
-        identifier         = "ausmartway/tfc-credential-injector"
-        ingress_submodules = false
-        oauth_token_id     = local.tfc_oauth_token
-        }
+  vcs_repo {
+    identifier         = "ausmartway/tfc-credential-injector"
+    ingress_submodules = false
+    oauth_token_id     = local.tfc_oauth_token
+  }
 }
