@@ -475,7 +475,6 @@ resource "tfe_workspace" "tfc-credential-injector" {
     vcs_repo {
         identifier         = "ausmartway/tfc-credential-injector"
         ingress_submodules = false
-        oauth_token_id     = var.github_personal_token
-    }
-
+        oauth_token_id     = local.tfc_oauth_token
+        }
 }
