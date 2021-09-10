@@ -1,8 +1,0 @@
-name: non-vcs-workspace-example-aws-demofordanny
-version: 1.0.6
-tags:
-  - tfc
-  - aws
-  - danny
-  - customerfacing
-  - bhp
