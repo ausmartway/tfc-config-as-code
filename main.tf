@@ -454,7 +454,7 @@ resource "tfe_oauth_client" "github-b" {
 
 resource "tfe_workspace" "tfc-credential-injector" {
   allow_destroy_plan    = true
-  auto_apply            = false
+  auto_apply            = true
   description           = "A workspace that will inject aws and azure credentials to other workspaces automaticly."
   execution_mode        = "remote"
   file_triggers_enabled = false
