@@ -461,7 +461,6 @@ resource "tfe_workspace" "tfc-credential-injector" {
   global_remote_state   = false
 
   name = "tfc-credential-injector"
-
   organization                  = "yulei"
   queue_all_runs                = false
   remote_state_consumer_ids     = []
@@ -470,10 +469,14 @@ resource "tfe_workspace" "tfc-credential-injector" {
   tag_names                     = []
   terraform_version             = "1.0.6"
   trigger_prefixes              = []
-
   vcs_repo {
     identifier         = "ausmartway/tfc-credential-injector"
     ingress_submodules = false
     oauth_token_id     = local.tfc_oauth_token
   }
 }
+
+# resource "tfe_run_trigger" "auto_trigger_tfc-credential-injector" {
+#   workspace_id  = tfe_workspace.tfc-credential-injector.id
+#   sourceable_id = tfe_workspace.tfc-config-as-code.id
+# }
