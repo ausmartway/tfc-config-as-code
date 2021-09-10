@@ -466,7 +466,7 @@ resource "tfe_workspace" "tfc-credential-injector" {
   remote_state_consumer_ids     = []
   speculative_enabled           = true
   structured_run_output_enabled = true
-  tag_names                     = []
+  tag_names                     = ["internal","tfc"]
   terraform_version             = "1.0.6"
   trigger_prefixes              = []
   vcs_repo {
