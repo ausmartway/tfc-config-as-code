@@ -476,7 +476,36 @@ resource "tfe_workspace" "tfc-credential-injector" {
   }
 }
 
-# resource "tfe_run_trigger" "auto_trigger_tfc-credential-injector" {
-#   workspace_id  = tfe_workspace.tfc-credential-injector.id
-#   sourceable_id = tfe_workspace.tfc-config-as-code.id
-# }
+resource "tfe_workspace" "tfc-notification-configurator" {
+  allow_destroy_plan    = true
+  auto_apply            = true
+  description           = "A workspace that will configure TFC/E notifications based on tag automaticly."
+  execution_mode        = "remote"
+  file_triggers_enabled = false
+  global_remote_state   = false
+
+  name = "tfc-notification-configurator"
+  organization                  = "yulei"
+  queue_all_runs                = true
+  remote_state_consumer_ids     = []
+  speculative_enabled           = true
+  structured_run_output_enabled = true
+  tag_names                     = ["internal","tfc"]
+  terraform_version             = "1.0.6"
+  trigger_prefixes              = []
+  vcs_repo {
+    identifier         = "ausmartway/tfc-notification-configurator"
+    ingress_submodules = false
+    oauth_token_id     = local.tfc_oauth_token
+  }
+}
+
+resource "tfe_run_trigger" "auto_trigger_tfc-credential-injector" {
+  workspace_id  = tfe_workspace.tfc-credential-injector.id
+  sourceable_id = tfe_workspace.tfc-config-as-code.id
+}
+
+resource "tfe_run_trigger" "auto_trigger_tfc-notification-configurator" {
+  workspace_id  = tfe_workspace.tfc-notification-configurator.id
+  sourceable_id = tfe_workspace.tfc-config-as-code.id
+}
