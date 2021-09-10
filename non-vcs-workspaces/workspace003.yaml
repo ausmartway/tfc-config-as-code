@@ -1,7 +1,0 @@
-name: non-vcs-workspace-example-aws-2
-version: 1.0.6
-tags:
-  - tfc
-  - aws
-  - customerfacing
-  - bhp
