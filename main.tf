@@ -462,7 +462,7 @@ resource "tfe_workspace" "tfc-credential-injector" {
 
   name = "tfc-credential-injector"
   organization                  = "yulei"
-  queue_all_runs                = false
+  queue_all_runs                = true
   remote_state_consumer_ids     = []
   speculative_enabled           = true
   structured_run_output_enabled = true
