@@ -185,7 +185,7 @@ resource "tfe_workspace" "terraform-aws-vault-demo" {
   queue_all_runs                = false
   speculative_enabled           = true
   structured_run_output_enabled = false
-  tag_names                     = ["internal", "aws"]
+  tag_names                     = ["internal", "aws","vault"]
   terraform_version             = "1.0.6"
   trigger_prefixes              = []
 
