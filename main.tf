@@ -534,3 +534,8 @@ resource "tfe_run_trigger" "auto_trigger_tfc-notification-configurator" {
   workspace_id  = tfe_workspace.tfc-notification-configurator.id
   sourceable_id = tfe_workspace.tfc-config-as-code.id
 }
+
+resource "tfe_run_trigger" "auto_trigger_tfc-policy-attacher" {
+  workspace_id  = tfe_workspace.tfc-policyset-attacher.id
+  sourceable_id = tfe_workspace.tfc-config-as-code.id
+}
