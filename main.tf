@@ -185,7 +185,7 @@ resource "tfe_workspace" "terraform-aws-vault-demo" {
   queue_all_runs                = false
   speculative_enabled           = true
   structured_run_output_enabled = true
-  tag_names                     = ["internal", "aws","vault"]
+  tag_names                     = ["internal", "aws", "vault"]
   terraform_version             = "1.0.6"
   trigger_prefixes              = []
 
@@ -460,13 +460,13 @@ resource "tfe_workspace" "tfc-credential-injector" {
   file_triggers_enabled = false
   global_remote_state   = false
 
-  name = "tfc-credential-injector"
+  name                          = "tfc-credential-injector"
   organization                  = "yulei"
   queue_all_runs                = true
   remote_state_consumer_ids     = []
   speculative_enabled           = true
   structured_run_output_enabled = true
-  tag_names                     = ["internal","tfc"]
+  tag_names                     = ["internal", "tfc"]
   terraform_version             = "1.0.6"
   trigger_prefixes              = []
   vcs_repo {
@@ -484,13 +484,13 @@ resource "tfe_workspace" "tfc-notification-configurator" {
   file_triggers_enabled = false
   global_remote_state   = false
 
-  name = "tfc-notification-configurator"
+  name                          = "tfc-notification-configurator"
   organization                  = "yulei"
   queue_all_runs                = true
   remote_state_consumer_ids     = []
   speculative_enabled           = true
   structured_run_output_enabled = true
-  tag_names                     = ["internal","tfc"]
+  tag_names                     = ["internal", "tfc"]
   terraform_version             = "1.0.6"
   trigger_prefixes              = []
   vcs_repo {
@@ -507,14 +507,13 @@ resource "tfe_workspace" "tfc-policyset-attacher" {
   execution_mode        = "remote"
   file_triggers_enabled = false
   global_remote_state   = false
-
-  name = "tfc-policyset-attacher"
+  name                          = "tfc-policyset-attacher"
   organization                  = "yulei"
   queue_all_runs                = true
   remote_state_consumer_ids     = []
   speculative_enabled           = true
   structured_run_output_enabled = true
-  tag_names                     = ["internal","tfc"]
+  tag_names                     = ["internal", "tfc"]
   terraform_version             = "1.0.6"
   trigger_prefixes              = []
   vcs_repo {
@@ -523,6 +522,23 @@ resource "tfe_workspace" "tfc-policyset-attacher" {
     oauth_token_id     = local.tfc_oauth_token
   }
 }
+
+resource "tfe_variable" "tfc-policyset-attacher-orgnization" {
+  key          = "organization"
+  value        = "yulei"
+  category     = "terraform"
+  workspace_id = tfe_workspace.tfc-policyset-attacher.id
+  description  = "TFC/E organization"
+}
+
+resource "tfe_variable" "tfc-policyset-attacher-tfc_oauth_token_id" {
+  key          = "tfc_oauth_token_id"
+  value        = local.tfc_oauth_token
+  category     = "terraform"
+  workspace_id = tfe_workspace.tfc-policyset-attacher.id
+  description  = "VCS connection oauth token id"
+}
+
 
 
 resource "tfe_run_trigger" "auto_trigger_tfc-credential-injector" {
