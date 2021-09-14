@@ -16,7 +16,7 @@ variable "organization" {
 variable "tfe_token" {
   type        = string
   validation {
-    condition     = length(var.tfe_token) > 90 && substr(var.tfe_token, 14, 9) == ".atlasv1."
+    condition     = length(var.tfe_token) > 90 && can(regex("[[:alnum:]]+\.atlasv1\.[[:alnum:]]+", var.tfe_token))
     error_message = "The tfe_token value must be a valid TFC/E personal token, containing substring \".atlasv1.\" in the middle."
   }
   description = "TFC/E token that has permission to manage workspace/policy-set/variable/notification/tags, note that orgnization/team token are not enough."
