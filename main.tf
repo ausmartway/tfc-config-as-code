@@ -10,7 +10,12 @@ terraform {
 }
 
 locals {
+  ##this can be changed to switch between A/B github connection.
   tfc_oauth_token = tfe_oauth_client.github-a.oauth_token_id
+}
+
+provider "tfe" {
+  token=var.tfe_token
 }
 
 resource "tfe_workspace" "aws-s3-demo" {
@@ -22,7 +27,7 @@ resource "tfe_workspace" "aws-s3-demo" {
   global_remote_state           = true
   name                          = "aws-s3-demo"
   tag_names                     = ["customerfacing", "aws"]
-  organization                  = "yulei"
+  organization                  = var.organization
   queue_all_runs                = false
   speculative_enabled           = true
   structured_run_output_enabled = false
@@ -52,7 +57,7 @@ resource "tfe_workspace" "azure-simple-demo" {
   file_triggers_enabled         = false
   global_remote_state           = true
   name                          = "azure-simple-demo"
-  organization                  = "yulei"
+  organization                  = var.organization
   queue_all_runs                = false
   speculative_enabled           = true
   structured_run_output_enabled = true
@@ -75,7 +80,7 @@ resource "tfe_workspace" "multi-env-provisioning-example-0-test" {
   file_triggers_enabled         = false
   global_remote_state           = true
   name                          = "multi-env-provisioning-example-0-test"
-  organization                  = "yulei"
+  organization                  = var.organization
   queue_all_runs                = false
   speculative_enabled           = true
   structured_run_output_enabled = false
@@ -111,7 +116,7 @@ resource "tfe_workspace" "multi-env-provisioning-example-1-staging" {
 
   name = "multi-env-provisioning-example-1-staging"
 
-  organization                  = "yulei"
+  organization                  = var.organization
   queue_all_runs                = false
   speculative_enabled           = true
   structured_run_output_enabled = false
@@ -148,7 +153,7 @@ resource "tfe_workspace" "multi-env-provisioning-example-2-prod" {
 
   name = "multi-env-provisioning-example-2-prod"
 
-  organization                  = "yulei"
+  organization                  = var.organization
   queue_all_runs                = false
   speculative_enabled           = true
   structured_run_output_enabled = false
@@ -181,7 +186,7 @@ resource "tfe_workspace" "terraform-aws-vault-demo" {
   file_triggers_enabled         = false
   global_remote_state           = true
   name                          = "terraform-aws-vault-demo"
-  organization                  = "yulei"
+  organization                  = var.organization
   queue_all_runs                = false
   speculative_enabled           = true
   structured_run_output_enabled = true
@@ -217,7 +222,7 @@ resource "tfe_workspace" "vault-config-as-code" {
 
   name = "vault-config-as-code"
 
-  organization                  = "yulei"
+  organization                  = var.organization
   queue_all_runs                = false
   remote_state_consumer_ids     = []
   speculative_enabled           = true
@@ -243,7 +248,7 @@ resource "tfe_workspace" "tfe-v5-aws-install" {
 
   name = "tfe-v5-aws-install"
 
-  organization                  = "yulei"
+  organization                  = var.organization
   queue_all_runs                = false
   speculative_enabled           = true
   structured_run_output_enabled = false
@@ -277,7 +282,7 @@ resource "tfe_workspace" "tfe-v5-aws-prepare" {
 
   name = "tfe-v5-aws-prepare"
 
-  organization                  = "yulei"
+  organization                  = var.organization
   queue_all_runs                = false
   speculative_enabled           = true
   structured_run_output_enabled = false
@@ -314,7 +319,7 @@ resource "tfe_workspace" "aws-shared-infra" {
 
   name = "aws-shared-infra"
 
-  organization                  = "yulei"
+  organization                  = var.organization
   queue_all_runs                = false
   speculative_enabled           = true
   structured_run_output_enabled = false
@@ -350,7 +355,7 @@ resource "tfe_workspace" "multicloud-dns-management" {
 
   name = "multicloud-dns-management"
 
-  organization                  = "yulei"
+  organization                  = var.organization
   queue_all_runs                = false
   speculative_enabled           = true
   structured_run_output_enabled = false
@@ -385,7 +390,7 @@ resource "tfe_workspace" "aws-lambda-example" {
 
   name = "aws-lambda-example"
 
-  organization                  = "yulei"
+  organization                  = var.organization
   queue_all_runs                = false
   speculative_enabled           = true
   structured_run_output_enabled = false
@@ -420,7 +425,7 @@ resource "tfe_workspace" "tfc-config-as-code" {
 
   name = "tfc-config-as-code"
 
-  organization                  = "yulei"
+  organization                  = var.organization
   queue_all_runs                = false
   remote_state_consumer_ids     = []
   speculative_enabled           = true
@@ -437,7 +442,7 @@ resource "tfe_workspace" "tfc-config-as-code" {
 }
 
 resource "tfe_oauth_client" "github-a" {
-  organization     = "yulei"
+  organization     = var.organization
   api_url          = "https://api.github.com"
   http_url         = "https://github.com"
   oauth_token      = var.github_personal_token
@@ -445,7 +450,7 @@ resource "tfe_oauth_client" "github-a" {
 }
 
 resource "tfe_oauth_client" "github-b" {
-  organization     = "yulei"
+  organization     = var.organization
   api_url          = "https://api.github.com"
   http_url         = "https://github.com"
   oauth_token      = var.github_personal_token
@@ -461,7 +466,7 @@ resource "tfe_workspace" "tfc-credential-injector" {
   global_remote_state   = false
 
   name                          = "tfc-credential-injector"
-  organization                  = "yulei"
+  organization                  = var.organization
   queue_all_runs                = true
   remote_state_consumer_ids     = []
   speculative_enabled           = true
@@ -485,7 +490,7 @@ resource "tfe_workspace" "tfc-notification-configurator" {
   global_remote_state   = false
 
   name                          = "tfc-notification-configurator"
-  organization                  = "yulei"
+  organization                  = var.organization
   queue_all_runs                = true
   remote_state_consumer_ids     = []
   speculative_enabled           = true
@@ -508,7 +513,7 @@ resource "tfe_workspace" "tfc-policyset-attacher" {
   file_triggers_enabled = false
   global_remote_state   = false
   name                          = "tfc-policyset-attacher"
-  organization                  = "yulei"
+  organization                  = var.organization
   queue_all_runs                = true
   remote_state_consumer_ids     = []
   speculative_enabled           = true
@@ -525,7 +530,7 @@ resource "tfe_workspace" "tfc-policyset-attacher" {
 
 resource "tfe_variable" "tfc-policyset-attacher-orgnization" {
   key          = "organization"
-  value        = "yulei"
+  value        = var.organization
   category     = "terraform"
   workspace_id = tfe_workspace.tfc-policyset-attacher.id
   description  = "TFC/E organization"
@@ -540,7 +545,8 @@ resource "tfe_variable" "tfc-policyset-attacher-tfc_oauth_token_id" {
 }
 
 
-
+## triggers credential-injector, notification-configurator and policy-attacher after successful apply of config-as-code
+## Those three should only be triggered after config-as-code so that they can get full list of workspaces that have certain tags.
 resource "tfe_run_trigger" "auto_trigger_tfc-credential-injector" {
   workspace_id  = tfe_workspace.tfc-credential-injector.id
   sourceable_id = tfe_workspace.tfc-config-as-code.id
