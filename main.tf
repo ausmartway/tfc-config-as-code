@@ -463,7 +463,7 @@ resource "tfe_oauth_client" "gitlab-a" {
   api_url          = "https://gitlab.com/api/v4"
   http_url         = "https://gitlab.com"
   oauth_token      = var.gitlab_personal_token
-  service_provider = "gitlab"
+  service_provider = "gitlab_hosted"
 }
 
 resource "tfe_oauth_client" "gitlab-b" {
@@ -471,7 +471,7 @@ resource "tfe_oauth_client" "gitlab-b" {
   api_url          = "https://gitlab.com/api/v4"
   http_url         = "https://gitlab.com"
   oauth_token      = var.gitlab_personal_token
-  service_provider = "gitlab"
+  service_provider = "gitlab_hosted"
 }
 
 resource "tfe_workspace" "tfc-credential-injector" {
