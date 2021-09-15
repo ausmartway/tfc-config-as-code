@@ -8,6 +8,15 @@ variable "github_personal_token" {
   }
 }
 
+variable "gitlab_personal_token" {
+  type        = string
+  description = "The gitlab.com personal token"
+  validation {
+    condition     = length(var.gitlab_personal_token) > 19
+    error_message = "The gitlab_personal_token value must be a valid https://gitlab.com personal token, longer than 20 characters."
+  }
+}
+
 variable "organization" {
   type        = string
   description = "Name of TFC/E organization"
