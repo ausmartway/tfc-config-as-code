@@ -12,7 +12,7 @@ variable "gitlab_personal_token" {
   type        = string
   description = "The gitlab.com personal token"
   validation {
-    condition     = length(var.gitlab_personal_token) > 20
+    condition     = length(var.gitlab_personal_token) > 19
     error_message = "The gitlab_personal_token value must be a valid https://gitlab.com personal token, longer than 20 characters."
   }
 }
