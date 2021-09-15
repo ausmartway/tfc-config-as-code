@@ -457,6 +457,23 @@ resource "tfe_oauth_client" "github-b" {
   service_provider = "github"
 }
 
+
+resource "tfe_oauth_client" "gitlab-a" {
+  organization     = var.organization
+  api_url          = "https://gitlab.com/api/v4"
+  http_url         = "https://gitlab.com"
+  oauth_token      = var.gitlab_personal_token
+  service_provider = "gitlab"
+}
+
+resource "tfe_oauth_client" "gitlab-b" {
+  organization     = var.organization
+  api_url          = "https://gitlab.com/api/v4"
+  http_url         = "https://gitlab.com"
+  oauth_token      = var.gitlab_personal_token
+  service_provider = "gitlab"
+}
+
 resource "tfe_workspace" "tfc-credential-injector" {
   allow_destroy_plan    = true
   auto_apply            = true
