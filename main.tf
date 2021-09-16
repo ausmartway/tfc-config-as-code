@@ -72,6 +72,31 @@ resource "tfe_workspace" "azure-simple-demo" {
   }
 }
 
+resource "tfe_workspace" "azure-shared-infra" {
+  description                   = "Core azure infra"
+  allow_destroy_plan            = true
+  auto_apply                    = true
+  execution_mode                = "remote"
+  file_triggers_enabled         = false
+  global_remote_state           = true
+  name                          = "azure-shared-infra"
+  organization                  = var.organization
+  queue_all_runs                = false
+  speculative_enabled           = true
+  structured_run_output_enabled = true
+  tag_names                     = ["customerfacing", "azure"]
+  terraform_version             = "1.0.6"
+  trigger_prefixes              = []
+
+  vcs_repo {
+    identifier         = "ausmartway/azure-shared-infra"
+    ingress_submodules = false
+    oauth_token_id     = local.tfc_oauth_token
+  }
+}
+
+
+
 resource "tfe_workspace" "multi-env-provisioning-example-0-test" {
   description                   = "A demo showing how to manage multiple enviroments using one set of terraform code."
   allow_destroy_plan            = true
