@@ -30,7 +30,7 @@ resource "tfe_workspace" "aws-s3-demo" {
   organization                  = var.organization
   queue_all_runs                = false
   speculative_enabled           = true
-  structured_run_output_enabled = false
+  structured_run_output_enabled = true
   terraform_version             = "1.0.6"
   trigger_prefixes              = []
   vcs_repo {
@@ -108,7 +108,7 @@ resource "tfe_workspace" "multi-env-provisioning-example-0-test" {
   organization                  = var.organization
   queue_all_runs                = false
   speculative_enabled           = true
-  structured_run_output_enabled = false
+  structured_run_output_enabled = true
   tag_names                     = ["customerfacing", "aws"]
   terraform_version             = "1.0.6"
   trigger_prefixes              = []
@@ -144,7 +144,7 @@ resource "tfe_workspace" "multi-env-provisioning-example-1-staging" {
   organization                  = var.organization
   queue_all_runs                = false
   speculative_enabled           = true
-  structured_run_output_enabled = false
+  structured_run_output_enabled = true
   tag_names                     = ["customerfacing", "aws"]
   terraform_version             = "1.0.6"
   trigger_prefixes              = []
@@ -181,7 +181,7 @@ resource "tfe_workspace" "multi-env-provisioning-example-2-prod" {
   organization                  = var.organization
   queue_all_runs                = false
   speculative_enabled           = true
-  structured_run_output_enabled = false
+  structured_run_output_enabled = true
   tag_names                     = ["customerfacing", "aws"]
   terraform_version             = "1.0.6"
   trigger_prefixes              = []
@@ -276,7 +276,7 @@ resource "tfe_workspace" "tfe-v5-aws-install" {
   organization                  = var.organization
   queue_all_runs                = false
   speculative_enabled           = true
-  structured_run_output_enabled = false
+  structured_run_output_enabled = true
   tag_names                     = ["aws", "internal"]
   terraform_version             = "0.11.15"
   trigger_prefixes              = []
@@ -310,7 +310,7 @@ resource "tfe_workspace" "tfe-v5-aws-prepare" {
   organization                  = var.organization
   queue_all_runs                = false
   speculative_enabled           = true
-  structured_run_output_enabled = false
+  structured_run_output_enabled = true
   tag_names                     = ["internal", "aws"]
   terraform_version             = "0.11.15"
   trigger_prefixes              = []
@@ -347,7 +347,7 @@ resource "tfe_workspace" "aws-shared-infra" {
   organization                  = var.organization
   queue_all_runs                = false
   speculative_enabled           = true
-  structured_run_output_enabled = false
+  structured_run_output_enabled = true
   tag_names                     = ["aws", "internal", ]
   terraform_version             = "1.0.6"
   trigger_prefixes              = []
@@ -383,7 +383,7 @@ resource "tfe_workspace" "multicloud-dns-management" {
   organization                  = var.organization
   queue_all_runs                = false
   speculative_enabled           = true
-  structured_run_output_enabled = false
+  structured_run_output_enabled = true
   tag_names                     = ["internal", "aws", "gcp", "azure"]
   terraform_version             = "0.12.31"
   trigger_prefixes              = []
@@ -418,7 +418,7 @@ resource "tfe_workspace" "aws-lambda-example" {
   organization                  = var.organization
   queue_all_runs                = false
   speculative_enabled           = true
-  structured_run_output_enabled = false
+  structured_run_output_enabled = true
   tag_names                     = ["aws", "customerfacing"]
   terraform_version             = "1.0.6"
   trigger_prefixes              = []
