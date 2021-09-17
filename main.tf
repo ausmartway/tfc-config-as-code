@@ -337,7 +337,7 @@ resource "tfe_workspace" "aws-shared-infra" {
   description = "My core aws infrustructure that are shared by other workspaces."
 
   allow_destroy_plan    = true
-  auto_apply            = false
+  auto_apply            = true
   execution_mode        = "remote"
   file_triggers_enabled = false
   global_remote_state   = true
@@ -373,7 +373,7 @@ resource "tfe_variable" "aws-shared-infra-aws_region" {
 resource "tfe_workspace" "multicloud-dns-management" {
   description           = "Manages my aws/azure/gcp DNS records using aws route53."
   allow_destroy_plan    = true
-  auto_apply            = false
+  auto_apply            = true
   execution_mode        = "remote"
   file_triggers_enabled = false
   global_remote_state   = true
