@@ -15,7 +15,7 @@ locals {
 }
 
 provider "tfe" {
-  token=var.tfe_token
+  token = var.tfe_token
 }
 
 resource "tfe_workspace" "aws-s3-demo" {
@@ -61,7 +61,7 @@ resource "tfe_workspace" "azure-simple-demo" {
   queue_all_runs                = false
   speculative_enabled           = true
   structured_run_output_enabled = true
-  tag_names                     = ["customerfacing", "azure","autoinject"]
+  tag_names                     = ["customerfacing", "azure", "autoinject"]
   terraform_version             = "1.0.6"
   trigger_prefixes              = []
 
@@ -84,7 +84,7 @@ resource "tfe_workspace" "azure-shared-infra" {
   queue_all_runs                = false
   speculative_enabled           = true
   structured_run_output_enabled = true
-  tag_names                     = ["customerfacing", "azure","autoinject"]
+  tag_names                     = ["customerfacing", "azure", "autoinject"]
   terraform_version             = "1.0.6"
   trigger_prefixes              = []
 
@@ -548,12 +548,12 @@ resource "tfe_workspace" "tfc-notification-configurator" {
 }
 
 resource "tfe_workspace" "tfc-policyset-attacher" {
-  allow_destroy_plan    = true
-  auto_apply            = true
-  description           = "A workspace that will configure TFC/E notifications based on tag automaticly."
-  execution_mode        = "remote"
-  file_triggers_enabled = false
-  global_remote_state   = false
+  allow_destroy_plan            = true
+  auto_apply                    = true
+  description                   = "A workspace that will configure TFC/E notifications based on tag automaticly."
+  execution_mode                = "remote"
+  file_triggers_enabled         = false
+  global_remote_state           = false
   name                          = "tfc-policyset-attacher"
   organization                  = var.organization
   queue_all_runs                = true
