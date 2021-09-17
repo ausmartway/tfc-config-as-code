@@ -15,7 +15,7 @@ locals {
 }
 
 provider "tfe" {
-  token=var.tfe_token
+  token = var.tfe_token
 }
 
 resource "tfe_workspace" "aws-s3-demo" {
@@ -30,7 +30,7 @@ resource "tfe_workspace" "aws-s3-demo" {
   organization                  = var.organization
   queue_all_runs                = false
   speculative_enabled           = true
-  structured_run_output_enabled = false
+  structured_run_output_enabled = true
   terraform_version             = "1.0.6"
   trigger_prefixes              = []
   vcs_repo {
@@ -61,7 +61,7 @@ resource "tfe_workspace" "azure-simple-demo" {
   queue_all_runs                = false
   speculative_enabled           = true
   structured_run_output_enabled = true
-  tag_names                     = ["customerfacing", "azure","autoinject"]
+  tag_names                     = ["customerfacing", "azure", "autoinject"]
   terraform_version             = "1.0.6"
   trigger_prefixes              = []
 
@@ -84,7 +84,7 @@ resource "tfe_workspace" "azure-shared-infra" {
   queue_all_runs                = false
   speculative_enabled           = true
   structured_run_output_enabled = true
-  tag_names                     = ["customerfacing", "azure","autoinject"]
+  tag_names                     = ["customerfacing", "azure", "autoinject"]
   terraform_version             = "1.0.6"
   trigger_prefixes              = []
 
@@ -108,7 +108,7 @@ resource "tfe_workspace" "multi-env-provisioning-example-0-test" {
   organization                  = var.organization
   queue_all_runs                = false
   speculative_enabled           = true
-  structured_run_output_enabled = false
+  structured_run_output_enabled = true
   tag_names                     = ["customerfacing", "aws"]
   terraform_version             = "1.0.6"
   trigger_prefixes              = []
@@ -144,7 +144,7 @@ resource "tfe_workspace" "multi-env-provisioning-example-1-staging" {
   organization                  = var.organization
   queue_all_runs                = false
   speculative_enabled           = true
-  structured_run_output_enabled = false
+  structured_run_output_enabled = true
   tag_names                     = ["customerfacing", "aws"]
   terraform_version             = "1.0.6"
   trigger_prefixes              = []
@@ -181,7 +181,7 @@ resource "tfe_workspace" "multi-env-provisioning-example-2-prod" {
   organization                  = var.organization
   queue_all_runs                = false
   speculative_enabled           = true
-  structured_run_output_enabled = false
+  structured_run_output_enabled = true
   tag_names                     = ["customerfacing", "aws"]
   terraform_version             = "1.0.6"
   trigger_prefixes              = []
@@ -276,7 +276,7 @@ resource "tfe_workspace" "tfe-v5-aws-install" {
   organization                  = var.organization
   queue_all_runs                = false
   speculative_enabled           = true
-  structured_run_output_enabled = false
+  structured_run_output_enabled = true
   tag_names                     = ["aws", "internal"]
   terraform_version             = "0.11.15"
   trigger_prefixes              = []
@@ -310,7 +310,7 @@ resource "tfe_workspace" "tfe-v5-aws-prepare" {
   organization                  = var.organization
   queue_all_runs                = false
   speculative_enabled           = true
-  structured_run_output_enabled = false
+  structured_run_output_enabled = true
   tag_names                     = ["internal", "aws"]
   terraform_version             = "0.11.15"
   trigger_prefixes              = []
@@ -337,7 +337,7 @@ resource "tfe_workspace" "aws-shared-infra" {
   description = "My core aws infrustructure that are shared by other workspaces."
 
   allow_destroy_plan    = true
-  auto_apply            = false
+  auto_apply            = true
   execution_mode        = "remote"
   file_triggers_enabled = false
   global_remote_state   = true
@@ -347,7 +347,7 @@ resource "tfe_workspace" "aws-shared-infra" {
   organization                  = var.organization
   queue_all_runs                = false
   speculative_enabled           = true
-  structured_run_output_enabled = false
+  structured_run_output_enabled = true
   tag_names                     = ["aws", "internal", ]
   terraform_version             = "1.0.6"
   trigger_prefixes              = []
@@ -373,7 +373,7 @@ resource "tfe_variable" "aws-shared-infra-aws_region" {
 resource "tfe_workspace" "multicloud-dns-management" {
   description           = "Manages my aws/azure/gcp DNS records using aws route53."
   allow_destroy_plan    = true
-  auto_apply            = false
+  auto_apply            = true
   execution_mode        = "remote"
   file_triggers_enabled = false
   global_remote_state   = true
@@ -383,7 +383,7 @@ resource "tfe_workspace" "multicloud-dns-management" {
   organization                  = var.organization
   queue_all_runs                = false
   speculative_enabled           = true
-  structured_run_output_enabled = false
+  structured_run_output_enabled = true
   tag_names                     = ["internal", "aws", "gcp", "azure"]
   terraform_version             = "0.12.31"
   trigger_prefixes              = []
@@ -418,7 +418,7 @@ resource "tfe_workspace" "aws-lambda-example" {
   organization                  = var.organization
   queue_all_runs                = false
   speculative_enabled           = true
-  structured_run_output_enabled = false
+  structured_run_output_enabled = true
   tag_names                     = ["aws", "customerfacing"]
   terraform_version             = "1.0.6"
   trigger_prefixes              = []
@@ -548,12 +548,12 @@ resource "tfe_workspace" "tfc-notification-configurator" {
 }
 
 resource "tfe_workspace" "tfc-policyset-attacher" {
-  allow_destroy_plan    = true
-  auto_apply            = true
-  description           = "A workspace that will configure TFC/E notifications based on tag automaticly."
-  execution_mode        = "remote"
-  file_triggers_enabled = false
-  global_remote_state   = false
+  allow_destroy_plan            = true
+  auto_apply                    = true
+  description                   = "A workspace that will configure TFC/E notifications based on tag automaticly."
+  execution_mode                = "remote"
+  file_triggers_enabled         = false
+  global_remote_state           = false
   name                          = "tfc-policyset-attacher"
   organization                  = var.organization
   queue_all_runs                = true

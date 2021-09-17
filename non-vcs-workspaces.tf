@@ -11,7 +11,7 @@ locals {
 resource "tfe_workspace" "workspace" {
   for_each                      = local.inputworkspacemap
   allow_destroy_plan            = true
-  auto_apply                    = false
+  auto_apply                    = true
   description                   = each.value.name
   execution_mode                = "remote"
   file_triggers_enabled         = false
