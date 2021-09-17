@@ -61,7 +61,7 @@ resource "tfe_workspace" "azure-simple-demo" {
   queue_all_runs                = false
   speculative_enabled           = true
   structured_run_output_enabled = true
-  tag_names                     = ["customerfacing", "azure"]
+  tag_names                     = ["customerfacing", "azure","autoinject"]
   terraform_version             = "1.0.6"
   trigger_prefixes              = []
 
@@ -84,7 +84,7 @@ resource "tfe_workspace" "azure-shared-infra" {
   queue_all_runs                = false
   speculative_enabled           = true
   structured_run_output_enabled = true
-  tag_names                     = ["customerfacing", "azure"]
+  tag_names                     = ["customerfacing", "azure","autoinject"]
   terraform_version             = "1.0.6"
   trigger_prefixes              = []
 
