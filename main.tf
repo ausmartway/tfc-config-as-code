@@ -31,7 +31,7 @@ resource "tfe_workspace" "aws-s3-demo" {
   queue_all_runs                = false
   speculative_enabled           = true
   structured_run_output_enabled = true
-  terraform_version             = "1.0.6"
+  terraform_version             = "1.0.7"
   trigger_prefixes              = []
   vcs_repo {
     identifier         = "ausmartway/aws-s3-demo"
@@ -62,7 +62,7 @@ resource "tfe_workspace" "azure-simple-demo" {
   speculative_enabled           = true
   structured_run_output_enabled = true
   tag_names                     = ["customerfacing", "azure", "autoinject"]
-  terraform_version             = "1.0.6"
+  terraform_version             = "1.0.7"
   trigger_prefixes              = []
 
   vcs_repo {
@@ -85,7 +85,7 @@ resource "tfe_workspace" "azure-shared-infra" {
   speculative_enabled           = true
   structured_run_output_enabled = true
   tag_names                     = ["customerfacing", "azure", "autoinject"]
-  terraform_version             = "1.0.6"
+  terraform_version             = "1.0.7"
   trigger_prefixes              = []
 
   vcs_repo {
@@ -110,7 +110,7 @@ resource "tfe_workspace" "multi-env-provisioning-example-0-test" {
   speculative_enabled           = true
   structured_run_output_enabled = true
   tag_names                     = ["customerfacing", "aws"]
-  terraform_version             = "1.0.6"
+  terraform_version             = "1.0.7"
   trigger_prefixes              = []
 
   vcs_repo {
@@ -146,7 +146,7 @@ resource "tfe_workspace" "multi-env-provisioning-example-1-staging" {
   speculative_enabled           = true
   structured_run_output_enabled = true
   tag_names                     = ["customerfacing", "aws"]
-  terraform_version             = "1.0.6"
+  terraform_version             = "1.0.7"
   trigger_prefixes              = []
 
   vcs_repo {
@@ -183,7 +183,7 @@ resource "tfe_workspace" "multi-env-provisioning-example-2-prod" {
   speculative_enabled           = true
   structured_run_output_enabled = true
   tag_names                     = ["customerfacing", "aws"]
-  terraform_version             = "1.0.6"
+  terraform_version             = "1.0.7"
   trigger_prefixes              = []
 
   vcs_repo {
@@ -216,7 +216,7 @@ resource "tfe_workspace" "terraform-aws-vault-demo" {
   speculative_enabled           = true
   structured_run_output_enabled = true
   tag_names                     = ["internal", "aws", "vault"]
-  terraform_version             = "1.0.6"
+  terraform_version             = "1.0.7"
   trigger_prefixes              = []
 
   vcs_repo {
@@ -253,7 +253,7 @@ resource "tfe_workspace" "vault-config-as-code" {
   speculative_enabled           = true
   structured_run_output_enabled = true
   tag_names                     = ["customerfacing", "vault", "aws"]
-  terraform_version             = "1.0.6"
+  terraform_version             = "1.0.7"
   trigger_prefixes              = []
 
   vcs_repo {
@@ -349,7 +349,7 @@ resource "tfe_workspace" "aws-shared-infra" {
   speculative_enabled           = true
   structured_run_output_enabled = true
   tag_names                     = ["aws", "internal", ]
-  terraform_version             = "1.0.6"
+  terraform_version             = "1.0.7"
   trigger_prefixes              = []
 
   vcs_repo {
@@ -420,7 +420,7 @@ resource "tfe_workspace" "aws-lambda-example" {
   speculative_enabled           = true
   structured_run_output_enabled = true
   tag_names                     = ["aws", "customerfacing"]
-  terraform_version             = "1.0.6"
+  terraform_version             = "1.0.7"
   trigger_prefixes              = []
 
   vcs_repo {
@@ -456,7 +456,7 @@ resource "tfe_workspace" "tfc-config-as-code" {
   speculative_enabled           = true
   structured_run_output_enabled = true
   tag_names                     = ["tfc", "internal"]
-  terraform_version             = "1.0.6"
+  terraform_version             = "1.0.7"
   trigger_prefixes              = []
 
   vcs_repo {
@@ -514,7 +514,7 @@ resource "tfe_workspace" "tfc-credential-injector" {
   speculative_enabled           = true
   structured_run_output_enabled = true
   tag_names                     = ["internal", "tfc"]
-  terraform_version             = "1.0.6"
+  terraform_version             = "1.0.7"
   trigger_prefixes              = []
   vcs_repo {
     identifier         = "ausmartway/tfc-credential-injector"
@@ -538,7 +538,7 @@ resource "tfe_workspace" "tfc-notification-configurator" {
   speculative_enabled           = true
   structured_run_output_enabled = true
   tag_names                     = ["internal", "tfc"]
-  terraform_version             = "1.0.6"
+  terraform_version             = "1.0.7"
   trigger_prefixes              = []
   vcs_repo {
     identifier         = "ausmartway/tfc-notification-configurator"
@@ -561,7 +561,7 @@ resource "tfe_workspace" "tfc-policyset-attacher" {
   speculative_enabled           = true
   structured_run_output_enabled = true
   tag_names                     = ["internal", "tfc"]
-  terraform_version             = "1.0.6"
+  terraform_version             = "1.0.7"
   trigger_prefixes              = []
   vcs_repo {
     identifier         = "ausmartway/tfc-policyset-attacher"
