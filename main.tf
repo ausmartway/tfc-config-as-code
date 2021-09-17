@@ -455,7 +455,7 @@ resource "tfe_workspace" "tfc-config-as-code" {
   remote_state_consumer_ids     = []
   speculative_enabled           = true
   structured_run_output_enabled = true
-  tag_names                     = ["tfc", "internal"]
+  tag_names                     = ["tfc", "internal", "management"]
   terraform_version             = "1.0.7"
   trigger_prefixes              = []
 
@@ -513,7 +513,7 @@ resource "tfe_workspace" "tfc-credential-injector" {
   remote_state_consumer_ids     = []
   speculative_enabled           = true
   structured_run_output_enabled = true
-  tag_names                     = ["internal", "tfc"]
+  tag_names                     = ["internal", "tfc", "management"]
   terraform_version             = "1.0.7"
   trigger_prefixes              = []
   vcs_repo {
@@ -537,7 +537,7 @@ resource "tfe_workspace" "tfc-notification-configurator" {
   remote_state_consumer_ids     = []
   speculative_enabled           = true
   structured_run_output_enabled = true
-  tag_names                     = ["internal", "tfc"]
+  tag_names                     = ["internal", "tfc", "management"]
   terraform_version             = "1.0.7"
   trigger_prefixes              = []
   vcs_repo {
@@ -560,7 +560,7 @@ resource "tfe_workspace" "tfc-policyset-attacher" {
   remote_state_consumer_ids     = []
   speculative_enabled           = true
   structured_run_output_enabled = true
-  tag_names                     = ["internal", "tfc"]
+  tag_names                     = ["internal", "tfc", "management"]
   terraform_version             = "1.0.7"
   trigger_prefixes              = []
   vcs_repo {
