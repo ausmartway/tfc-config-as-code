@@ -26,7 +26,7 @@ resource "tfe_workspace" "aws-s3-demo" {
   file_triggers_enabled         = false
   global_remote_state           = true
   name                          = "aws-s3-demo"
-  tag_names                     = ["customerfacing", "aws"]
+  tag_names                     = ["customerfacing", "aws","autoinject"]
   organization                  = var.organization
   queue_all_runs                = false
   speculative_enabled           = true
@@ -61,7 +61,7 @@ resource "tfe_workspace" "azure-simple-demo" {
   queue_all_runs                = false
   speculative_enabled           = true
   structured_run_output_enabled = true
-  tag_names                     = ["customerfacing", "azure", "autoinject"]
+  tag_names                     = ["customerfacing", "azure","autoinject"]
   terraform_version             = "1.0.7"
   trigger_prefixes              = []
 
@@ -109,7 +109,7 @@ resource "tfe_workspace" "multi-env-provisioning-example-0-test" {
   queue_all_runs                = false
   speculative_enabled           = true
   structured_run_output_enabled = true
-  tag_names                     = ["customerfacing", "aws"]
+  tag_names                     = ["customerfacing", "aws","autoinject"]
   terraform_version             = "1.0.7"
   trigger_prefixes              = []
 
@@ -145,7 +145,7 @@ resource "tfe_workspace" "multi-env-provisioning-example-1-staging" {
   queue_all_runs                = false
   speculative_enabled           = true
   structured_run_output_enabled = true
-  tag_names                     = ["customerfacing", "aws"]
+  tag_names                     = ["customerfacing", "aws","autoinject"]
   terraform_version             = "1.0.7"
   trigger_prefixes              = []
 
@@ -182,7 +182,7 @@ resource "tfe_workspace" "multi-env-provisioning-example-2-prod" {
   queue_all_runs                = false
   speculative_enabled           = true
   structured_run_output_enabled = true
-  tag_names                     = ["customerfacing", "aws"]
+  tag_names                     = ["customerfacing", "aws","autoinject"]
   terraform_version             = "1.0.7"
   trigger_prefixes              = []
 
@@ -215,7 +215,7 @@ resource "tfe_workspace" "terraform-aws-vault-demo" {
   queue_all_runs                = false
   speculative_enabled           = true
   structured_run_output_enabled = true
-  tag_names                     = ["internal", "aws", "vault"]
+  tag_names                     = ["internal", "aws", "vault","autoinject"]
   terraform_version             = "1.0.7"
   trigger_prefixes              = []
 
@@ -348,7 +348,7 @@ resource "tfe_workspace" "aws-shared-infra" {
   queue_all_runs                = false
   speculative_enabled           = true
   structured_run_output_enabled = true
-  tag_names                     = ["aws", "internal", ]
+  tag_names                     = ["aws", "internal","autoinject"]
   terraform_version             = "1.0.7"
   trigger_prefixes              = []
 
@@ -384,7 +384,7 @@ resource "tfe_workspace" "multicloud-dns-management" {
   queue_all_runs                = false
   speculative_enabled           = true
   structured_run_output_enabled = true
-  tag_names                     = ["internal", "aws", "gcp", "azure"]
+  tag_names                     = ["internal", "aws", "gcp", "azure","autoinject"]
   terraform_version             = "0.12.31"
   trigger_prefixes              = []
 
@@ -419,7 +419,7 @@ resource "tfe_workspace" "aws-lambda-example" {
   queue_all_runs                = false
   speculative_enabled           = true
   structured_run_output_enabled = true
-  tag_names                     = ["aws", "customerfacing"]
+  tag_names                     = ["aws", "customerfacing","autoinject"]
   terraform_version             = "1.0.7"
   trigger_prefixes              = []
 
