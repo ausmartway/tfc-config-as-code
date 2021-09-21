@@ -17,7 +17,7 @@ resource "tfe_workspace" "workspace" {
   file_triggers_enabled         = false
   global_remote_state           = false
   name                          = each.value.name
-  organization                  = "yulei"
+  organization                  = var.organization
   queue_all_runs                = false
   remote_state_consumer_ids     = []
   speculative_enabled           = false
