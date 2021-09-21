@@ -82,13 +82,13 @@ resource "tfe_workspace" "gcp-playground" {
   auto_apply                    = true
   execution_mode                = "remote"
   file_triggers_enabled         = false
-  global_remote_state           = true
+  global_remote_state           = false
   name                          = "gcp-playground"
   organization                  = var.organization
   queue_all_runs                = false
   speculative_enabled           = true
   structured_run_output_enabled = true
-  tag_names                     = ["customerfacing", "gcp", "autoinject"]
+  tag_names                     = ["customerfacing", "gcp", "autoinject","internal","testing"]
   terraform_version             = "1.0.7"
   trigger_prefixes              = []
 
