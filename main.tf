@@ -76,6 +76,30 @@ resource "tfe_workspace" "azure-simple-demo" {
   }
 }
 
+resource "tfe_workspace" "gcp-playground" {
+  description                   = "A simple demo of deploying gcp resources."
+  allow_destroy_plan            = true
+  auto_apply                    = true
+  execution_mode                = "remote"
+  file_triggers_enabled         = false
+  global_remote_state           = true
+  name                          = "gcp-playground"
+  organization                  = var.organization
+  queue_all_runs                = false
+  speculative_enabled           = true
+  structured_run_output_enabled = true
+  tag_names                     = ["customerfacing", "gcp", "autoinject"]
+  terraform_version             = "1.0.7"
+  trigger_prefixes              = []
+
+  vcs_repo {
+    identifier         = "ausmartway/gcp-playground"
+    ingress_submodules = false
+    oauth_token_id     = local.tfc_oauth_token
+  }
+}
+
+
 resource "tfe_workspace" "azure-shared-infra" {
   description                   = "Core azure infra"
   allow_destroy_plan            = true
