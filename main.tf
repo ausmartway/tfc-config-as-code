@@ -88,7 +88,7 @@ resource "tfe_workspace" "gcp-playground" {
   queue_all_runs                = false
   speculative_enabled           = true
   structured_run_output_enabled = true
-  tag_names                     = ["customerfacing", "gcp", "autoinject"]
+  tag_names                     = ["customerfacing", "gcp", "autoinject","internal","testing"]
   terraform_version             = "1.0.7"
   trigger_prefixes              = []
 
