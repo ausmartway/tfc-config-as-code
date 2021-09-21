@@ -17,5 +17,5 @@ module "vcs-connected-workspace" {
   terraform_version     = each.value.version
   tfc_oauth_token       = local.tfc_oauth_token
   workspace_description = each.value.description
-  tag_names             = each.value.tags
+  tags                  = each.value.tags
 }
