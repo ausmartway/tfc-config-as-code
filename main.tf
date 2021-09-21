@@ -18,6 +18,10 @@ provider "tfe" {
   token = var.tfe_token
 }
 
+provider "github" {
+  token = var.github_personal_token
+}
+
 resource "tfe_workspace" "aws-s3-demo" {
   description                   = "A simple demo to show how sentinel policy as code engine can make sure s3 are provisioned securely."
   allow_destroy_plan            = true
