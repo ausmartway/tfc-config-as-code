@@ -1,8 +1,0 @@
-name: vcs-workspaceone-bhp
-version: 1.0.7
-description: this is a test workspace 
-tags:
-  - aws
-  - azure
-  - autoinject
-  - bhp
