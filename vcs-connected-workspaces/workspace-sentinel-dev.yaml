@@ -1,4 +1,4 @@
-name: vcs-sentinel-dev
+name: vcs-sentinel-mock
 version: 1.0.7
 description: this is a workspace for developing sentinel
 tags:
