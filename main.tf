@@ -638,9 +638,9 @@ resource "tfe_workspace" "test" {
   description           = "A workspace that will inject aws and azure credentials to other workspaces automaticly."
   execution_mode        = "remote"
   file_triggers_enabled = false
-  global_remote_state   = false
+  global_remote_state   = true
 
-  name                          = "tfc-credential-injector"
+  name                          = "test"
   organization                  = var.organization
   queue_all_runs                = true
   remote_state_consumer_ids     = []
