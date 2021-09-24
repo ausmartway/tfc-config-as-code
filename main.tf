@@ -88,7 +88,7 @@ resource "tfe_workspace" "gcp-playground" {
   queue_all_runs                = false
   speculative_enabled           = true
   structured_run_output_enabled = true
-  tag_names                     = ["customerfacing", "gcp", "autoinject","internal","testing"]
+  tag_names                     = ["customerfacing", "gcp", "autoinject", "internal", "testing"]
   terraform_version             = "1.0.7"
   trigger_prefixes              = []
 
@@ -165,7 +165,7 @@ resource "tfe_workspace" "multi-env-provisioning-example-1-staging" {
   auto_apply            = true
   execution_mode        = "remote"
   file_triggers_enabled = false
-  global_remote_state   = true
+  global_remote_state   = false
 
   name = "multi-env-provisioning-example-1-staging"
 
@@ -202,7 +202,7 @@ resource "tfe_workspace" "multi-env-provisioning-example-2-prod" {
   auto_apply            = true
   execution_mode        = "remote"
   file_triggers_enabled = false
-  global_remote_state   = true
+  global_remote_state   = false
 
   name = "multi-env-provisioning-example-2-prod"
 
@@ -297,7 +297,7 @@ resource "tfe_workspace" "vault-config-as-code" {
 #   auto_apply            = true
 #   execution_mode        = "remote"
 #   file_triggers_enabled = false
-#   global_remote_state   = true
+#   global_remote_state   = false
 
 #   name = "tfe-v5-aws-install"
 
@@ -331,7 +331,7 @@ resource "tfe_workspace" "vault-config-as-code" {
 #   auto_apply            = true
 #   execution_mode        = "remote"
 #   file_triggers_enabled = false
-#   global_remote_state   = true
+#   global_remote_state   = false
 
 #   name = "tfe-v5-aws-prepare"
 
@@ -368,7 +368,7 @@ resource "tfe_workspace" "aws-shared-infra" {
   auto_apply            = true
   execution_mode        = "remote"
   file_triggers_enabled = false
-  global_remote_state   = true
+  global_remote_state   = false
 
   name = "aws-shared-infra"
 
@@ -404,7 +404,7 @@ resource "tfe_workspace" "multicloud-dns-management" {
   auto_apply            = true
   execution_mode        = "remote"
   file_triggers_enabled = false
-  global_remote_state   = true
+  global_remote_state   = false
 
   name = "multicloud-dns-management"
 
@@ -439,7 +439,7 @@ resource "tfe_workspace" "aws-lambda-example" {
   auto_apply            = true
   execution_mode        = "remote"
   file_triggers_enabled = false
-  global_remote_state   = true
+  global_remote_state   = false
 
   name = "aws-lambda-example"
 
@@ -638,7 +638,7 @@ resource "tfe_workspace" "test" {
   description           = "A workspace that will inject aws and azure credentials to other workspaces automaticly."
   execution_mode        = "remote"
   file_triggers_enabled = false
-  global_remote_state   = true
+  global_remote_state   = false
 
   name                          = "test"
   organization                  = var.organization
