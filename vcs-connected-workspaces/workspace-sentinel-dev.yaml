@@ -1,7 +1,0 @@
-name: vcs-sentinel-dev
-version: 1.0.7
-description: this is a workspace for developing sentinel
-tags:
-  - tfc
-  - sentinel
-  - internal

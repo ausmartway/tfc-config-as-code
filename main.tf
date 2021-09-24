@@ -631,22 +631,3 @@ resource "tfe_run_trigger" "auto_trigger_tfc-policy-attacher" {
   workspace_id  = tfe_workspace.tfc-policyset-attacher.id
   sourceable_id = tfe_workspace.tfc-config-as-code.id
 }
-
-resource "tfe_workspace" "test" {
-  allow_destroy_plan    = true
-  auto_apply            = true
-  description           = "A workspace that will inject aws and azure credentials to other workspaces automaticly."
-  execution_mode        = "remote"
-  file_triggers_enabled = false
-  global_remote_state   = false
-
-  name                          = "test"
-  organization                  = var.organization
-  queue_all_runs                = true
-  remote_state_consumer_ids     = []
-  speculative_enabled           = true
-  structured_run_output_enabled = true
-  tag_names                     = ["internal", "tfc", "management"]
-  terraform_version             = "1.0.7"
-  trigger_prefixes              = []
-}
