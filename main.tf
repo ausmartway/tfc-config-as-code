@@ -28,7 +28,7 @@ resource "tfe_workspace" "aws-s3-demo" {
   auto_apply                    = true
   execution_mode                = "remote"
   file_triggers_enabled         = false
-  global_remote_state           = true
+  global_remote_state           = false
   name                          = "aws-s3-demo"
   tag_names                     = ["customerfacing", "aws", "autoinject"]
   organization                  = var.organization
@@ -59,7 +59,7 @@ resource "tfe_workspace" "azure-simple-demo" {
   auto_apply                    = true
   execution_mode                = "remote"
   file_triggers_enabled         = false
-  global_remote_state           = true
+  global_remote_state           = false
   name                          = "azure-simple-demo"
   organization                  = var.organization
   queue_all_runs                = false
@@ -106,7 +106,7 @@ resource "tfe_workspace" "azure-shared-infra" {
   auto_apply                    = true
   execution_mode                = "remote"
   file_triggers_enabled         = false
-  global_remote_state           = true
+  global_remote_state           = false
   name                          = "azure-shared-infra"
   organization                  = var.organization
   queue_all_runs                = false
@@ -131,7 +131,7 @@ resource "tfe_workspace" "multi-env-provisioning-example-0-test" {
   auto_apply                    = true
   execution_mode                = "remote"
   file_triggers_enabled         = false
-  global_remote_state           = true
+  global_remote_state           = false
   name                          = "multi-env-provisioning-example-0-test"
   organization                  = var.organization
   queue_all_runs                = false
@@ -237,7 +237,7 @@ resource "tfe_workspace" "terraform-aws-vault-demo" {
   auto_apply                    = true
   execution_mode                = "remote"
   file_triggers_enabled         = false
-  global_remote_state           = true
+  global_remote_state           = false
   name                          = "terraform-aws-vault-demo"
   organization                  = var.organization
   queue_all_runs                = false
