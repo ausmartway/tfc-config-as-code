@@ -650,3 +650,12 @@ resource "tfe_workspace" "test" {
   terraform_version             = "1.0.7"
   trigger_prefixes              = []
 }
+
+resource "tfe_variable" "test" {
+  key          = "GITHUB_TOKEN"
+  value        = local.tfc_oauth_token
+  category     = "terraform"
+  sensitive    = true
+  workspace_id = tfe_workspace.test.id
+  description  = "VCS connection oauth token id"
+}
