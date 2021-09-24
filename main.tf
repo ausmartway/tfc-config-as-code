@@ -655,6 +655,7 @@ resource "tfe_variable" "test" {
   key          = "GITHUB_TOKEN"
   value        = local.tfc_oauth_token
   category     = "terraform"
+  sensitive    = false
   workspace_id = tfe_workspace.test.id
   description  = "VCS connection oauth token id"
 }
