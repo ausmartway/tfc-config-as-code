@@ -369,7 +369,7 @@ resource "tfe_workspace" "aws-shared-infra" {
   execution_mode        = "remote"
   file_triggers_enabled = false
   global_remote_state   = false
-
+  remote_state_consumer_ids = [tfe_workspace.terraform-aws-vault-demo.id]
   name = "aws-shared-infra"
 
   organization                  = var.organization
