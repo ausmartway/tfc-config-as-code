@@ -28,7 +28,7 @@ resource "tfe_workspace" "aws-s3-demo" {
   auto_apply                    = true
   execution_mode                = "remote"
   file_triggers_enabled         = false
-  global_remote_state           = true
+  global_remote_state           = false
   name                          = "aws-s3-demo"
   tag_names                     = ["customerfacing", "aws", "autoinject"]
   organization                  = var.organization
@@ -59,7 +59,7 @@ resource "tfe_workspace" "azure-simple-demo" {
   auto_apply                    = true
   execution_mode                = "remote"
   file_triggers_enabled         = false
-  global_remote_state           = true
+  global_remote_state           = false
   name                          = "azure-simple-demo"
   organization                  = var.organization
   queue_all_runs                = false
@@ -106,7 +106,7 @@ resource "tfe_workspace" "azure-shared-infra" {
   auto_apply                    = true
   execution_mode                = "remote"
   file_triggers_enabled         = false
-  global_remote_state           = true
+  global_remote_state           = false
   name                          = "azure-shared-infra"
   organization                  = var.organization
   queue_all_runs                = false
@@ -131,7 +131,7 @@ resource "tfe_workspace" "multi-env-provisioning-example-0-test" {
   auto_apply                    = true
   execution_mode                = "remote"
   file_triggers_enabled         = false
-  global_remote_state           = true
+  global_remote_state           = false
   name                          = "multi-env-provisioning-example-0-test"
   organization                  = var.organization
   queue_all_runs                = false
@@ -237,7 +237,7 @@ resource "tfe_workspace" "terraform-aws-vault-demo" {
   auto_apply                    = true
   execution_mode                = "remote"
   file_triggers_enabled         = false
-  global_remote_state           = true
+  global_remote_state           = false
   name                          = "terraform-aws-vault-demo"
   organization                  = var.organization
   queue_all_runs                = false
@@ -630,4 +630,23 @@ resource "tfe_run_trigger" "auto_trigger_tfc-notification-configurator" {
 resource "tfe_run_trigger" "auto_trigger_tfc-policy-attacher" {
   workspace_id  = tfe_workspace.tfc-policyset-attacher.id
   sourceable_id = tfe_workspace.tfc-config-as-code.id
+}
+
+resource "tfe_workspace" "test" {
+  allow_destroy_plan    = true
+  auto_apply            = true
+  description           = "A workspace that will inject aws and azure credentials to other workspaces automaticly."
+  execution_mode        = "remote"
+  file_triggers_enabled = false
+  global_remote_state   = true
+
+  name                          = "test"
+  organization                  = var.organization
+  queue_all_runs                = true
+  remote_state_consumer_ids     = []
+  speculative_enabled           = true
+  structured_run_output_enabled = true
+  tag_names                     = ["internal", "tfc", "management"]
+  terraform_version             = "1.0.7"
+  trigger_prefixes              = []
 }
