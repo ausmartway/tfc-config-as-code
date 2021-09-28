@@ -106,7 +106,7 @@ resource "tfe_workspace" "azure-shared-infra" {
   auto_apply                    = true
   execution_mode                = "remote"
   file_triggers_enabled         = false
-  global_remote_state           = false
+  global_remote_state           = true
   name                          = "azure-shared-infra"
   organization                  = var.organization
   queue_all_runs                = false
