@@ -1,0 +1,7 @@
+name: cba-kmip
+version: 1.0.7
+description: this is a temprary workspace for KMIP@CBA
+tags:
+  - aws
+  - cba
+  - autoinject
