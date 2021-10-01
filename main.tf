@@ -367,7 +367,7 @@ data "tfe_workspace_ids" "aws-internal-apps" {
 }
 
 output "debug" {
-  vaule = data.tfe_workspace_ids.aws-internal-apps.ids
+  value = data.tfe_workspace_ids.aws-internal-apps.ids
 }
 resource "tfe_workspace" "aws-shared-infra" {
   description = "My core aws infrustructure that are shared by other workspaces."
