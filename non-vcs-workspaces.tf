@@ -7,22 +7,36 @@ locals {
 
 }
 
-//Create workspace per yaml file
-resource "tfe_workspace" "workspace" {
+module "non-vcs-connected-workspace" {
+  source  = "ausmartway/non-vcs-connected-workspace/tfe"
+  version = "0.0.1"
   for_each                      = local.inputworkspacemap
-  allow_destroy_plan            = true
-  auto_apply                    = true
-  description                   = each.value.name
-  execution_mode                = "remote"
-  file_triggers_enabled         = false
-  global_remote_state           = false
-  name                          = each.value.name
+  # insert the 4 required variables here
   organization                  = var.organization
-  queue_all_runs                = false
-  remote_state_consumer_ids     = []
-  speculative_enabled           = false
-  structured_run_output_enabled = true
-  tag_names                     = each.value.tags
+  description                   = each.value.name
+  name                          = each.value.name
   terraform_version             = each.value.version
-  trigger_prefixes              = []
+  tag_names                     = each.value.tags
+  github_owner = "ausmartway"
 }
+
+
+//Create workspace per yaml file
+# resource "tfe_workspace" "workspace" {
+#   for_each                      = local.inputworkspacemap
+#   allow_destroy_plan            = true
+#   auto_apply                    = true
+#   description                   = each.value.name
+#   execution_mode                = "remote"
+#   file_triggers_enabled         = false
+#   global_remote_state           = false
+#   name                          = each.value.name
+#   organization                  = var.organization
+#   queue_all_runs                = false
+#   remote_state_consumer_ids     = []
+#   speculative_enabled           = false
+#   structured_run_output_enabled = true
+#   tag_names                     = each.value.tags
+#   terraform_version             = each.value.version
+#   trigger_prefixes              = []
+# }
