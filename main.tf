@@ -366,7 +366,9 @@ data "tfe_workspace_ids" "aws-internal-apps" {
   organization = var.organization
 }
 
-
+output "debug" {
+  vaule = data.tfe_workspace_ids.aws-internal-apps.ids
+}
 resource "tfe_workspace" "aws-shared-infra" {
   description = "My core aws infrustructure that are shared by other workspaces."
 
@@ -375,7 +377,7 @@ resource "tfe_workspace" "aws-shared-infra" {
   execution_mode        = "remote"
   file_triggers_enabled = false
   global_remote_state   = false
-  remote_state_consumer_ids = data.tfe_workspace_ids.aws-internal-apps.ids
+  remote_state_consumer_ids = []
 
   name = "aws-shared-infra"
 
