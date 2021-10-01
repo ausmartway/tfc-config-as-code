@@ -13,10 +13,10 @@ module "non-vcs-connected-workspace" {
   for_each                      = local.inputworkspacemap
   # insert the 4 required variables here
   organization                  = var.organization
-  description                   = each.value.name
+  workspace_description                   = each.value.name
   name                          = each.value.name
   terraform_version             = each.value.version
-  tag_names                     = each.value.tags
+  tags                     = each.value.tags
   github_owner = "ausmartway"
 }
 
