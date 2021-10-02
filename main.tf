@@ -362,18 +362,18 @@ resource "tfe_workspace" "vault-config-as-code" {
 
 //get a list of TFC/E workspaces that has tag 'aws'
 data "tfe_workspace_ids" "aws-internal-apps" {
-  tag_names    = ["aws","internal"]
+  tag_names    = ["aws", "internal"]
   organization = var.organization
 }
 
 resource "tfe_workspace" "aws-shared-infra" {
   description = "My core aws infrustructure that are shared by other workspaces."
 
-  allow_destroy_plan    = true
-  auto_apply            = true
-  execution_mode        = "remote"
-  file_triggers_enabled = false
-  global_remote_state   = false
+  allow_destroy_plan        = true
+  auto_apply                = true
+  execution_mode            = "remote"
+  file_triggers_enabled     = false
+  global_remote_state       = false
   remote_state_consumer_ids = values(data.tfe_workspace_ids.aws-internal-apps.ids)
 
   name = "aws-shared-infra"
