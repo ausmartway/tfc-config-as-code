@@ -374,7 +374,7 @@ resource "tfe_workspace" "aws-shared-infra" {
   execution_mode            = "remote"
   file_triggers_enabled     = false
   global_remote_state       = false
-  remote_state_consumer_ids = values(data.tfe_workspace_ids.aws-internal-apps.ids)
+  remote_state_consumer_ids = values(data.tfe_workspace_ids.aws-consumer-apps.ids)
 
   name = "aws-shared-infra"
 
