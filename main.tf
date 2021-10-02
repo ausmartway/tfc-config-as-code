@@ -30,7 +30,7 @@ resource "tfe_workspace" "aws-s3-demo" {
   file_triggers_enabled         = false
   global_remote_state           = false
   name                          = "aws-s3-demo"
-  tag_names                     = ["customerfacing", "aws", "autoinject","aws-consumer"]
+  tag_names                     = ["customerfacing", "aws", "autoinject","awsconsumer"]
   organization                  = var.organization
   queue_all_runs                = false
   speculative_enabled           = true
@@ -137,7 +137,7 @@ resource "tfe_workspace" "multi-env-provisioning-example-0-test" {
   queue_all_runs                = false
   speculative_enabled           = true
   structured_run_output_enabled = true
-  tag_names                     = ["customerfacing", "aws", "autoinject","aws-consumer"]
+  tag_names                     = ["customerfacing", "aws", "autoinject","awsconsumer"]
   terraform_version             = "1.0.7"
   trigger_prefixes              = []
 
@@ -173,7 +173,7 @@ resource "tfe_workspace" "multi-env-provisioning-example-1-staging" {
   queue_all_runs                = false
   speculative_enabled           = true
   structured_run_output_enabled = true
-  tag_names                     = ["customerfacing", "aws", "autoinject","aws-consumer"]
+  tag_names                     = ["customerfacing", "aws", "autoinject","awsconsumer"]
   terraform_version             = "1.0.7"
   trigger_prefixes              = []
 
@@ -210,7 +210,7 @@ resource "tfe_workspace" "multi-env-provisioning-example-2-prod" {
   queue_all_runs                = false
   speculative_enabled           = true
   structured_run_output_enabled = true
-  tag_names                     = ["customerfacing", "aws", "autoinject","aws-consumer"]
+  tag_names                     = ["customerfacing", "aws", "autoinject","awsconsumer"]
   terraform_version             = "1.0.7"
   trigger_prefixes              = []
 
@@ -243,7 +243,7 @@ resource "tfe_workspace" "terraform-aws-vault-demo" {
   queue_all_runs                = false
   speculative_enabled           = true
   structured_run_output_enabled = true
-  tag_names                     = ["internal", "aws", "vault", "autoinject","aws-consumer"]
+  tag_names                     = ["internal", "aws", "vault", "autoinject","awsconsumer"]
   terraform_version             = "1.0.7"
   trigger_prefixes              = []
 
@@ -361,8 +361,8 @@ resource "tfe_workspace" "vault-config-as-code" {
 
 
 //get a list of TFC/E workspaces that has tag 'aws'
-data "tfe_workspace_ids" "aws-consumer-apps" {
-  tag_names    = ["aws-consumer"]
+data "tfe_workspace_ids" "awsconsumer-apps" {
+  tag_names    = ["awsconsumer"]
   organization = var.organization
 }
 
@@ -374,7 +374,7 @@ resource "tfe_workspace" "aws-shared-infra" {
   execution_mode            = "remote"
   file_triggers_enabled     = false
   global_remote_state       = false
-  remote_state_consumer_ids = values(data.tfe_workspace_ids.aws-consumer-apps.ids)
+  remote_state_consumer_ids = values(data.tfe_workspace_ids.awsconsumer-apps.ids)
 
   name = "aws-shared-infra"
 
@@ -453,7 +453,7 @@ resource "tfe_workspace" "aws-lambda-example" {
   queue_all_runs                = false
   speculative_enabled           = true
   structured_run_output_enabled = true
-  tag_names                     = ["aws", "customerfacing", "autoinject","aws-consumer"]
+  tag_names                     = ["aws", "customerfacing", "autoinject","awsconsumer"]
   terraform_version             = "1.0.7"
   trigger_prefixes              = []
 
