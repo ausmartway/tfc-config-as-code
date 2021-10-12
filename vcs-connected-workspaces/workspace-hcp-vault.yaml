@@ -4,5 +4,5 @@ description: A workspace to manage my test Vault in hcp@ap-southeast-2 region
 tags:
   - aws
   - azure
-  - hcp-vault
+  - hcp:vault
   - autoinject
