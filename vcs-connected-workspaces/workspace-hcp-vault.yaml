@@ -1,0 +1,8 @@
+name: hcp-vault-sydney
+version: 1.0.8
+description: A workspace to manage my test Vault in hcp@ap-southeast-2 region
+tags:
+  - aws
+  - azure
+  - hcp-vault
+  - autoinject
