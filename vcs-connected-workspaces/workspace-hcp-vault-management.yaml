@@ -1,0 +1,8 @@
+name: hcp-vault-management
+version: 1.0.8
+description: this is a workspace that manages my hcp-vault
+tags:
+  - aws
+  - hcp:vault
+  - vault
+  - autoinject
