@@ -3,6 +3,7 @@ version: 1.0.7
 description: this is a temprary workspace for KMIP@CBA
 tags:
   - aws
+  - awsconsumer
   - cba
   - autoinject
   - vault
