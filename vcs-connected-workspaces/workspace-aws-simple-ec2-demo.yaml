@@ -1,0 +1,6 @@
+name: aws-simple-ec2-demo
+version: 1.0.8
+description: This is a very simple demo that provisions aws EC2 instances.
+tags:
+  - aws
+  - autoinject
