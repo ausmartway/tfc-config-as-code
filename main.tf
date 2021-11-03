@@ -23,6 +23,46 @@ provider "github" {
   token = var.github_personal_token
 }
 
+//create an agent pool that has to be run locally
+resource "tfe_agent_pool" "local-agent-pool" {
+  name         = "local-agent-pool"
+  organization = var.organization
+}
+
+resource "tfe_agent_token" "local-agent-pool-token" {
+  agent_pool_id = tfe_agent_pool.local-agent-pool.id
+  description   = "docker-agent-token"
+}
+
+//A local workspace managing vault on laptop
+resource "tfe_workspace" "Taipei-devopsdays" {
+  description                   = "A simple demo to show HashiCorp tools can improve security of a k8s cluster."
+  allow_destroy_plan            = true
+  auto_apply                    = true
+
+  //local agent
+  execution_mode                = "agent"
+  agent_pool_id                 = tfe_agent_pool.local-agent-pool.id
+
+  file_triggers_enabled         = false
+  global_remote_state           = false
+  name                          = "Taipei-devopsdays"
+  tag_names                     = ["customerfacing", "localagent", "vault"]
+  organization                  = var.organization
+  queue_all_runs                = false
+  speculative_enabled           = true
+  structured_run_output_enabled = true
+  terraform_version             = "1.0.7"
+  trigger_prefixes              = []
+  vcs_repo {
+    identifier         = "ausmartway/Taipei-devopsdays"
+    ingress_submodules = false
+    oauth_token_id     = local.tfc_oauth_token
+  }
+}
+
+
+
 resource "tfe_workspace" "aws-s3-demo" {
   description                   = "A simple demo to show how sentinel policy as code engine can make sure s3 are provisioned securely."
   allow_destroy_plan            = true
