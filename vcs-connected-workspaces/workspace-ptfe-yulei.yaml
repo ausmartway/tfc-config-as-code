@@ -1,0 +1,7 @@
+name: ptfe-yulei
+version: 1.0.8
+description: Standing up a demo TFE
+tags:
+  - tfe
+  - aws
+  - autoinject
