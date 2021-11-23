@@ -3,6 +3,7 @@ variable "v1latest" {
   description = "The version of terraform cli for all workspace that is v1"
   validation {
     condition = substr(var.v1latest, 0, 2) == "1."
+    error_message = "the terraform cli version must match 1.*"
   }
   default = "1.0.11"
 }
@@ -10,7 +11,8 @@ variable "v015latest" {
   type = string
   description = "The version of terraform cli for all workspace that is v0.15"
   validation {
-    condition = substr(var.v1latest, 0, 4) == "0.15"
+    condition = substr(var.v015latest, 0, 4) == "0.15"
+    error_message = "the terraform cli version must match 0.15.*"
   }
   default = "0.15.5"
 }
