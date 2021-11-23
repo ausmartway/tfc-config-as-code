@@ -52,7 +52,7 @@ resource "tfe_workspace" "Taipei-devopsdays" {
   queue_all_runs                = false
   speculative_enabled           = true
   structured_run_output_enabled = true
-  terraform_version             = "1.0.7"
+  terraform_version             = "1.0.11"
   trigger_prefixes              = []
   working_directory             = "terraform-standing-up-gke"
   vcs_repo {
@@ -77,7 +77,7 @@ resource "tfe_workspace" "aws-s3-demo" {
   queue_all_runs                = false
   speculative_enabled           = true
   structured_run_output_enabled = true
-  terraform_version             = "1.0.7"
+  terraform_version             = "1.0.11"
   trigger_prefixes              = []
   vcs_repo {
     identifier         = "ausmartway/aws-s3-demo"
@@ -108,7 +108,7 @@ resource "tfe_workspace" "azure-simple-demo" {
   speculative_enabled           = true
   structured_run_output_enabled = true
   tag_names                     = ["customerfacing", "azure", "autoinject"]
-  terraform_version             = "1.0.7"
+  terraform_version             = "1.0.11"
   trigger_prefixes              = []
 
   vcs_repo {
@@ -131,7 +131,7 @@ resource "tfe_workspace" "gcp-playground" {
   speculative_enabled           = true
   structured_run_output_enabled = true
   tag_names                     = ["customerfacing", "gcp", "autoinject", "internal", "testing"]
-  terraform_version             = "1.0.7"
+  terraform_version             = "1.0.11"
   trigger_prefixes              = []
 
   vcs_repo {
@@ -155,7 +155,7 @@ resource "tfe_workspace" "azure-shared-infra" {
   speculative_enabled           = true
   structured_run_output_enabled = true
   tag_names                     = ["customerfacing", "azure", "autoinject"]
-  terraform_version             = "1.0.7"
+  terraform_version             = "1.0.11"
   trigger_prefixes              = []
 
   vcs_repo {
@@ -180,7 +180,7 @@ resource "tfe_workspace" "multi-env-provisioning-example-0-test" {
   speculative_enabled           = true
   structured_run_output_enabled = true
   tag_names                     = ["customerfacing", "aws", "autoinject","awsconsumer"]
-  terraform_version             = "1.0.7"
+  terraform_version             = "1.0.11"
   trigger_prefixes              = []
 
   vcs_repo {
@@ -216,7 +216,7 @@ resource "tfe_workspace" "multi-env-provisioning-example-1-staging" {
   speculative_enabled           = true
   structured_run_output_enabled = true
   tag_names                     = ["customerfacing", "aws", "autoinject","awsconsumer"]
-  terraform_version             = "1.0.7"
+  terraform_version             = "1.0.11"
   trigger_prefixes              = []
 
   vcs_repo {
@@ -253,7 +253,7 @@ resource "tfe_workspace" "multi-env-provisioning-example-2-prod" {
   speculative_enabled           = true
   structured_run_output_enabled = true
   tag_names                     = ["customerfacing", "aws", "autoinject","awsconsumer"]
-  terraform_version             = "1.0.7"
+  terraform_version             = "1.0.11"
   trigger_prefixes              = []
 
   vcs_repo {
@@ -286,7 +286,7 @@ resource "tfe_workspace" "terraform-aws-vault-demo" {
   speculative_enabled           = true
   structured_run_output_enabled = true
   tag_names                     = ["internal", "aws", "vault", "autoinject","awsconsumer"]
-  terraform_version             = "1.0.7"
+  terraform_version             = "1.0.11"
   trigger_prefixes              = []
 
   vcs_repo {
@@ -323,7 +323,7 @@ resource "tfe_workspace" "vault-config-as-code" {
   speculative_enabled           = true
   structured_run_output_enabled = true
   tag_names                     = ["customerfacing", "vault", "aws"]
-  terraform_version             = "1.0.7"
+  terraform_version             = "1.0.11"
   trigger_prefixes              = []
 
   vcs_repo {
@@ -425,7 +425,7 @@ resource "tfe_workspace" "aws-shared-infra" {
   speculative_enabled           = true
   structured_run_output_enabled = true
   tag_names                     = ["aws", "internal", "autoinject"]
-  terraform_version             = "1.0.7"
+  terraform_version             = "1.0.11"
   trigger_prefixes              = []
 
   vcs_repo {
@@ -496,7 +496,7 @@ resource "tfe_workspace" "aws-lambda-example" {
   speculative_enabled           = true
   structured_run_output_enabled = true
   tag_names                     = ["aws", "customerfacing", "autoinject","awsconsumer"]
-  terraform_version             = "1.0.7"
+  terraform_version             = "1.0.11"
   trigger_prefixes              = []
 
   vcs_repo {
@@ -532,7 +532,7 @@ resource "tfe_workspace" "tfc-config-as-code" {
   speculative_enabled           = true
   structured_run_output_enabled = true
   tag_names                     = ["tfc", "internal", "management"]
-  terraform_version             = "1.0.7"
+  terraform_version             = "1.0.11"
   trigger_prefixes              = []
 
   vcs_repo {
@@ -590,7 +590,7 @@ resource "tfe_workspace" "tfc-credential-injector" {
   speculative_enabled           = true
   structured_run_output_enabled = true
   tag_names                     = ["internal", "tfc", "management"]
-  terraform_version             = "1.0.7"
+  terraform_version             = "1.0.11"
   trigger_prefixes              = []
   vcs_repo {
     identifier         = "ausmartway/tfc-credential-injector"
@@ -614,7 +614,7 @@ resource "tfe_workspace" "tfc-notification-configurator" {
   speculative_enabled           = true
   structured_run_output_enabled = true
   tag_names                     = ["internal", "tfc", "management"]
-  terraform_version             = "1.0.7"
+  terraform_version             = "1.0.11"
   trigger_prefixes              = []
   vcs_repo {
     identifier         = "ausmartway/tfc-notification-configurator"
@@ -637,7 +637,7 @@ resource "tfe_workspace" "tfc-policyset-attacher" {
   speculative_enabled           = true
   structured_run_output_enabled = true
   tag_names                     = ["internal", "tfc", "management"]
-  terraform_version             = "1.0.7"
+  terraform_version             = "1.0.11"
   trigger_prefixes              = []
   vcs_repo {
     identifier         = "ausmartway/tfc-policyset-attacher"
