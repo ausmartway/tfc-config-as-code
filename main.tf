@@ -461,7 +461,7 @@ resource "tfe_workspace" "multicloud-dns-management" {
   speculative_enabled           = true
   structured_run_output_enabled = true
   tag_names                     = ["internal", "aws", "gcp", "azure", "autoinject"]
-  terraform_version             = "0.14.11"
+  terraform_version             = "1.0.11"
   trigger_prefixes              = []
 
   vcs_repo {
