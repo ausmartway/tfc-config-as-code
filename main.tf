@@ -54,6 +54,7 @@ resource "tfe_workspace" "Taipei-devopsdays" {
   structured_run_output_enabled = true
   terraform_version             = "1.0.7"
   trigger_prefixes              = []
+  working_directory             = "terraform-standing-up-gke"
   vcs_repo {
     identifier         = "ausmartway/taipei-devopsdays-2021"
     ingress_submodules = false
