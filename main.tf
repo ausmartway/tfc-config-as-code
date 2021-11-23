@@ -34,32 +34,32 @@ resource "tfe_agent_token" "local-agent-pool-token" {
   description   = "docker-agent-token"
 }
 
-//A local workspace managing vault on laptop
-resource "tfe_workspace" "Taipei-devopsdays" {
-  description                   = "A simple demo to show HashiCorp tools can improve security of a k8s cluster."
-  allow_destroy_plan            = true
-  auto_apply                    = true
+# //A local workspace managing vault on laptop
+# resource "tfe_workspace" "Taipei-devopsdays" {
+#   description                   = "A simple demo to show HashiCorp tools can improve security of a k8s cluster."
+#   allow_destroy_plan            = true
+#   auto_apply                    = true
 
-  //local agent
-  execution_mode                = "agent"
-  agent_pool_id                 = tfe_agent_pool.local-agent-pool.id
+#   //local agent
+#   execution_mode                = "agent"
+#   agent_pool_id                 = tfe_agent_pool.local-agent-pool.id
 
-  file_triggers_enabled         = false
-  global_remote_state           = false
-  name                          = "Taipei-devopsdays"
-  tag_names                     = ["customerfacing", "localagent", "vault"]
-  organization                  = var.organization
-  queue_all_runs                = false
-  speculative_enabled           = true
-  structured_run_output_enabled = true
-  terraform_version             = "1.0.7"
-  trigger_prefixes              = []
-  vcs_repo {
-    identifier         = "ausmartway/Taipei-devopsdays"
-    ingress_submodules = false
-    oauth_token_id     = local.tfc_oauth_token
-  }
-}
+#   file_triggers_enabled         = false
+#   global_remote_state           = false
+#   name                          = "Taipei-devopsdays"
+#   tag_names                     = ["customerfacing", "localagent", "vault"]
+#   organization                  = var.organization
+#   queue_all_runs                = false
+#   speculative_enabled           = true
+#   structured_run_output_enabled = true
+#   terraform_version             = "1.0.7"
+#   trigger_prefixes              = []
+#   vcs_repo {
+#     identifier         = "ausmartway/Taipei-devopsdays"
+#     ingress_submodules = false
+#     oauth_token_id     = local.tfc_oauth_token
+#   }
+# }
 
 
 
