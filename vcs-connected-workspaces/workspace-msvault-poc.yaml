@@ -4,3 +4,4 @@ description: A workspace for Morgan Stanley POC
 tags:
   - aws
   - vault
+  - autoinjection
