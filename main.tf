@@ -12,7 +12,7 @@ terraform {
 
 locals {
   ##this can be changed to switch between A/B github connection.
-  tfc_oauth_token = tfe_oauth_client.github-a.oauth_token_id
+  tfc_oauth_token = tfe_oauth_client.github-b.oauth_token_id
 }
 
 provider "tfe" {
