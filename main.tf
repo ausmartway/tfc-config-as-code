@@ -62,8 +62,6 @@ resource "tfe_workspace" "Taipei-devopsdays" {
   }
 }
 
-
-
 resource "tfe_workspace" "aws-s3-demo" {
   description                   = "A simple demo to show how sentinel policy as code engine can make sure s3 are provisioned securely."
   allow_destroy_plan            = true
@@ -141,7 +139,6 @@ resource "tfe_workspace" "gcp-playground" {
   }
 }
 
-
 resource "tfe_workspace" "azure-shared-infra" {
   description                   = "Core azure infra"
   allow_destroy_plan            = true
@@ -164,8 +161,6 @@ resource "tfe_workspace" "azure-shared-infra" {
     oauth_token_id     = local.tfc_oauth_token
   }
 }
-
-
 
 resource "tfe_workspace" "multi-env-provisioning-example-0-test" {
   description                   = "A demo showing how to manage multiple enviroments using one set of terraform code."
@@ -191,7 +186,6 @@ resource "tfe_workspace" "multi-env-provisioning-example-0-test" {
 
 }
 
-
 resource "tfe_variable" "multi-env-provisioning-example-0-test-aws_region" {
   key          = "AWS_REGION"
   value        = var.aws_default_region
@@ -199,7 +193,6 @@ resource "tfe_variable" "multi-env-provisioning-example-0-test-aws_region" {
   workspace_id = tfe_workspace.multi-env-provisioning-example-0-test.id
   description  = "AWS REGION"
 }
-
 
 resource "tfe_workspace" "multi-env-provisioning-example-1-staging" {
   description           = "A demo showing how to manage multiple enviroments using one set of terraform code."
@@ -227,8 +220,6 @@ resource "tfe_workspace" "multi-env-provisioning-example-1-staging" {
 
 }
 
-
-
 resource "tfe_variable" "multi-env-provisioning-example-1-staging-aws_region" {
   key          = "AWS_REGION"
   value        = var.aws_default_region
@@ -236,7 +227,6 @@ resource "tfe_variable" "multi-env-provisioning-example-1-staging-aws_region" {
   workspace_id = tfe_workspace.multi-env-provisioning-example-1-staging.id
   description  = "AWS REGION"
 }
-
 
 resource "tfe_workspace" "multi-env-provisioning-example-2-prod" {
   description           = "A demo showing how to manage multiple enviroments using one set of terraform code."
@@ -263,7 +253,6 @@ resource "tfe_workspace" "multi-env-provisioning-example-2-prod" {
   }
 }
 
-
 resource "tfe_variable" "multi-env-provisioning-example-2-prod-aws_region" {
   key          = "AWS_REGION"
   value        = var.aws_default_region
@@ -271,7 +260,6 @@ resource "tfe_variable" "multi-env-provisioning-example-2-prod-aws_region" {
   workspace_id = tfe_workspace.multi-env-provisioning-example-2-prod.id
   description  = "AWS REGION"
 }
-
 
 resource "tfe_workspace" "terraform-aws-vault-demo" {
   description                   = "A workspace that standup a demo vault instance."
@@ -296,8 +284,6 @@ resource "tfe_workspace" "terraform-aws-vault-demo" {
   }
 }
 
-
-
 resource "tfe_variable" "terraform-aws-vault-demo-aws_region" {
   key          = "AWS_REGION"
   value        = var.aws_default_region
@@ -305,7 +291,6 @@ resource "tfe_variable" "terraform-aws-vault-demo-aws_region" {
   workspace_id = tfe_workspace.terraform-aws-vault-demo.id
   description  = "AWS REGION"
 }
-
 
 resource "tfe_workspace" "vault-config-as-code" {
   description           = "A workspace that's used to manage my own Vault's configuration as code."
@@ -332,75 +317,6 @@ resource "tfe_workspace" "vault-config-as-code" {
     oauth_token_id     = local.tfc_oauth_token
   }
 }
-
-# resource "tfe_workspace" "tfe-v5-aws-install" {
-#   description           = "Install a tfe v5 instance."
-#   allow_destroy_plan    = true
-#   auto_apply            = true
-#   execution_mode        = "remote"
-#   file_triggers_enabled = false
-#   global_remote_state   = false
-
-#   name = "tfe-v5-aws-install"
-
-#   organization                  = var.organization
-#   queue_all_runs                = false
-#   speculative_enabled           = true
-#   structured_run_output_enabled = true
-#   tag_names                     = ["aws", "internal"]
-#   terraform_version             = "0.11.15"
-#   trigger_prefixes              = []
-
-#   vcs_repo {
-#     identifier         = "ausmartway/tfe-v5-aws-install"
-#     ingress_submodules = false
-#     oauth_token_id     = local.tfc_oauth_token
-#   }
-# }
-
-# resource "tfe_variable" "tfe-v5-aws-install-aws_region" {
-#   key          = "AWS_REGION"
-#   value        = var.aws_default_region
-#   category     = "env"
-#   workspace_id = tfe_workspace.tfe-v5-aws-install.id
-#   description  = "AWS REGION"
-# }
-
-
-# resource "tfe_workspace" "tfe-v5-aws-prepare" {
-#   description           = "Setup resources for a TFE v5 installation."
-#   allow_destroy_plan    = true
-#   auto_apply            = true
-#   execution_mode        = "remote"
-#   file_triggers_enabled = false
-#   global_remote_state   = false
-
-#   name = "tfe-v5-aws-prepare"
-
-#   organization                  = var.organization
-#   queue_all_runs                = false
-#   speculative_enabled           = true
-#   structured_run_output_enabled = true
-#   tag_names                     = ["internal", "aws"]
-#   terraform_version             = "0.11.15"
-#   trigger_prefixes              = []
-
-#   vcs_repo {
-#     identifier         = "ausmartway/tfe-v5-aws-prepare"
-#     ingress_submodules = false
-#     oauth_token_id     = local.tfc_oauth_token
-#   }
-
-# }
-
-# resource "tfe_variable" "tfe-v5-aws-prepare-aws_region" {
-#   key          = "AWS_REGION"
-#   value        = var.aws_default_region
-#   category     = "env"
-#   workspace_id = tfe_workspace.tfe-v5-aws-prepare.id
-#   description  = "AWS REGION"
-# }
-
 
 //get a list of TFC/E workspaces that has tag 'aws'
 data "tfe_workspace_ids" "awsconsumer-apps" {
@@ -445,7 +361,6 @@ resource "tfe_variable" "aws-shared-infra-aws_region" {
   description  = "AWS REGION"
 }
 
-
 resource "tfe_workspace" "multicloud-dns-management" {
   description           = "Manages my aws/azure/gcp DNS records using aws route53."
   allow_destroy_plan    = true
@@ -471,7 +386,6 @@ resource "tfe_workspace" "multicloud-dns-management" {
   }
 }
 
-
 resource "tfe_variable" "multicloud-dns-management-aws_region" {
   key          = "AWS_REGION"
   value        = var.aws_default_region
@@ -479,7 +393,6 @@ resource "tfe_variable" "multicloud-dns-management-aws_region" {
   workspace_id = tfe_workspace.multicloud-dns-management.id
   description  = "AWS REGION"
 }
-
 
 resource "tfe_workspace" "aws-lambda-example" {
   description           = "Demo workspace for deploying lambda functions."
@@ -506,7 +419,6 @@ resource "tfe_workspace" "aws-lambda-example" {
   }
 }
 
-
 resource "tfe_variable" "aws-lambda-example-aws_region" {
   key          = "AWS_REGION"
   value        = var.aws_default_region
@@ -514,7 +426,6 @@ resource "tfe_variable" "aws-lambda-example-aws_region" {
   workspace_id = tfe_workspace.aws-lambda-example.id
   description  = "AWS REGION"
 }
-
 
 resource "tfe_workspace" "tfc-config-as-code" {
   description           = "Workspace for managing my own TFC orgnisation's configuration as code, using terraform."
@@ -557,7 +468,6 @@ resource "tfe_oauth_client" "github-b" {
   oauth_token      = var.github_personal_token
   service_provider = "github"
 }
-
 
 resource "tfe_oauth_client" "gitlab-a" {
   organization     = var.organization
