@@ -457,4 +457,3 @@ resource "tfe_workspace" "vault-config-as-code" {
     oauth_token_id     = local.tfc_oauth_token
   }
 }
-
