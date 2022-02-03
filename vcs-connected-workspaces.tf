@@ -18,4 +18,12 @@ module "vcs-connected-workspace" {
   tfc_oauth_token       = local.tfc_oauth_token
   workspace_description = each.value.description
   tags                  = each.value.tags
+  lifecycle {
+    ignore_changes = [
+      # Ignore changes to tags, e.g. because a management agent
+      # updates these based on some ruleset managed elsewhere.
+      agent_pool_id,
+      execution_mode,
+    ]
+  }
 }
