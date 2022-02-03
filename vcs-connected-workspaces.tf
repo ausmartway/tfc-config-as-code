@@ -9,7 +9,7 @@ locals {
 
 module "vcs-connected-workspace" {
   source  = "ausmartway/vcs-connected-workspace/tfe"
-  version = "0.0.2"
+  version = "0.0.3"
   # insert the 5 required variables here
   for_each              = local.inputvcsworkspacemap
   organization          = var.organization
@@ -18,12 +18,4 @@ module "vcs-connected-workspace" {
   tfc_oauth_token       = local.tfc_oauth_token
   workspace_description = each.value.description
   tags                  = each.value.tags
-  lifecycle {
-    ignore_changes = [
-      # Ignore changes to tags, e.g. because a management agent
-      # updates these based on some ruleset managed elsewhere.
-      agent_pool_id,
-      execution_mode,
-    ]
-  }
 }
