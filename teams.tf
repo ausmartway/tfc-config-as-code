@@ -21,7 +21,7 @@ resource "tfe_agent_pool" "agent-pools" {
 
 resource "tfe_agent_token" "agent-tokens" {
   for_each = local.inputteammap
-  agent_pool_id = tfe_agent_pool.agent-pools[eacg.value.name].id
+  agent_pool_id = tfe_agent_pool.agent-pools[each.value.name].id
   description   = "agent-token-for-${each.value.name}"
 }
 
