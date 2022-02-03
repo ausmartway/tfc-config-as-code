@@ -9,8 +9,8 @@ locals {
 
 module "vcs-connected-workspace" {
   source  = "ausmartway/vcs-connected-workspace/tfe"
-  version = "0.0.2"
-  # insert the 5 required variables here
+  version = "0.0.3"
+  # insert the 5 required variables here 
   for_each              = local.inputvcsworkspacemap
   organization          = var.organization
   name                  = each.value.name

@@ -1,0 +1,7 @@
+name: mgl-cgm-vault-config-as-code-playground
+version: 1.1.5
+description: A workspace for Maquarie Group CGM vault config as code
+tags:
+  - vault
+  - mgl-cgm
+  - autoinject
