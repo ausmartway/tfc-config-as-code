@@ -262,33 +262,33 @@ resource "tfe_variable" "terraform-aws-vault-demo-aws_region" {
   description  = "AWS REGION"
 }
 
-# //A local workspace managing vault on laptop
-resource "tfe_workspace" "Taipei-devopsdays" {
-  description                   = "A simple demo to show HashiCorp tools can improve security of a k8s cluster."
-  allow_destroy_plan            = true
-  auto_apply                    = true
+# # //A local workspace managing vault on laptop
+# resource "tfe_workspace" "Taipei-devopsdays" {
+#   description                   = "A simple demo to show HashiCorp tools can improve security of a k8s cluster."
+#   allow_destroy_plan            = true
+#   auto_apply                    = true
 
-  //local agent
-  execution_mode                = "agent"
-  agent_pool_id                 = tfe_agent_pool.local-agent-pool.id
+#   //local agent
+#   execution_mode                = "agent"
+#   agent_pool_id                 = tfe_agent_pool.local-agent-pool.id
 
-  file_triggers_enabled         = false
-  global_remote_state           = false
-  name                          = "Taipei-devopsdays"
-  tag_names                     = ["customerfacing", "localagent", "vault"]
-  organization                  = var.organization
-  queue_all_runs                = false
-  speculative_enabled           = true
-  structured_run_output_enabled = true
-  terraform_version             = var.v1latest
-  trigger_prefixes              = []
-  working_directory             = "terraform-standing-up-gke"
-  vcs_repo {
-    identifier         = "ausmartway/taipei-devopsdays-2021"
-    ingress_submodules = false
-    oauth_token_id     = local.tfc_oauth_token
-  }
-}
+#   file_triggers_enabled         = false
+#   global_remote_state           = false
+#   name                          = "Taipei-devopsdays"
+#   tag_names                     = ["customerfacing", "localagent", "vault"]
+#   organization                  = var.organization
+#   queue_all_runs                = false
+#   speculative_enabled           = true
+#   structured_run_output_enabled = true
+#   terraform_version             = var.v1latest
+#   trigger_prefixes              = []
+#   working_directory             = "terraform-standing-up-gke"
+#   vcs_repo {
+#     identifier         = "ausmartway/taipei-devopsdays-2021"
+#     ingress_submodules = false
+#     oauth_token_id     = local.tfc_oauth_token
+#   }
+# }
 
 resource "tfe_workspace" "aws-s3-demo" {
   description                   = "A simple demo to show how sentinel policy as code engine can make sure s3 are provisioned securely."
