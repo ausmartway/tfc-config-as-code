@@ -506,8 +506,8 @@ resource "tfe_workspace" "vault-config-as-code-local" {
   trigger_prefixes              = []
 
   vcs_repo {
-    identifier         = "ausmartway/vault-config-as-local"
-    branch             = "aws"
+    identifier         = "ausmartway/vault-config-as-code"
+    branch             = "local"
     ingress_submodules = false
     oauth_token_id     = local.tfc_oauth_token
   }
