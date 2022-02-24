@@ -80,7 +80,7 @@ resource "tfe_workspace" "aws-lambda-example" {
   queue_all_runs                = false
   speculative_enabled           = true
   structured_run_output_enabled = true
-  tag_names                     = ["aws", "customerfacing", "autoinject","awsconsumer"]
+  tag_names                     = ["aws", "customerfacing", "autoinject", "awsconsumer"]
   terraform_version             = var.v1latest
   trigger_prefixes              = []
 
@@ -144,7 +144,7 @@ resource "tfe_workspace" "multi-env-provisioning-example-0-test" {
   queue_all_runs                = false
   speculative_enabled           = true
   structured_run_output_enabled = true
-  tag_names                     = ["customerfacing", "aws", "autoinject","awsconsumer"]
+  tag_names                     = ["customerfacing", "aws", "autoinject", "awsconsumer"]
   terraform_version             = var.v1latest
   trigger_prefixes              = []
 
@@ -178,7 +178,7 @@ resource "tfe_workspace" "multi-env-provisioning-example-1-staging" {
   queue_all_runs                = false
   speculative_enabled           = true
   structured_run_output_enabled = true
-  tag_names                     = ["customerfacing", "aws", "autoinject","awsconsumer"]
+  tag_names                     = ["customerfacing", "aws", "autoinject", "awsconsumer"]
   terraform_version             = var.v1latest
   trigger_prefixes              = []
 
@@ -212,7 +212,7 @@ resource "tfe_workspace" "multi-env-provisioning-example-2-prod" {
   queue_all_runs                = false
   speculative_enabled           = true
   structured_run_output_enabled = true
-  tag_names                     = ["customerfacing", "aws", "autoinject","awsconsumer"]
+  tag_names                     = ["customerfacing", "aws", "autoinject", "awsconsumer"]
   terraform_version             = var.v1latest
   trigger_prefixes              = []
 
@@ -243,7 +243,7 @@ resource "tfe_workspace" "terraform-aws-vault-demo" {
   queue_all_runs                = false
   speculative_enabled           = true
   structured_run_output_enabled = true
-  tag_names                     = ["internal", "aws", "vault", "autoinject","awsconsumer"]
+  tag_names                     = ["internal", "aws", "vault", "autoinject", "awsconsumer"]
   terraform_version             = var.v1latest
   trigger_prefixes              = []
 
@@ -298,7 +298,7 @@ resource "tfe_workspace" "aws-s3-demo" {
   file_triggers_enabled         = false
   global_remote_state           = false
   name                          = "aws-s3-demo"
-  tag_names                     = ["customerfacing", "aws", "autoinject","awsconsumer"]
+  tag_names                     = ["customerfacing", "aws", "autoinject", "awsconsumer"]
   organization                  = var.organization
   queue_all_runs                = false
   speculative_enabled           = true
@@ -453,6 +453,88 @@ resource "tfe_workspace" "vault-config-as-code" {
 
   vcs_repo {
     identifier         = "ausmartway/vault-config-as-code"
+    ingress_submodules = false
+    oauth_token_id     = local.tfc_oauth_token
+  }
+}
+
+resource "tfe_workspace" "vault-config-as-code-aws" {
+  description           = "A workspace that's used to manage my own Vault's configuration as code."
+  allow_destroy_plan    = true
+  auto_apply            = true
+  execution_mode        = "remote"
+  file_triggers_enabled = false
+  global_remote_state   = false
+
+  name = "vault-config-as-code-aws"
+
+  organization                  = var.organization
+  queue_all_runs                = false
+  remote_state_consumer_ids     = []
+  speculative_enabled           = true
+  structured_run_output_enabled = true
+  tag_names                     = ["customerfacing", "vault", "aws"]
+  terraform_version             = var.v1latest
+  trigger_prefixes              = []
+
+  vcs_repo {
+    identifier         = "ausmartway/vault-config-as-code"
+    branch             = "aws"
+    ingress_submodules = false
+    oauth_token_id     = local.tfc_oauth_token
+  }
+}
+
+resource "tfe_workspace" "vault-config-as-code-local" {
+  description           = "A workspace that's used to manage my own Vault's configuration as code."
+  allow_destroy_plan    = true
+  auto_apply            = true
+  execution_mode        = "agent"
+  agent_pool_id         = tfe_agent_pool.local-agent-pool.id
+  file_triggers_enabled = false
+  global_remote_state   = false
+
+  name = "vault-config-as-code-local"
+
+  organization                  = var.organization
+  queue_all_runs                = false
+  remote_state_consumer_ids     = []
+  speculative_enabled           = true
+  structured_run_output_enabled = true
+  tag_names                     = ["customerfacing", "vault", "local"]
+  terraform_version             = var.v1latest
+  trigger_prefixes              = []
+
+  vcs_repo {
+    identifier         = "ausmartway/vault-config-as-local"
+    branch             = "aws"
+    ingress_submodules = false
+    oauth_token_id     = local.tfc_oauth_token
+  }
+}
+
+resource "tfe_workspace" "vault-config-as-code-hcp" {
+  description           = "A workspace that's used to manage my own Vault's configuration as code."
+  allow_destroy_plan    = true
+  auto_apply            = true
+  execution_mode        = "remote"
+  file_triggers_enabled = false
+  global_remote_state   = false
+
+  name = "vault-config-as-code-hcp"
+
+  organization                  = var.organization
+  queue_all_runs                = false
+  remote_state_consumer_ids     = []
+  speculative_enabled           = true
+  structured_run_output_enabled = true
+  tag_names                     = ["customerfacing", "vault", "hcp"]
+  terraform_version             = var.v1latest
+  trigger_prefixes              = []
+
+  vcs_repo {
+    identifier         = "ausmartway/vault-config-as-code"
+    branch             = "hcp"
     ingress_submodules = false
     oauth_token_id     = local.tfc_oauth_token
   }

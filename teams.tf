@@ -8,19 +8,19 @@ locals {
 }
 
 resource "tfe_team" "teams" {
-  for_each = local.inputteammap
+  for_each     = local.inputteammap
   name         = each.value.name
   organization = "yulei"
 }
 
 resource "tfe_agent_pool" "agent-pools" {
-  for_each = local.inputteammap
+  for_each     = local.inputteammap
   name         = "agent-pool-for-${each.value.name}"
   organization = "yulei"
 }
 
 resource "tfe_agent_token" "agent-tokens" {
-  for_each = local.inputteammap
+  for_each      = local.inputteammap
   agent_pool_id = tfe_agent_pool.agent-pools[each.value.name].id
   description   = "agent-token-for-${each.value.name}"
 }
