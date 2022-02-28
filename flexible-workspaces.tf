@@ -363,6 +363,7 @@ resource "tfe_workspace" "gcp-playground" {
   vcs_repo {
     identifier         = "ausmartway/gcp-playground"
     ingress_submodules = false
+    working_directory = "terraform-standup-gke"
     oauth_token_id     = local.tfc_oauth_token
   }
 }
