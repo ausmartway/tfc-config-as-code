@@ -359,11 +359,11 @@ resource "tfe_workspace" "gcp-playground" {
   tag_names                     = ["customerfacing", "gcp", "autoinject", "internal", "testing"]
   terraform_version             = var.v1latest
   trigger_prefixes              = []
-
+  working_directory             = "terraform-standup-gke"
+  
   vcs_repo {
     identifier         = "ausmartway/gcp-playground"
     ingress_submodules = false
-    working_directory = "terraform-standup-gke"
     oauth_token_id     = local.tfc_oauth_token
   }
 }
