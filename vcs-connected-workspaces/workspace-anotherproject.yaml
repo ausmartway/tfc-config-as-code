@@ -1,0 +1,7 @@
+name: another-project
+version: 1.1.8
+description: this is a test workspace 
+tags:
+  - aws
+  - azure
+  - autoinject
