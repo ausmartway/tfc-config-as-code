@@ -1,8 +1,0 @@
-name: csiro-vcs-workspaceone
-version: 1.1.4
-description: this is a demo for csiro workspace 
-tags:
-  - aws
-  - azure
-  - autoinject
-  - customerfacing
