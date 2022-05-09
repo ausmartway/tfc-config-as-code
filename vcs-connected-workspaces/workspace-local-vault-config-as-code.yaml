@@ -1,7 +1,0 @@
-name: local-vault-config-as-code
-version: 1.1.5
-description: A workspace for local vault config as code
-tags:
-  - vault
-  - local
-  - autoinject
