@@ -1,0 +1,10 @@
+name: cba-rds-terraform-demo
+version: 1.2.1
+description: this is a TFC workspace for CBA RDS
+tags:
+  - customerfacing
+  - cba
+  - aws
+  - mongodb
+  
+
