@@ -4,7 +4,7 @@ description: this is a TFC workspace for CBA RDS
 tags:
   - customerfacing
   - cba
-  - aws
+  - awsconsumer
   - mongodb
-  
+
 
