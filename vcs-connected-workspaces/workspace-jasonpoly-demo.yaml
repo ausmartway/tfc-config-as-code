@@ -1,7 +1,0 @@
-name: demo-for-jason
-version: 1.2.1
-description: A workspace to demo to Jason
-tags:
-  - aws
-  - hcp:vault
-  - autoinject
