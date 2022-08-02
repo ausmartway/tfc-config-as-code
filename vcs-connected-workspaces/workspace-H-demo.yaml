@@ -1,0 +1,10 @@
+name: h-demo
+version: 1.0.8
+description: demo for H
+tags:
+  - tfe
+  - aws
+  - autoinject
+  - awsconsumer
+  - test
+  
