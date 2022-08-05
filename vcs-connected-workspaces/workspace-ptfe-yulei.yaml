@@ -1,5 +1,7 @@
 name: ptfe-yulei
 version: 1.0.8
+vcsbranch: 
+vcsworkingdirectory: 
 description: Standing up a demo TFE
 tags:
   - tfe

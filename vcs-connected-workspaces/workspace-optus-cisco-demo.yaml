@@ -1,5 +1,7 @@
 name: optus-cisco-demo
 version: 1.1.4
+vcsbranch: 
+vcsworkingdirectory: 
 description: this is a TFC workspace for Optus demo
 tags:
   - customerfacing

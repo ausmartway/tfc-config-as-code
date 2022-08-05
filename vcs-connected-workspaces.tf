@@ -18,4 +18,6 @@ module "vcs-connected-workspace" {
   tfc_oauth_token       = local.tfc_oauth_token
   workspace_description = each.value.description
   tags                  = each.value.tags
+  vcsbranch             = each.value.vcsbranch
+  vcsworkingdirectory   = each.value.vcsworkingdirectory
 }
