@@ -2,7 +2,7 @@ variable "tf_latest" {
   type = string
   description = "The latest version of terraform cli."
   validation {
-    condition     = substr(var.v1latest, 0, 2) == "1."
+    condition     = substr(var.tf_latest, 0, 2) == "1."
     error_message = "The terraform cli version must match 1.*."
   }
   default = "1.2.6"
