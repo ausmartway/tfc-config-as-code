@@ -9,13 +9,15 @@ locals {
 
 module "vcs-connected-workspace" {
   source  = "ausmartway/vcs-connected-workspace/tfe"
-  version = "0.0.3"
+  version = "0.0.4"
   # insert the 5 required variables here 
   for_each              = local.inputvcsworkspacemap
   organization          = var.organization
   name                  = each.value.name
   terraform_version     = each.value.version
-  tfc_oauth_token       = local.tfc_oauth_token
+  tfc_oauth_token       = local.tfc_oauth_token  // the TFC/E oauth token id of the vcs connection
   workspace_description = each.value.description
   tags                  = each.value.tags
+  vcsbranch             = each.value.vcsbranch
+  vcsworkingdirectory   = each.value.vcsworkingdirectory
 }

@@ -360,7 +360,7 @@ resource "tfe_workspace" "gcp-playground" {
   terraform_version             = var.v1latest
   trigger_prefixes              = []
   working_directory             = "terraform-standup-gke"
-  
+
   vcs_repo {
     identifier         = "ausmartway/gcp-playground"
     ingress_submodules = false

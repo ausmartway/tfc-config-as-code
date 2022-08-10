@@ -50,7 +50,7 @@ resource "tfe_workspace" "tfc-config-as-code" {
   speculative_enabled           = true
   structured_run_output_enabled = true
   tag_names                     = ["tfc", "internal", "management"]
-  terraform_version             = var.v1latest
+  terraform_version             = var.tf_latest
   trigger_prefixes              = []
 
   vcs_repo {
