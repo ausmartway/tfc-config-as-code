@@ -195,3 +195,49 @@ resource "tfe_run_trigger" "auto_trigger_tfc-policy-attacher" {
   workspace_id  = tfe_workspace.tfc-policyset-attacher.id
   sourceable_id = tfe_workspace.tfc-config-as-code.id
 }
+
+resource "tfe_variable_set" "azure" {
+  name         = "Global Varset for Azure"
+  description  = "Variable set applied to all workspaces with tag azure and autoinjection."
+  global       = false
+  organization = var.organization
+}
+
+data "vault_generic_secret" "azure" {
+    path = "kv/azure"
+}
+
+## Add Azure credentials ENV variables 
+resource "tfe_variable" "azure_subscription_id" {
+  key          = "ARM_SUBSCRIPTION_ID"
+  value        = data.vault_generic_secret.azure.data["ARM_SUBSCRIPTION_ID"]
+  category     = "env"
+  variable_set_id = tfe_variable_set.azure.id
+  description  = "Azure Subscription Id"
+
+}
+
+resource "tfe_variable" "azure_tenant_id" {
+  key          = "ARM_TENANT_ID"
+  value        = data.vault_generic_secret.azure.data["ARM_TENANT_ID"]
+  category     = "env"
+  variable_set_id = tfe_variable_set.azure.id
+  description  = "Azure Tenant Id"
+}
+
+resource "tfe_variable" "azure_client_id" {
+  key          = "ARM_CLIENT_ID"
+  value        = data.vault_generic_secret.azure.data["ARM_CLIENT_ID"]
+  category     = "env"
+  variable_set_id = tfe_variable_set.azure.id
+  description  = "Azure Client Id"
+}
+
+resource "tfe_variable" "azure_client_secret" {
+  key          = "ARM_CLIENT_SECRET"
+  value        = data.vault_generic_secret.azure.data["ARM_CLIENT_SECRET"]
+  category     = "env"
+  variable_set_id = tfe_variable_set.azure.id
+  sensitive = true
+  description  = "Azure Client Secret"
+}
