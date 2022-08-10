@@ -2,7 +2,7 @@
 terraform {
   required_version = ">= 1.0"
   required_providers {
-    tfe = ">= 0.26.1"
+    tfe = ">= 0.35"
     github = {
       source  = "integrations/github"
       version = "~> 4.0"
