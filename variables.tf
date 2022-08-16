@@ -1,5 +1,5 @@
 variable "tf_latest" {
-  type = string
+  type        = string
   description = "The latest version of terraform cli."
   validation {
     condition     = substr(var.tf_latest, 0, 2) == "1."
@@ -45,6 +45,11 @@ variable "gitlab_personal_token" {
     condition     = length(var.gitlab_personal_token) > 19
     error_message = "The gitlab_personal_token value must be a valid https://gitlab.com personal token, longer than 20 characters."
   }
+}
+
+variable "snyk_hmac_key" {
+  type        = string
+  description = "HMAC key for Sync.io integration"
 }
 
 variable "organization" {

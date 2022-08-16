@@ -15,7 +15,7 @@ module "vcs-connected-workspace" {
   organization          = var.organization
   name                  = each.value.name
   terraform_version     = each.value.version
-  tfc_oauth_token       = local.tfc_oauth_token  // the TFC/E oauth token id of the vcs connection
+  tfc_oauth_token       = local.tfc_oauth_token // the TFC/E oauth token id of the vcs connection
   workspace_description = each.value.description
   tags                  = each.value.tags
   vcsbranch             = each.value.vcsbranch
