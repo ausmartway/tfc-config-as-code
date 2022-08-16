@@ -2,7 +2,8 @@
 terraform {
   required_version = ">= 1.0"
   required_providers {
-    tfe = ">= 0.35"
+    tfe   = ">= 0.35"
+    vault = ">= 3.8"
     github = {
       source  = "integrations/github"
       version = "~> 4.0"
@@ -17,6 +18,10 @@ locals {
 
 provider "tfe" {
   token = var.tfe_token
+}
+
+provider "vault" {
+
 }
 
 provider "github" {
@@ -204,40 +209,56 @@ resource "tfe_variable_set" "azure" {
 }
 
 data "vault_generic_secret" "azure" {
-    path = "kv/azure"
+  path = "kv/azure"
 }
 
 ## Add Azure credentials ENV variables 
 resource "tfe_variable" "azure_subscription_id" {
-  key          = "ARM_SUBSCRIPTION_ID"
-  value        = data.vault_generic_secret.azure.data["ARM_SUBSCRIPTION_ID"]
-  category     = "env"
+  key             = "ARM_SUBSCRIPTION_ID"
+  value           = data.vault_generic_secret.azure.data["ARM_SUBSCRIPTION_ID"]
+  category        = "env"
   variable_set_id = tfe_variable_set.azure.id
-  description  = "Azure Subscription Id"
+  description     = "Azure Subscription Id"
 
 }
 
 resource "tfe_variable" "azure_tenant_id" {
-  key          = "ARM_TENANT_ID"
-  value        = data.vault_generic_secret.azure.data["ARM_TENANT_ID"]
-  category     = "env"
+  key             = "ARM_TENANT_ID"
+  value           = data.vault_generic_secret.azure.data["ARM_TENANT_ID"]
+  category        = "env"
   variable_set_id = tfe_variable_set.azure.id
-  description  = "Azure Tenant Id"
+  description     = "Azure Tenant Id"
 }
 
 resource "tfe_variable" "azure_client_id" {
-  key          = "ARM_CLIENT_ID"
-  value        = data.vault_generic_secret.azure.data["ARM_CLIENT_ID"]
-  category     = "env"
+  key             = "ARM_CLIENT_ID"
+  value           = data.vault_generic_secret.azure.data["ARM_CLIENT_ID"]
+  category        = "env"
   variable_set_id = tfe_variable_set.azure.id
-  description  = "Azure Client Id"
+  description     = "Azure Client Id"
 }
 
 resource "tfe_variable" "azure_client_secret" {
-  key          = "ARM_CLIENT_SECRET"
-  value        = data.vault_generic_secret.azure.data["ARM_CLIENT_SECRET"]
-  category     = "env"
+  key             = "ARM_CLIENT_SECRET"
+  value           = data.vault_generic_secret.azure.data["ARM_CLIENT_SECRET"]
+  category        = "env"
   variable_set_id = tfe_variable_set.azure.id
-  sensitive = true
-  description  = "Azure Client Secret"
+  sensitive       = true
+  description     = "Azure Client Secret"
+}
+
+resource "tfe_organization_run_task" "snyk" {
+  organization = var.organization
+  url          = "https://api.snyk.io/v1/terraform-cloud/2df223b0-f339-4303-99ce-955159121971"
+  hmac_key     = var.snyk_hmac_key
+  name         = "snyk.io"
+  enabled      = true
+}
+
+resource "tfe_organization_run_task" "infracost" {
+  organization = var.organization
+  url          = "https://dashboard.api.infracost.io/hooks/9fef9204-96e8-466b-8e84-731a04552ec3"
+  hmac_key     = var.infracost_hmac_key
+  name         = "infracost.io"
+  enabled      = true
 }
