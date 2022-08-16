@@ -13,6 +13,11 @@ resource "tfe_team" "teams" {
   organization = "yulei"
 }
 
+resource "auth0_role" "auth0_roles" {
+  for_each = local.inputteammap
+  name        = each.value.name
+  description = "Role for team ${each.value.name}"
+}
 
 
 
