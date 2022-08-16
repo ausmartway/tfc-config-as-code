@@ -251,7 +251,7 @@ resource "tfe_organization_run_task" "snyk" {
   organization = var.organization
   url          = "https://api.snyk.io/v1/terraform-cloud/2df223b0-f339-4303-99ce-955159121971"
   hmac_key     = var.snyk_hmac_key
-  name         = "snyk.io"
+  name         = "snyk"
   enabled      = true
 }
 
@@ -259,6 +259,6 @@ resource "tfe_organization_run_task" "infracost" {
   organization = var.organization
   url          = "https://dashboard.api.infracost.io/hooks/9fef9204-96e8-466b-8e84-731a04552ec3"
   hmac_key     = var.infracost_hmac_key
-  name         = "infracost.io"
+  name         = "infracost"
   enabled      = true
 }
