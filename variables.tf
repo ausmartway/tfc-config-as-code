@@ -58,6 +58,7 @@ variable "infracost_hmac_key" {
 }
 
 
+
 variable "organization" {
   type        = string
   description = "Name of TFC/E organization"
