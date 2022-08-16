@@ -3,7 +3,7 @@ locals {
   inputteamvar = [for f in fileset(path.module, "teams/{team}*.yaml") : yamldecode(file(f))]
   # Take that data set and format it so that it can be used with the for_each command by converting it to a map where each top level key is a unique identifier.
   # In this case I am using the appid key from my example YAML files
-  inputteammap = { for team in toset(local.inputteamvar) : team.name => team }
+  inputteammap = { for team in toset(local.inputteamvar) : team.name => name }
 
 }
 
