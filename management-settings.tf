@@ -8,6 +8,10 @@ terraform {
       source  = "integrations/github"
       version = "~> 4.0"
     }
+    auth0 = {
+      source  = "auth0/auth0"
+      version = "~> 0.35.0"
+    }
   }
 }
 
