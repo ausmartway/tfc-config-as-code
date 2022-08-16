@@ -38,6 +38,17 @@ resource "tfe_agent_token" "local-agent-pool-token" {
   agent_pool_id = tfe_agent_pool.local-agent-pool.id
   description   = "docker-agent-token"
 }
+resource "tfe_agent_pool" "agent-pools" {
+  for_each     = local.inputteammap
+  name         = "agent-pool-for-${each.value.name}"
+  organization = "yulei"
+}
+
+resource "tfe_agent_token" "agent-tokens" {
+  for_each      = local.inputteammap
+  agent_pool_id = tfe_agent_pool.agent-pools[each.value.name].id
+  description   = "agent-token-for-${each.value.name}"
+}
 
 resource "tfe_workspace" "tfc-config-as-code" {
   description           = "Workspace for managing my own TFC orgnisation's configuration as code, using terraform."
