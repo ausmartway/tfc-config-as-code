@@ -269,7 +269,7 @@ data "tfe_workspace_ids" "customerfacing" {
 }
 
 resource "tfe_workspace_run_task" "snyk" {
-  for_each = data.tfe_workspace_ids.customerfacing
+  for_each = data.tfe_workspace_ids.customerfacing.ids
   workspace_id      = each.value
   task_id           = resource.tfe_organization_run_task.snyk.id
   enforcement_level = "advisory"
