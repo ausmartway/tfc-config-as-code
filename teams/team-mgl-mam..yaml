@@ -1,4 +1,7 @@
 name: mgl-mam-test
+workspaces:
+  - w1
+  - w2
 members:
   - valeriebelovaai@gmail.com
   - jasonpoley@gmail.com

@@ -1,4 +1,4 @@
-name: demoforcba1234
+name: demofor-cloudbolt
 version: 1.2.6
 vcsbranch: 
 vcsworkingdirectory: 
@@ -7,4 +7,4 @@ tags:
   - hcp:vault
   - autoinject
   - customerfacing
-  - cba
+  - cloudbolt
