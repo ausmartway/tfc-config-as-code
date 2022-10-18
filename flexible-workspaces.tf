@@ -433,31 +433,31 @@ resource "tfe_workspace" "azure-shared-infra" {
   }
 }
 
-resource "tfe_workspace" "vault-config-as-code" {
-  description           = "A workspace that's used to manage my own Vault's configuration as code."
-  allow_destroy_plan    = true
-  auto_apply            = true
-  execution_mode        = "remote"
-  file_triggers_enabled = false
-  global_remote_state   = false
+# resource "tfe_workspace" "vault-config-as-code" {
+#   description           = "A workspace that's used to manage my own Vault's configuration as code."
+#   allow_destroy_plan    = true
+#   auto_apply            = true
+#   execution_mode        = "remote"
+#   file_triggers_enabled = false
+#   global_remote_state   = false
 
-  name = "vault-config-as-code"
+#   name = "vault-config-as-code"
 
-  organization                  = var.organization
-  queue_all_runs                = false
-  remote_state_consumer_ids     = []
-  speculative_enabled           = true
-  structured_run_output_enabled = true
-  tag_names                     = ["customerfacing", "vault", "aws"]
-  terraform_version             = var.v1latest
-  trigger_prefixes              = []
+#   organization                  = var.organization
+#   queue_all_runs                = false
+#   remote_state_consumer_ids     = []
+#   speculative_enabled           = true
+#   structured_run_output_enabled = true
+#   tag_names                     = ["customerfacing", "vault", "aws"]
+#   terraform_version             = var.v1latest
+#   trigger_prefixes              = []
 
-  vcs_repo {
-    identifier         = "ausmartway/vault-config-as-code"
-    ingress_submodules = false
-    oauth_token_id     = local.tfc_oauth_token
-  }
-}
+#   vcs_repo {
+#     identifier         = "ausmartway/vault-config-as-code"
+#     ingress_submodules = false
+#     oauth_token_id     = local.tfc_oauth_token
+#   }
+# }
 
 resource "tfe_workspace" "vault-config-as-code-aws" {
   description           = "A workspace that's used to manage my own Vault's configuration as code."
