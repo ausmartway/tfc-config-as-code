@@ -1,0 +1,10 @@
+name: vault-playground
+version: 1.3.0
+description: this is a test workspace for vault
+vcsbranch: 
+vcsworkingdirectory: 
+tags:
+  - aws
+  - awsconsumer
+  - autoinject
+  - internal
