@@ -1,0 +1,8 @@
+name: cloud
+version: 1.3.0
+vcsbranch: 
+vcsworkingdirectory: 
+description: A workspace to demo cloudbolt
+tags:
+  - internal
+  - cloudbolt
