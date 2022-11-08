@@ -1,6 +1,6 @@
 name: hcp-vault-management
 version: 1.0.8
-vcsbranch: hcp
+vcsbranch: 
 vcsworkingdirectory: 
 description: this is a workspace that manages my hcp-vault
 tags:
