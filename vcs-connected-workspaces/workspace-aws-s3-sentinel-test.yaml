@@ -1,9 +1,0 @@
-name: aws-simple-s3-sentinel-development
-version: 0.11.15
-vcsbranch: 
-vcsworkingdirectory: 
-description: This is a very simple demo that provisions s3 buckets.
-tags:
-  - aws
-  - awsconsumer
-  - autoinject

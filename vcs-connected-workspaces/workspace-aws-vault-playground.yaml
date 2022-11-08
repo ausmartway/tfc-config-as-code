@@ -5,6 +5,7 @@ vcsbranch:
 vcsworkingdirectory: 
 tags:
   - aws
+  - vault
   - awsconsumer
   - autoinject
   - internal
