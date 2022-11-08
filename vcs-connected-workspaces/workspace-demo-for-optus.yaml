@@ -1,0 +1,9 @@
+name: demo-for-optus
+version: 1.3.4
+vcsbranch: 
+vcsworkingdirectory: 
+description: A workspace to manage a demo for Optus
+tags:
+  - customerfacing
+  - azure
+  - autoinject
