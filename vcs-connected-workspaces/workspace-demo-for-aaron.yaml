@@ -1,0 +1,10 @@
+name: demo-for-aaron
+version: 1.3.4
+vcsbranch: 
+vcsworkingdirectory: 
+description: Standing up a demo for aaron
+tags:
+  - tfe
+  - aws
+  - autoinject
+  - awsconsumer
