@@ -9,11 +9,3 @@ resource "tfe_registry_module" "azure-hashicat" {
   }
 }
 
-resource "tfe_registry_module" "test-no-code-provisioning-registry-module" {
-  organization    = var.organization
-  namespace       = "terraform-aws-modules"
-  module_provider = "aws"
-  name            = "vpc"
-  registry_name   = "public"
-  no_code         = true
-}
