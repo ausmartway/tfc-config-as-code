@@ -1,0 +1,5 @@
+name: naming
+namespace: terraform-azure-modules
+module_provider: azure
+registry_name: public
+no_code: true
