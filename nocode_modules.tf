@@ -7,12 +7,12 @@ locals {
 
 }
 
-# resource "tfe_registry_module" "test-no-code-provisioning-registry-module" {
-#   for_each              = local.inputnocodemap
-#   organization    = var.organization
-#   namespace       = "terraform-aws-modules"
-#   module_provider = each.value.module_provider
-#   name            = each.value.name
-#   registry_name   = each.value.registry_name
-#   no_code         = true
-# }
+resource "tfe_registry_module" "test-no-code-provisioning-registry-module" {
+  for_each              = local.inputnocodemap
+  organization    = var.organization
+  namespace       = "terraform-aws-modules"
+  module_provider = each.value.module_provider
+  name            = each.value.name
+  registry_name   = each.value.registry_name
+  no_code         = true
+}
