@@ -6,7 +6,7 @@ terraform {
     vault = "= 3.11.0"
     github = {
       source  = "integrations/github"
-      version = "~> 4.0"
+      version = "= 4.31.0"
     }
     auth0 = {
       source  = "auth0/auth0"
