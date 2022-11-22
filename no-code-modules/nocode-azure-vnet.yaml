@@ -1,5 +1,5 @@
 name: vnet
 namespace: terraform-azure-modules
-module_provider: azure
+module_provider: azurerm
 registry_name: public
 no_code: true
