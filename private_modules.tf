@@ -1,6 +1,5 @@
 resource "tfe_registry_module" "azure-hashicat" {
     organization = var.organization
-    module_provider = "hashicorp"
     name = "azure-hashicat"
     registry_name = "private"
 
