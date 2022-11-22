@@ -1,4 +1,4 @@
-name: ec2
+name: ec2-instance
 namespace: terraform-aws-modules
 module_provider: aws
 registry_name: public
