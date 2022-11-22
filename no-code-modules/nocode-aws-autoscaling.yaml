@@ -1,0 +1,5 @@
+name: autoscaling
+namespace: terraform-aws-modules
+module_provider: aws
+registry_name: public
+no_code: true

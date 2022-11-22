@@ -1,7 +1,7 @@
 resource "tfe_registry_module" "azure-hashicat" {
   organization = var.organization
-  name         = "azure-hashicat"
-  no_code = "true"
+  name         = "hashicat"
+  no_code = true
   vcs_repo {
     display_identifier = "ausmartway/terraform-azure-hashicat"
     identifier         = "ausmartway/terraform-azure-hashicat"
