@@ -9,3 +9,4 @@ resource "tfe_registry_module" "azure-hashicat" {
     identifier         = "ausmartway/terraform-azure-hashicat"
     oauth_token_id     = local.tfc_oauth_token
 }
+}
