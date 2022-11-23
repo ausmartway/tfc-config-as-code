@@ -1,0 +1,8 @@
+name: suncorp-demo
+version: 1.3.4
+description: this is a test workspace 
+vcsbranch: 
+vcsworkingdirectory: 
+tags:
+  - azure
+  - autoinject
