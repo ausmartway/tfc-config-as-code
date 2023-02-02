@@ -235,7 +235,7 @@ resource "tfe_workspace" "aws-s3-demo" {
   queue_all_runs                = false
   speculative_enabled           = true
   structured_run_output_enabled = true
-  terraform_version             = var.v1latest
+  terraform_version             = "1.3.7"
   trigger_prefixes              = []
   vcs_repo {
     identifier         = "ausmartway/aws-s3-demo"
