@@ -1,0 +1,6 @@
+name: vault
+workspaces:
+  - w1
+  - w2
+members:
+  - yulei.liu@gmail.com

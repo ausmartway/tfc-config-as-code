@@ -10,7 +10,7 @@ locals {
 resource "tfe_registry_module" "test-no-code-provisioning-registry-module" {
   for_each              = local.inputnocodemap
   organization    = var.organization
-  namespace       = "terraform-aws-modules"
+  namespace       = each.value.namespace
   module_provider = each.value.module_provider
   name            = each.value.name
   registry_name   = each.value.registry_name
