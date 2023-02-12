@@ -61,7 +61,7 @@ resource "tfe_workspace" "tfc-config-as-code" {
   execution_mode        = "remote"
   file_triggers_enabled = true
   global_remote_state   = false
-  project_id = tfe_project.projects["management"]
+  project_id = tfe_project.projects["management"].id
   name = "tfc-config-as-code"
 
   organization                  = var.organization
@@ -119,7 +119,7 @@ resource "tfe_workspace" "tfc-credential-injector" {
   execution_mode        = "remote"
   file_triggers_enabled = false
   global_remote_state   = false
-  project_id = tfe_project.projects["management"]
+  project_id = tfe_project.projects["management"].id
   name                          = "tfc-credential-injector"
   organization                  = var.organization
   queue_all_runs                = true
@@ -143,7 +143,7 @@ resource "tfe_workspace" "tfc-notification-configurator" {
   execution_mode        = "remote"
   file_triggers_enabled = false
   global_remote_state   = false
-  project_id = tfe_project.projects["management"]
+  project_id = tfe_project.projects["management"].id
   name                          = "tfc-notification-configurator"
   organization                  = var.organization
   queue_all_runs                = true
@@ -167,7 +167,7 @@ resource "tfe_workspace" "tfc-policyset-attacher" {
   execution_mode                = "remote"
   file_triggers_enabled         = false
   global_remote_state           = false
-  project_id = tfe_project.projects["management"]
+  project_id = tfe_project.projects["management"].id
   name                          = "tfc-policyset-attacher"
   organization                  = var.organization
   queue_all_runs                = true
