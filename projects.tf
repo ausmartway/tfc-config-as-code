@@ -8,7 +8,7 @@ locals {
 }
 
 resource "tfe_project" "projects" {
-  for_each              = local.inputprojectmap
+  for_each     = local.inputprojectmap
   organization = var.organization
-  name            = each.value.name
+  name         = each.value.name
 }

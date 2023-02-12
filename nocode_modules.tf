@@ -8,7 +8,7 @@ locals {
 }
 
 resource "tfe_registry_module" "test-no-code-provisioning-registry-module" {
-  for_each              = local.inputnocodemap
+  for_each        = local.inputnocodemap
   organization    = var.organization
   namespace       = each.value.namespace
   module_provider = each.value.module_provider
