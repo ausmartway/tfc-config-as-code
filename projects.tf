@@ -9,5 +9,6 @@ locals {
 
 resource "tfe_project" "projects" {
   for_each              = local.inputprojectmap
+  organization = var.organization
   name            = each.value.name
 }
