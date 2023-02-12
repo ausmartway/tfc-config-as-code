@@ -1,9 +1,0 @@
-name: projectOptus
-version: 1.3.4
-description: this is a test Optus workspace 
-vcsbranch: 
-vcsworkingdirectory: 
-tags:
-  - aws
-  - azure
-  - autoinject
