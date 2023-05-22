@@ -224,6 +224,24 @@ resource "tfe_variable_set" "azure" {
   organization = var.organization
 }
 
+## Add HCP Vault admin token to global variable set
+resource "tfe_variable_set" "hcp_admin_token" {
+  name         = "hcp_admin_token"
+  description  = "Variable set applied to all workspaces with tag azure and autoinjection."
+  global       = false
+  organization = var.organization
+}
+
+## Add HCP Vault admin token ENV variables 
+resource "tfe_variable" "hcp_admin_token" {
+  key             = "VAULT_TOKEN"
+  value           = ""
+  category        = "env"
+  variable_set_id = tfe_variable_set.hcp_admin_token.id
+  sensitive       = true
+  description     = "hcp_admin_token"
+}
+
 data "vault_generic_secret" "azure" {
   path = "kv/azure"
 }
@@ -235,7 +253,6 @@ resource "tfe_variable" "azure_subscription_id" {
   category        = "env"
   variable_set_id = tfe_variable_set.azure.id
   description     = "Azure Subscription Id"
-
 }
 
 resource "tfe_variable" "azure_tenant_id" {
