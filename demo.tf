@@ -18,13 +18,13 @@ resource "tfe_workspace" "terraform-enterprise-azure-vcs" {
   structured_run_output_enabled = true
   tag_names                     = ["azure", "customerfacing", local.customername]
   terraform_version             = var.v1latest
-  trigger_prefixes              = []
-  working_directory = "ent-azure"
+  trigger_prefixes              = ["ent-azure"]
+  working_directory             = "ent-azure"
   vcs_repo {
     identifier         = "ausmartway/terraform-enterprise-demo"
     ingress_submodules = false
     oauth_token_id     = local.tfc_oauth_token
-    trigger_prefixes ="ent-azure"
+
   }
 }
 
