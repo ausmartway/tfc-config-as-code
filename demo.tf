@@ -16,7 +16,7 @@ resource "tfe_workspace" "terraform-enterprise-azure-vcs" {
   queue_all_runs                = false
   speculative_enabled           = true
   structured_run_output_enabled = true
-  tag_names                     = ["azure", "customerfacing",${local.customername}]
+  tag_names                     = ["azure", "customerfacing", local.customername]
   terraform_version             = var.v1latest
   trigger_prefixes              = []
   working_directory = "ent-azure"
