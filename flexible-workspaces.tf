@@ -31,39 +31,6 @@ resource "tfe_variable" "aws-lambda-example-aws_region" {
   description  = "AWS REGION"
 }
 
-# resource "tfe_workspace" "multicloud-dns-management" {
-#   description           = "Manages my aws/azure/gcp DNS records using aws route53."
-#   allow_destroy_plan    = true
-#   auto_apply            = true
-#   execution_mode        = "remote"
-#   file_triggers_enabled = false
-#   global_remote_state   = false
-
-#   name = "multicloud-dns-management"
-
-#   organization                  = var.organization
-#   queue_all_runs                = false
-#   speculative_enabled           = true
-#   structured_run_output_enabled = true
-#   tag_names                     = ["internal", "aws", "gcp", "azure", "autoinject"]
-#   terraform_version             = var.v1latest
-#   trigger_prefixes              = []
-
-#   vcs_repo {
-#     identifier         = "ausmartway/dns-multicloud"
-#     ingress_submodules = false
-#     oauth_token_id     = local.tfc_oauth_token
-#   }
-# }
-
-# resource "tfe_variable" "multicloud-dns-management-aws_region" {
-#   key          = "AWS_REGION"
-#   value        = var.aws_default_region
-#   category     = "env"
-#   workspace_id = tfe_workspace.multicloud-dns-management.id
-#   description  = "AWS REGION"
-# }
-
 resource "tfe_workspace" "multi-env-provisioning-example-0-test" {
   description                   = "A demo showing how to manage multiple enviroments using one set of terraform code."
   allow_destroy_plan            = true
