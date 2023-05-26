@@ -7,7 +7,7 @@ resource "tfe_workspace" "terraform-enterprise-azure-vcs" {
   allow_destroy_plan    = true
   auto_apply            = true
   execution_mode        = "remote"
-  file_triggers_enabled = false
+  file_triggers_enabled = true
   global_remote_state   = false
 
   name = "${local.customername}-terraform-enterprise-azure-vcs"
