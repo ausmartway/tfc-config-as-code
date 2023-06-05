@@ -1,8 +1,9 @@
-name: hcp-vault-boundary
+name: hcp-boundary
 version: 1.4.6
 vcsbranch: 
 vcsworkingdirectory: 
 description: A workspace to manage my test boundary in hcp@ap-southeast-2 region
 tags:
   - hcp:boundary
+  - management
   - autoinject
