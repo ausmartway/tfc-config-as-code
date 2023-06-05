@@ -233,14 +233,25 @@ resource "tfe_variable_set" "hcp_admin_token" {
 }
 
 ## Add HCP Vault admin token ENV variables 
-resource "tfe_variable" "hcp_admin_token" {
-  key             = "VAULT_TOKEN"
+resource "tfe_variable" "hcp_client_id" {
+  key             = "HCP_CLIENT_ID"
   value           = ""
   category        = "env"
   variable_set_id = tfe_variable_set.hcp_admin_token.id
   sensitive       = true
   description     = "hcp_admin_token"
 }
+
+resource "tfe_variable" "hcp_client_secret" {
+  key             = "HCP_CLIENT_SECRET"
+  value           = ""
+  category        = "env"
+  variable_set_id = tfe_variable_set.hcp_admin_token.id
+  sensitive       = true
+  description     = "hcp_admin_token"
+}
+
+
 
 data "vault_generic_secret" "azure" {
   path = "kv/azure"
