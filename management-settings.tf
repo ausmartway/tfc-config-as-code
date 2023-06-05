@@ -251,6 +251,23 @@ resource "tfe_variable" "hcp_client_secret" {
   description     = "hcp_admin_token"
 }
 
+resource "tfe_variable" "boundary_admin_username" {
+  key             = "admin_username"
+  value           = ""
+  category        = "terraform"
+  variable_set_id = tfe_variable_set.hcp_admin_token.id
+  sensitive       = true
+  description     = "boundary initial admin username"
+}
+
+resource "tfe_variable" "boundary_admin_password" {
+  key             = "admin_password"
+  value           = ""
+  category        = "terraform"
+  variable_set_id = tfe_variable_set.hcp_admin_token.id
+  sensitive       = true
+  description     = "boundary initial admin password"
+}
 
 
 data "vault_generic_secret" "azure" {
