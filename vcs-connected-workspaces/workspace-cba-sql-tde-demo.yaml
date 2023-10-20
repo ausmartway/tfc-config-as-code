@@ -1,0 +1,9 @@
+name: cba-sql-tde-demo
+version: 1.6.1
+vcsbranch: 
+vcsworkingdirectory: 
+description: A workspace for cba sql tde demo
+tags:
+  - vault
+  - autoinject
+  - azure
