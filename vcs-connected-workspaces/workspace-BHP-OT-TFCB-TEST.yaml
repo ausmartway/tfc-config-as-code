@@ -1,7 +1,0 @@
-name: BHP-OT-TFCB-TEST
-version: 1.5.0
-vcsbranch: 
-vcsworkingdirectory: 
-description: A workspace to manage some test tfcb org for BHP OT
-tags:
-  - management
