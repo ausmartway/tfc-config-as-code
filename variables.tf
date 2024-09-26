@@ -16,7 +16,7 @@ variable "v1latest" {
     condition     = substr(var.v1latest, 0, 2) == "1."
     error_message = "The terraform cli version must match 1.*."
   }
-  default = "1.6.3"
+  default = "1.9.6"
 }
 variable "v015latest" {
   type        = string
