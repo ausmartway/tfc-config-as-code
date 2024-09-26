@@ -268,7 +268,7 @@ resource "tfe_variable" "hcp_vault_namespace" {
 }
 
 resource "tfe_variable" "hcp_vault_role" {
-  key             = "TFC_VAULT_ROLE"
+  key             = "TFC_VAULT_RUN_ROLE"
   value           = "tfc_default"
   category        = "env"
   variable_set_id = tfe_variable_set.enable_workload_identity_auth_to_hcp_vault.id
