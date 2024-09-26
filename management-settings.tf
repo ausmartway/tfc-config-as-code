@@ -285,7 +285,7 @@ resource "tfe_variable" "hcp_vault_auth_path" {
 
 resource "tfe_variable" "tfc_vault_provider_auth" {
   key             = "TFC_VAULT_PROVIDER_AUTH"
-  value           = "true"
+  value           = true
   category        = "env"
   variable_set_id = tfe_variable_set.enable_workload_identity_auth_to_hcp_vault.id
   description     = "hcp vault provider auth"
