@@ -242,6 +242,63 @@ resource "tfe_variable" "hcp_client_id" {
   description     = "hcp_admin_token"
 }
 
+## Add workload identity required variables into global variable set
+resource "tfe_variable_set" "enable_workload_identity_auth_to_hcp_vault" {
+  name         = "enable_workload_identity_auth_to_vault_hcp"
+  description  = "Variable set that enables TFC workload identity login into hcp Vault."
+  global       = false
+  organization = var.organization
+
+}
+
+resource "tfe_variable" "hcp_vault_addr" {
+  key             = "TFC_VAULT_ADDR"
+  value           = "https://vault-cluster-public-vault-bb7b95a8.c950b5f7.z1.hashicorp.cloud:8200"
+  category        = "env"
+  variable_set_id = tfe_variable_set.enable_workload_identity_auth_to_hcp_vault.id
+  description     = "hcp vault address"
+}
+
+resource "tfe_variable" "hcp_vault_namespace" {
+  key             = "TFC_VAULT_NAMESPACE"
+  value           = "admin"
+  category        = "env"
+  variable_set_id = tfe_variable_set.enable_workload_identity_auth_to_hcp_vault.id
+  description     = "hcp vault namespace"
+}
+
+resource "tfe_variable" "hcp_vault_role" {
+  key             = "TFC_VAULT_ROLE"
+  value           = "tfc_default"
+  category        = "env"
+  variable_set_id = tfe_variable_set.enable_workload_identity_auth_to_hcp_vault.id
+  description     = "hcp vault role"
+}
+
+resource "tfe_variable" "hcp_vault_auth_path" {
+  key             = "TFC_VAULT_AUTH_PATH"
+  value           = "terraform_cloud"
+  category        = "env"
+  variable_set_id = tfe_variable_set.enable_workload_identity_auth_to_hcp_vault.id
+  description     = "hcp vault auth path"
+}
+
+resource "tfe_variable" "tfc_vault_provider_auth" {
+  key             = "TFC_VAULT_PROVIDER_AUTH"
+  value           = "true"
+  category        = "env"
+  variable_set_id = tfe_variable_set.enable_workload_identity_auth_to_hcp_vault.id
+  description     = "hcp vault provider auth"
+}
+
+resource "tfe_variable" "tfc_vault_workload_identity_audience" {
+  key             = "TFC_VAULT_WORKLOAD_IDENTITY_AUDIENCE"
+  value           = "eXVsZWkncyBWYXVsdAo="
+  category        = "env"
+  variable_set_id = tfe_variable_set.enable_workload_identity_auth_to_hcp_vault.id
+  description     = "hcp vault workload identity audience"
+}
+
 resource "tfe_variable" "hcp_client_secret" {
   key             = "HCP_CLIENT_SECRET"
   value           = ""
