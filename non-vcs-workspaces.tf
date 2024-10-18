@@ -9,7 +9,7 @@ locals {
 
 module "non-vcs-connected-workspace" {
   source   = "ausmartway/non-vcs-connected-workspace/tfe"
-  version  = "0.0.1"
+  version  = "0.1.0"
   for_each = local.inputworkspacemap
   # insert the 4 required variables here
   organization          = var.organization
