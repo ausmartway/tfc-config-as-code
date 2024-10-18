@@ -58,7 +58,7 @@ resource "tfe_workspace" "tfc-config-as-code" {
   description           = "Workspace for managing my own TFC orgnisation's configuration as code, using terraform."
   allow_destroy_plan    = true
   auto_apply            = true
-  execution_mode        = "remote"
+  # execution_mode        = "remote"
   file_triggers_enabled = true
   global_remote_state   = false
   project_id            = tfe_project.projects["Management"].id
@@ -116,7 +116,7 @@ resource "tfe_workspace" "tfc-credential-injector" {
   allow_destroy_plan            = true
   auto_apply                    = true
   description                   = "A workspace that will inject aws and azure credentials to other workspaces automaticly."
-  execution_mode                = "remote"
+  # execution_mode                = "remote"
   file_triggers_enabled         = false
   global_remote_state           = false
   project_id                    = tfe_project.projects["Management"].id
@@ -140,7 +140,7 @@ resource "tfe_workspace" "tfc-notification-configurator" {
   allow_destroy_plan            = true
   auto_apply                    = true
   description                   = "A workspace that will configure TFC/E notifications based on tag automaticly."
-  execution_mode                = "remote"
+  # execution_mode                = "remote"
   file_triggers_enabled         = false
   global_remote_state           = false
   project_id                    = tfe_project.projects["Management"].id
