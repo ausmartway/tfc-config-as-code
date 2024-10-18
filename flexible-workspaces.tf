@@ -1,8 +1,9 @@
+# this file contains workspaces that were imported before this tfc-config-as-code repo has been created. 
 resource "tfe_workspace" "aws-lambda-example" {
   description           = "Demo workspace for deploying lambda functions."
   allow_destroy_plan    = true
   auto_apply            = true
-  execution_mode        = "remote"
+  # execution_mode        = "remote"
   file_triggers_enabled = false
   global_remote_state   = false
 
@@ -35,7 +36,7 @@ resource "tfe_workspace" "multi-env-provisioning-example-0-test" {
   description                   = "A demo showing how to manage multiple enviroments using one set of terraform code."
   allow_destroy_plan            = true
   auto_apply                    = true
-  execution_mode                = "remote"
+  # execution_mode                = "remote"
   file_triggers_enabled         = false
   global_remote_state           = false
   name                          = "multi-env-provisioning-example-0-test"
@@ -67,7 +68,7 @@ resource "tfe_workspace" "multi-env-provisioning-example-1-staging" {
   description           = "A demo showing how to manage multiple enviroments using one set of terraform code."
   allow_destroy_plan    = true
   auto_apply            = true
-  execution_mode        = "remote"
+  # execution_mode        = "remote"
   file_triggers_enabled = false
   global_remote_state   = false
 
@@ -101,7 +102,7 @@ resource "tfe_workspace" "multi-env-provisioning-example-2-prod" {
   description           = "A demo showing how to manage multiple enviroments using one set of terraform code."
   allow_destroy_plan    = true
   auto_apply            = true
-  execution_mode        = "remote"
+  # execution_mode        = "remote"
   file_triggers_enabled = false
   global_remote_state   = false
 
@@ -134,7 +135,7 @@ resource "tfe_workspace" "terraform-aws-vault-demo" {
   description                   = "A workspace that standup a demo vault instance."
   allow_destroy_plan            = true
   auto_apply                    = true
-  execution_mode                = "remote"
+  # execution_mode                = "remote"
   file_triggers_enabled         = false
   global_remote_state           = false
   name                          = "terraform-aws-vault-demo"
