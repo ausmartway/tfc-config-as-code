@@ -272,7 +272,7 @@ resource "tfe_workspace" "aws-shared-infra" {
   trigger_prefixes              = []
 
   vcs_repo {
-    identifier         = "ausmartway/terraform-aws-core"
+    identifier         = "ausmartway/aws-shared-infra"
     ingress_submodules = false
     oauth_token_id     = local.tfc_oauth_token
   }
