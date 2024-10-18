@@ -193,7 +193,7 @@ resource "tfe_workspace" "aws-s3-demo" {
   description                   = "A simple demo to show how sentinel policy as code engine can make sure s3 are provisioned securely."
   allow_destroy_plan            = true
   auto_apply                    = true
-  execution_mode                = "remote"
+  # execution_mode                = "remote"
   file_triggers_enabled         = false
   global_remote_state           = false
   name                          = "aws-s3-demo"
@@ -224,7 +224,7 @@ resource "tfe_workspace" "gcp-playground" {
   description                   = "A simple demo of deploying gcp resources."
   allow_destroy_plan            = true
   auto_apply                    = true
-  execution_mode                = "remote"
+  # execution_mode                = "remote"
   file_triggers_enabled         = false
   global_remote_state           = false
   name                          = "gcp-playground"
@@ -255,7 +255,7 @@ resource "tfe_workspace" "aws-shared-infra" {
 
   allow_destroy_plan        = true
   auto_apply                = true
-  execution_mode            = "remote"
+  # execution_mode            = "remote"
   file_triggers_enabled     = false
   global_remote_state       = false
   remote_state_consumer_ids = values(data.tfe_workspace_ids.awsconsumer-apps.ids)
@@ -290,7 +290,7 @@ resource "tfe_workspace" "azure-shared-infra" {
   description                   = "Core azure infra"
   allow_destroy_plan            = true
   auto_apply                    = true
-  execution_mode                = "remote"
+  # execution_mode                = "remote"
   file_triggers_enabled         = false
   global_remote_state           = true
   name                          = "azure-shared-infra"
@@ -313,7 +313,7 @@ resource "tfe_workspace" "vault-config-as-code-aws" {
   description           = "A workspace that's used to manage my own Vault's configuration as code."
   allow_destroy_plan    = true
   auto_apply            = true
-  execution_mode        = "remote"
+  # execution_mode        = "remote"
   file_triggers_enabled = false
   global_remote_state   = false
 
@@ -340,8 +340,8 @@ resource "tfe_workspace" "vault-config-as-code-local" {
   description           = "A workspace that's used to manage my own Vault's configuration as code."
   allow_destroy_plan    = true
   auto_apply            = true
-  execution_mode        = "agent"
-  agent_pool_id         = tfe_agent_pool.local-agent-pool.id
+  # execution_mode        = "agent"
+  # agent_pool_id         = tfe_agent_pool.local-agent-pool.id
   file_triggers_enabled = false
   global_remote_state   = false
 
@@ -368,7 +368,7 @@ resource "tfe_workspace" "vault-config-as-code-hcp" {
   description           = "A workspace that's used to manage my own Vault's configuration as code."
   allow_destroy_plan    = true
   auto_apply            = true
-  execution_mode        = "remote"
+  # execution_mode        = "remote"
   file_triggers_enabled = false
   global_remote_state   = false
 
