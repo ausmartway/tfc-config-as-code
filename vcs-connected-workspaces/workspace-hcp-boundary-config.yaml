@@ -1,5 +1,5 @@
 name: hcp-boundary-config-as-code
-version: 1.4.6
+version: 1.9.8
 vcsbranch: 
 vcsworkingdirectory: 
 description: A workspace to manage my test boundary in hcp@ap-southeast-2 region

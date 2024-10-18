@@ -1,5 +1,5 @@
 name: tfc-workload-identity-demo
-version: 1.9.6
+version: 1.9.8
 vcsbranch: 
 vcsworkingdirectory: 
 description: A workspace to test/demo the workload identity feature in TFC
