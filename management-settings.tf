@@ -364,10 +364,10 @@ resource "tfe_organization_run_task" "infracost" {
   enabled      = true
 }
 
-data "tfe_workspace_ids" "customerfacing" {
-  tag_names    = ["customerfacing"]
-  organization = var.organization
-}
+# data "tfe_workspace_ids" "customerfacing" {
+#   tag_names    = ["customerfacing"]
+#   organization = var.organization
+# }
 
 # resource "tfe_workspace_run_task" "snyk" {
 #   for_each          = data.tfe_workspace_ids.customerfacing.ids
