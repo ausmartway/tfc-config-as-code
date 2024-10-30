@@ -1,0 +1,10 @@
+name: suncorpdemo
+version: 1.9.8
+vcsbranch: 
+vcsworkingdirectory: 
+description: A workspace to test/demo the workload identity feature in TFC
+tags:
+  - customerfacing
+  - vault
+  - tfc
+  - suncorpdemo
