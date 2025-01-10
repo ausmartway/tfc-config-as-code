@@ -1,3 +1,5 @@
+# terraform stacks is a new feature introduced
+
 resource "tfe_stack" "test-stack" {
   name         = "my-stack"
   description  = "A Terraform Stack using two components with two environments"
