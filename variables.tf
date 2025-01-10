@@ -5,7 +5,7 @@ variable "tf_latest" {
     condition     = substr(var.tf_latest, 0, 2) == "1."
     error_message = "The terraform cli version must match 1.*."
   }
-  default = "1.9.8"
+  default = "1.10.4"
 }
 
 
@@ -16,7 +16,7 @@ variable "v1latest" {
     condition     = substr(var.v1latest, 0, 2) == "1."
     error_message = "The terraform cli version must match 1.*."
   }
-  default = "1.9.8"
+  default = "1.10.4"
 }
 variable "v015latest" {
   type        = string
