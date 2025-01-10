@@ -3,10 +3,13 @@ terraform {
   required_version = "1.10.4"
   required_providers {
     tfe = {
-      # source = "ausmartway/tfe"
-      version = ">=0.61"
+      source  = "hashicorp/tfe"
+      version = "~>0.62"
     }
-    vault = ">= 4.4.0"
+    vault = {
+      source  = "hashicorp/vault"
+      version = ">= 4.4.0"
+    }
     github = {
       source  = "integrations/github"
       version = ">= 6.0"
