@@ -1,7 +1,7 @@
 resource "tfe_stack" "test-stack" {
   name         = "my-stack"
   description  = "A Terraform Stack using two components with two environments"
-  project_id   = tfe_project.projects["Development"].id
+  project_id   = tfe_project.projects["Playground"].id
 
   vcs_repo {
     branch         = "main"
