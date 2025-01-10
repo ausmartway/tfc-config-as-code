@@ -43,17 +43,17 @@ resource "tfe_agent_token" "agent-tokens" {
 }
 
 resource "tfe_workspace" "tfc-config-as-code" {
-  description           = "Workspace for managing my own TFC orgnisation's configuration as code, using terraform."
-  allow_destroy_plan    = true
-  auto_apply            = true
+  description        = "Workspace for managing my own TFC orgnisation's configuration as code, using terraform."
+  allow_destroy_plan = true
+  auto_apply         = true
   # execution_mode        = "remote"
   file_triggers_enabled = true
   # global_remote_state   = false
-  project_id            = tfe_project.projects["Management"].id
-  name                  = "tfc-config-as-code"
+  project_id = tfe_project.projects["Management"].id
+  name       = "tfc-config-as-code"
 
-  organization                  = var.organization
-  queue_all_runs                = false
+  organization   = var.organization
+  queue_all_runs = false
   # remote_state_consumer_ids     = []
   speculative_enabled           = true
   structured_run_output_enabled = true
@@ -101,16 +101,16 @@ resource "tfe_oauth_client" "gitlab-b" {
 }
 
 resource "tfe_workspace" "tfc-credential-injector" {
-  allow_destroy_plan            = true
-  auto_apply                    = true
-  description                   = "A workspace that will inject aws and azure credentials to other workspaces automaticly."
+  allow_destroy_plan = true
+  auto_apply         = true
+  description        = "A workspace that will inject aws and azure credentials to other workspaces automaticly."
   # execution_mode                = "remote"
-  file_triggers_enabled         = false
+  file_triggers_enabled = false
   # global_remote_state           = false
-  project_id                    = tfe_project.projects["Management"].id
-  name                          = "tfc-credential-injector"
-  organization                  = var.organization
-  queue_all_runs                = true
+  project_id     = tfe_project.projects["Management"].id
+  name           = "tfc-credential-injector"
+  organization   = var.organization
+  queue_all_runs = true
   # remote_state_consumer_ids     = []
   speculative_enabled           = true
   structured_run_output_enabled = true
@@ -125,16 +125,16 @@ resource "tfe_workspace" "tfc-credential-injector" {
 }
 
 resource "tfe_workspace" "tfc-notification-configurator" {
-  allow_destroy_plan            = true
-  auto_apply                    = true
-  description                   = "A workspace that will configure TFC/E notifications based on tag automaticly."
+  allow_destroy_plan = true
+  auto_apply         = true
+  description        = "A workspace that will configure TFC/E notifications based on tag automaticly."
   # execution_mode                = "remote"
-  file_triggers_enabled         = false
+  file_triggers_enabled = false
   # global_remote_state           = false
-  project_id                    = tfe_project.projects["Management"].id
-  name                          = "tfc-notification-configurator"
-  organization                  = var.organization
-  queue_all_runs                = true
+  project_id     = tfe_project.projects["Management"].id
+  name           = "tfc-notification-configurator"
+  organization   = var.organization
+  queue_all_runs = true
   # remote_state_consumer_ids     = []
   speculative_enabled           = true
   structured_run_output_enabled = true
@@ -149,16 +149,16 @@ resource "tfe_workspace" "tfc-notification-configurator" {
 }
 
 resource "tfe_workspace" "tfc-policyset-attacher" {
-  allow_destroy_plan            = true
-  auto_apply                    = true
-  description                   = "A workspace that will configure TFC/E notifications based on tag automaticly."
+  allow_destroy_plan = true
+  auto_apply         = true
+  description        = "A workspace that will configure TFC/E notifications based on tag automaticly."
 
-  file_triggers_enabled         = false
+  file_triggers_enabled = false
   # global_remote_state           = false
-  project_id                    = tfe_project.projects["Management"].id
-  name                          = "tfc-policyset-attacher"
-  organization                  = var.organization
-  queue_all_runs                = true
+  project_id     = tfe_project.projects["Management"].id
+  name           = "tfc-policyset-attacher"
+  organization   = var.organization
+  queue_all_runs = true
   # remote_state_consumer_ids     = []
   speculative_enabled           = true
   structured_run_output_enabled = true

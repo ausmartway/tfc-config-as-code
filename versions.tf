@@ -1,6 +1,6 @@
 ##version constraints for tf and required providers
 terraform {
-  required_version = ">= 1.0"
+  required_version = "1.10.4"
   required_providers {
     tfe = {
       # source = "ausmartway/tfe"
