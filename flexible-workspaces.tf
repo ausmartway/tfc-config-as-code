@@ -5,7 +5,7 @@ resource "tfe_workspace" "aws-lambda-example" {
   auto_apply            = true
   # execution_mode        = "remote"
   file_triggers_enabled = false
-  global_remote_state   = false
+  # global_remote_state   = false
 
   name = "aws-lambda-example"
 
@@ -38,7 +38,7 @@ resource "tfe_workspace" "multi-env-provisioning-example-0-test" {
   auto_apply                    = true
   # execution_mode                = "remote"
   file_triggers_enabled         = false
-  global_remote_state           = false
+  # global_remote_state           = false
   name                          = "multi-env-provisioning-example-0-test"
   organization                  = var.organization
   queue_all_runs                = false
@@ -70,7 +70,7 @@ resource "tfe_workspace" "multi-env-provisioning-example-1-staging" {
   auto_apply            = true
   # execution_mode        = "remote"
   file_triggers_enabled = false
-  global_remote_state   = false
+  # global_remote_state   = false
 
   name = "multi-env-provisioning-example-1-staging"
 
@@ -104,7 +104,7 @@ resource "tfe_workspace" "multi-env-provisioning-example-2-prod" {
   auto_apply            = true
   # execution_mode        = "remote"
   file_triggers_enabled = false
-  global_remote_state   = false
+  # global_remote_state   = false
 
   name = "multi-env-provisioning-example-2-prod"
 
@@ -137,7 +137,7 @@ resource "tfe_workspace" "terraform-aws-vault-demo" {
   auto_apply                    = true
   # execution_mode                = "remote"
   file_triggers_enabled         = false
-  global_remote_state           = false
+  # global_remote_state           = false
   name                          = "terraform-aws-vault-demo"
   organization                  = var.organization
   queue_all_runs                = false
@@ -196,7 +196,7 @@ resource "tfe_workspace" "aws-s3-demo" {
   auto_apply                    = true
   # execution_mode                = "remote"
   file_triggers_enabled         = false
-  global_remote_state           = false
+  # global_remote_state           = false
   name                          = "aws-s3-demo"
   tag_names                     = ["customerfacing", "aws", "autoinject", "awsconsumer"]
   organization                  = var.organization
@@ -227,7 +227,7 @@ resource "tfe_workspace" "gcp-playground" {
   auto_apply                    = true
   # execution_mode                = "remote"
   file_triggers_enabled         = false
-  global_remote_state           = false
+  # global_remote_state           = false
   name                          = "gcp-playground"
   organization                  = var.organization
   queue_all_runs                = false
@@ -251,6 +251,11 @@ data "tfe_workspace_ids" "awsconsumer-apps" {
   organization = var.organization
 }
 
+data "tfe_workspace_ids" "azureconsumer-apps" {
+  tag_names    = ["azureconsumer"]
+  organization = var.organization
+}
+
 resource "tfe_workspace" "aws-shared-infra" {
   description = "My core aws infrustructure that are shared by other workspaces."
 
@@ -258,11 +263,9 @@ resource "tfe_workspace" "aws-shared-infra" {
   auto_apply                = true
   # execution_mode            = "remote"
   file_triggers_enabled     = false
-  global_remote_state       = false
-  remote_state_consumer_ids = values(data.tfe_workspace_ids.awsconsumer-apps.ids)
-
+  # global_remote_state       = false
+  # remote_state_consumer_ids = values(data.tfe_workspace_ids.awsconsumer-apps.ids)
   name = "aws-shared-infra"
-
   organization                  = var.organization
   queue_all_runs                = false
   speculative_enabled           = true
@@ -270,13 +273,18 @@ resource "tfe_workspace" "aws-shared-infra" {
   tag_names                     = ["aws", "internal", "autoinject"]
   terraform_version             = var.v1latest
   trigger_prefixes              = []
-
   vcs_repo {
     identifier         = "ausmartway/aws-shared-infra"
     ingress_submodules = false
     oauth_token_id     = local.tfc_oauth_token
   }
 
+}
+
+resource "tfe_workspace_settings" "aws-shared-infra" {
+  workspace_id              = tfe_workspace.aws-shared-infra.id
+  global_remote_state       = false
+  remote_state_consumer_ids = values(data.tfe_workspace_ids.awsconsumer-apps.ids)
 }
 
 resource "tfe_variable" "aws-shared-infra-aws_region" {
@@ -293,7 +301,7 @@ resource "tfe_workspace" "azure-shared-infra" {
   auto_apply                    = true
   # execution_mode                = "remote"
   file_triggers_enabled         = false
-  global_remote_state           = true
+  # global_remote_state           = true
   name                          = "azure-shared-infra"
   organization                  = var.organization
   queue_all_runs                = false
@@ -310,19 +318,25 @@ resource "tfe_workspace" "azure-shared-infra" {
   }
 }
 
+resource "tfe_workspace_settings" "azure-shared-infra" {
+  workspace_id              = tfe_workspace.azure-shared-infra.id
+  global_remote_state       = false
+  remote_state_consumer_ids = values(data.tfe_workspace_ids.azureconsumer-apps.ids)
+}
+
 resource "tfe_workspace" "vault-config-as-code-aws" {
   description           = "A workspace that's used to manage my own Vault's configuration as code."
   allow_destroy_plan    = true
   auto_apply            = true
   # execution_mode        = "remote"
   file_triggers_enabled = false
-  global_remote_state   = false
+  # global_remote_state   = false
 
   name = "vault-config-as-code-aws"
 
   organization                  = var.organization
   queue_all_runs                = false
-  remote_state_consumer_ids     = []
+  # remote_state_consumer_ids     = []
   speculative_enabled           = true
   structured_run_output_enabled = true
   tag_names                     = ["customerfacing", "vault", "aws"]
@@ -344,13 +358,13 @@ resource "tfe_workspace" "vault-config-as-code-local" {
   # execution_mode        = "agent"
   # agent_pool_id         = tfe_agent_pool.local-agent-pool.id
   file_triggers_enabled = false
-  global_remote_state   = false
+  # global_remote_state   = false
 
   name = "vault-config-as-code-local"
 
   organization                  = var.organization
   queue_all_runs                = false
-  remote_state_consumer_ids     = []
+  # remote_state_consumer_ids     = []
   speculative_enabled           = true
   structured_run_output_enabled = true
   tag_names                     = ["customerfacing", "vault", "local"]
@@ -371,13 +385,13 @@ resource "tfe_workspace" "vault-config-as-code-hcp" {
   auto_apply            = true
   # execution_mode        = "remote"
   file_triggers_enabled = false
-  global_remote_state   = false
+  # global_remote_state   = false
 
   name = "vault-config-as-code-hcp"
 
   organization                  = var.organization
   queue_all_runs                = false
-  remote_state_consumer_ids     = []
+  # remote_state_consumer_ids     = []
   speculative_enabled           = true
   structured_run_output_enabled = true
   tag_names                     = ["customerfacing", "vault", "hcp"]
