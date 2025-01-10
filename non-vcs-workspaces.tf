@@ -15,7 +15,7 @@ module "non-vcs-connected-workspace" {
   organization          = var.organization
   workspace_description = each.value.name
   name                  = each.value.name
-  terraform_version     = each.value.version
+  terraform_version     = var.v1latest
   tags                  = each.value.tags
   github_owner          = "ausmartway"
 }
