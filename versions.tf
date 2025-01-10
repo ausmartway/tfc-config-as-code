@@ -3,8 +3,8 @@ terraform {
   required_version = ">= 1.0"
   required_providers {
     tfe = {
-      source = "ausmartway/tfe"
-      version = "0.59.2"
+      # source = "ausmartway/tfe"
+      version = ">=0.61"
     }
     vault = ">= 4.4.0"
     github = {
