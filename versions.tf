@@ -4,7 +4,7 @@ terraform {
   required_providers {
     tfe = {
       source = "ausmartway/tfe"
-      version = "0.62.0"
+      version = ">=0.61"
     }
     vault = ">= 4.4.0"
     github = {
