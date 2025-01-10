@@ -1,14 +1,3 @@
-variable "tf_latest" {
-  type        = string
-  description = "The latest version of terraform cli."
-  validation {
-    condition     = substr(var.tf_latest, 0, 2) == "1."
-    error_message = "The terraform cli version must match 1.*."
-  }
-  default = "1.10.4"
-}
-
-
 variable "v1latest" {
   type        = string
   description = "The version of terraform cli for all workspace that is v1"
@@ -18,15 +7,7 @@ variable "v1latest" {
   }
   default = "1.10.4"
 }
-variable "v015latest" {
-  type        = string
-  description = "The version of terraform cli for all workspace that is v0.15"
-  validation {
-    condition     = substr(var.v015latest, 0, 4) == "0.15"
-    error_message = "The terraform cli version must match 0.15.*."
-  }
-  default = "0.15.5"
-}
+
 
 
 variable "github_personal_token" {

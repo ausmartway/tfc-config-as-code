@@ -1,8 +1,8 @@
 # this file contains workspaces that were imported before this tfc-config-as-code repo has been created. 
 resource "tfe_workspace" "aws-lambda-example" {
-  description           = "Demo workspace for deploying lambda functions."
-  allow_destroy_plan    = true
-  auto_apply            = true
+  description        = "Demo workspace for deploying lambda functions."
+  allow_destroy_plan = true
+  auto_apply         = true
   # execution_mode        = "remote"
   file_triggers_enabled = false
   # global_remote_state   = false
@@ -33,11 +33,11 @@ resource "tfe_variable" "aws-lambda-example-aws_region" {
 }
 
 resource "tfe_workspace" "multi-env-provisioning-example-0-test" {
-  description                   = "A demo showing how to manage multiple enviroments using one set of terraform code."
-  allow_destroy_plan            = true
-  auto_apply                    = true
+  description        = "A demo showing how to manage multiple enviroments using one set of terraform code."
+  allow_destroy_plan = true
+  auto_apply         = true
   # execution_mode                = "remote"
-  file_triggers_enabled         = false
+  file_triggers_enabled = false
   # global_remote_state           = false
   name                          = "multi-env-provisioning-example-0-test"
   organization                  = var.organization
@@ -65,9 +65,9 @@ resource "tfe_variable" "multi-env-provisioning-example-0-test-aws_region" {
 }
 
 resource "tfe_workspace" "multi-env-provisioning-example-1-staging" {
-  description           = "A demo showing how to manage multiple enviroments using one set of terraform code."
-  allow_destroy_plan    = true
-  auto_apply            = true
+  description        = "A demo showing how to manage multiple enviroments using one set of terraform code."
+  allow_destroy_plan = true
+  auto_apply         = true
   # execution_mode        = "remote"
   file_triggers_enabled = false
   # global_remote_state   = false
@@ -99,9 +99,9 @@ resource "tfe_variable" "multi-env-provisioning-example-1-staging-aws_region" {
 }
 
 resource "tfe_workspace" "multi-env-provisioning-example-2-prod" {
-  description           = "A demo showing how to manage multiple enviroments using one set of terraform code."
-  allow_destroy_plan    = true
-  auto_apply            = true
+  description        = "A demo showing how to manage multiple enviroments using one set of terraform code."
+  allow_destroy_plan = true
+  auto_apply         = true
   # execution_mode        = "remote"
   file_triggers_enabled = false
   # global_remote_state   = false
@@ -132,11 +132,11 @@ resource "tfe_variable" "multi-env-provisioning-example-2-prod-aws_region" {
 }
 
 resource "tfe_workspace" "terraform-aws-vault-demo" {
-  description                   = "A workspace that standup a demo vault instance."
-  allow_destroy_plan            = true
-  auto_apply                    = true
+  description        = "A workspace that standup a demo vault instance."
+  allow_destroy_plan = true
+  auto_apply         = true
   # execution_mode                = "remote"
-  file_triggers_enabled         = false
+  file_triggers_enabled = false
   # global_remote_state           = false
   name                          = "terraform-aws-vault-demo"
   organization                  = var.organization
@@ -191,11 +191,11 @@ resource "tfe_variable" "terraform-aws-vault-demo-aws_region" {
 # }
 
 resource "tfe_workspace" "aws-s3-demo" {
-  description                   = "A simple demo to show how sentinel policy as code engine can make sure s3 are provisioned securely."
-  allow_destroy_plan            = true
-  auto_apply                    = true
+  description        = "A simple demo to show how sentinel policy as code engine can make sure s3 are provisioned securely."
+  allow_destroy_plan = true
+  auto_apply         = true
   # execution_mode                = "remote"
-  file_triggers_enabled         = false
+  file_triggers_enabled = false
   # global_remote_state           = false
   name                          = "aws-s3-demo"
   tag_names                     = ["customerfacing", "aws", "autoinject", "awsconsumer"]
@@ -222,11 +222,11 @@ resource "tfe_variable" "aws-s3-demo-aws_region" {
 }
 
 resource "tfe_workspace" "gcp-playground" {
-  description                   = "A simple demo of deploying gcp resources."
-  allow_destroy_plan            = true
-  auto_apply                    = true
+  description        = "A simple demo of deploying gcp resources."
+  allow_destroy_plan = true
+  auto_apply         = true
   # execution_mode                = "remote"
-  file_triggers_enabled         = false
+  file_triggers_enabled = false
   # global_remote_state           = false
   name                          = "gcp-playground"
   organization                  = var.organization
@@ -259,13 +259,13 @@ data "tfe_workspace_ids" "azureconsumer-apps" {
 resource "tfe_workspace" "aws-shared-infra" {
   description = "My core aws infrustructure that are shared by other workspaces."
 
-  allow_destroy_plan        = true
-  auto_apply                = true
+  allow_destroy_plan = true
+  auto_apply         = true
   # execution_mode            = "remote"
-  file_triggers_enabled     = false
+  file_triggers_enabled = false
   # global_remote_state       = false
   # remote_state_consumer_ids = values(data.tfe_workspace_ids.awsconsumer-apps.ids)
-  name = "aws-shared-infra"
+  name                          = "aws-shared-infra"
   organization                  = var.organization
   queue_all_runs                = false
   speculative_enabled           = true
@@ -296,11 +296,11 @@ resource "tfe_variable" "aws-shared-infra-aws_region" {
 }
 
 resource "tfe_workspace" "azure-shared-infra" {
-  description                   = "Core azure infra"
-  allow_destroy_plan            = true
-  auto_apply                    = true
+  description        = "Core azure infra"
+  allow_destroy_plan = true
+  auto_apply         = true
   # execution_mode                = "remote"
-  file_triggers_enabled         = false
+  file_triggers_enabled = false
   # global_remote_state           = true
   name                          = "azure-shared-infra"
   organization                  = var.organization
@@ -325,17 +325,17 @@ resource "tfe_workspace_settings" "azure-shared-infra" {
 }
 
 resource "tfe_workspace" "vault-config-as-code-aws" {
-  description           = "A workspace that's used to manage my own Vault's configuration as code."
-  allow_destroy_plan    = true
-  auto_apply            = true
+  description        = "A workspace that's used to manage my own Vault's configuration as code."
+  allow_destroy_plan = true
+  auto_apply         = true
   # execution_mode        = "remote"
   file_triggers_enabled = false
   # global_remote_state   = false
 
   name = "vault-config-as-code-aws"
 
-  organization                  = var.organization
-  queue_all_runs                = false
+  organization   = var.organization
+  queue_all_runs = false
   # remote_state_consumer_ids     = []
   speculative_enabled           = true
   structured_run_output_enabled = true
@@ -352,9 +352,9 @@ resource "tfe_workspace" "vault-config-as-code-aws" {
 }
 
 resource "tfe_workspace" "vault-config-as-code-local" {
-  description           = "A workspace that's used to manage my own Vault's configuration as code."
-  allow_destroy_plan    = true
-  auto_apply            = true
+  description        = "A workspace that's used to manage my own Vault's configuration as code."
+  allow_destroy_plan = true
+  auto_apply         = true
   # execution_mode        = "agent"
   # agent_pool_id         = tfe_agent_pool.local-agent-pool.id
   file_triggers_enabled = false
@@ -362,8 +362,8 @@ resource "tfe_workspace" "vault-config-as-code-local" {
 
   name = "vault-config-as-code-local"
 
-  organization                  = var.organization
-  queue_all_runs                = false
+  organization   = var.organization
+  queue_all_runs = false
   # remote_state_consumer_ids     = []
   speculative_enabled           = true
   structured_run_output_enabled = true
@@ -380,17 +380,17 @@ resource "tfe_workspace" "vault-config-as-code-local" {
 }
 
 resource "tfe_workspace" "vault-config-as-code-hcp" {
-  description           = "A workspace that's used to manage my own Vault's configuration as code."
-  allow_destroy_plan    = true
-  auto_apply            = true
+  description        = "A workspace that's used to manage my own Vault's configuration as code."
+  allow_destroy_plan = true
+  auto_apply         = true
   # execution_mode        = "remote"
   file_triggers_enabled = false
   # global_remote_state   = false
 
   name = "vault-config-as-code-hcp"
 
-  organization                  = var.organization
-  queue_all_runs                = false
+  organization   = var.organization
+  queue_all_runs = false
   # remote_state_consumer_ids     = []
   speculative_enabled           = true
   structured_run_output_enabled = true

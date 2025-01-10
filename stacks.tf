@@ -1,9 +1,9 @@
 # terraform stacks is a new feature introduced
 
 resource "tfe_stack" "test-stack" {
-  name         = "my-stack"
-  description  = "A Terraform Stack using two components with two environments"
-  project_id   = tfe_project.projects["Playground"].id
+  name        = "my-stack"
+  description = "A Terraform Stack using two components with two environments"
+  project_id  = tfe_project.projects["Playground"].id
 
   vcs_repo {
     branch         = "main"
@@ -12,11 +12,12 @@ resource "tfe_stack" "test-stack" {
   }
 }
 
-resource github_repository "stack-repo" {
-  name = "stack-repo"
-  description = "A repository for the stack"
+resource "github_repository" "stack-repo" {
+  name                 = "stack-repo"
+  description          = "A repository for the stack"
+  vulnerability_alerts = true
   template {
-    owner = "ausmartway"
+    owner      = "ausmartway"
     repository = "terraform-template"
   }
   visibility = "private"
