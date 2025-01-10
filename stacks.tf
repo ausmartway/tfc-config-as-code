@@ -6,7 +6,7 @@ resource "tfe_stack" "test-stack" {
   vcs_repo {
     branch         = "main"
     identifier     = "ausmartway/stack-repo"
-    oauth_token_id = tfe_oauth_client.test.oauth_token_id
+    oauth_token_id = local.tfc_oauth_token
   }
 }
 
