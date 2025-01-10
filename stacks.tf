@@ -12,8 +12,12 @@ resource "tfe_stack" "test-stack" {
   }
 }
 
-# resource github_repository "stack-repo" {
-#   name = "stack-repo"
-#   description = "A repository for the stack"
-#   visibility = "private"
-# }
+resource github_repository "stack-repo" {
+  name = "stack-repo"
+  description = "A repository for the stack"
+  template {
+    owner = "ausmartway"
+    repository = "terraform-template"
+  }
+  visibility = "private"
+}
