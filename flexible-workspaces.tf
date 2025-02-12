@@ -262,6 +262,14 @@ resource "tfe_variable" "gcp-playground-gcp_credential" {
   description  = "GOOGLE_CREDENTIALS"
 }
 
+resource tfe_variable "gcp-playground-gcp_project" {
+  key          = "GOOGLE_PROJECT"
+  value        = "hc-11ee2ae13b344bb1ac2d2b21323"
+  category     = "env"
+  workspace_id = tfe_workspace.gcp-playground.id
+  description  = "GOOGLE_PROJECT"
+}
+
 //get a list of TFC/E workspaces that has tag 'aws'
 data "tfe_workspace_ids" "awsconsumer-apps" {
   tag_names    = ["awsconsumer"]
