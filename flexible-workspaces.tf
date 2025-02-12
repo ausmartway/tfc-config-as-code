@@ -245,6 +245,23 @@ resource "tfe_workspace" "gcp-playground" {
   }
 }
 
+resource "tfe_variable" "gcp-playground-gcp_region" {
+  key          = "GOOGLE_REGION"
+  value        = "australia-southeast1"
+  category     = "env"
+  workspace_id = tfe_workspace.gcp-playground.id
+  description  = "GCP REGION"
+}
+
+resource "tfe_variable" "gcp-playground-gcp_credential" {
+  key          = "GOOGLE_CREDENTIALS"
+  value        = "REPLACE_ME" 
+  category     = "env"
+  sensitive    = true
+  workspace_id = tfe_workspace.gcp-playground.id
+  description  = "GOOGLE_CREDENTIALS"
+}
+
 //get a list of TFC/E workspaces that has tag 'aws'
 data "tfe_workspace_ids" "awsconsumer-apps" {
   tag_names    = ["awsconsumer"]
