@@ -18,5 +18,9 @@ terraform {
       source  = "auth0/auth0"
       version = ">= 0.35.0"
     }
+    hcp = {
+      source  = "hashicorp/hcp"
+      version = ">= 0.29.0"
+    }
   }
 }
