@@ -408,6 +408,7 @@ resource "tfe_workspace" "vault-config-as-code-hcp" {
   description        = "A workspace that's used to manage my own Vault's configuration as code."
   allow_destroy_plan = true
   auto_apply         = true
+  force_delete = true
   # execution_mode        = "remote"
   file_triggers_enabled = false
   # global_remote_state   = false
@@ -430,3 +431,11 @@ resource "tfe_workspace" "vault-config-as-code-hcp" {
     oauth_token_id     = local.tfc_oauth_token
   }
 }
+
+# resource tfe_variable enviroment {
+#   key          = "enviroment"
+#   value        = "hcp-public"
+#   category     = "env"
+#   description  = "the enviroment that this workspace is in."
+#   workspace_id = tfe_workspace.vault-config-as-code-hcp.id
+# }
