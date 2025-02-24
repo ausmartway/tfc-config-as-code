@@ -237,7 +237,7 @@ resource "tfe_workspace" "gcp-playground" {
   terraform_version             = var.v1latest
   trigger_prefixes              = []
   working_directory             = "terraform-standup-gke"
-  force_delete = true
+  force_delete                  = true
   vcs_repo {
     identifier         = "ausmartway/gcp-playground"
     ingress_submodules = false
@@ -255,14 +255,14 @@ resource "tfe_variable" "gcp-playground-gcp_region" {
 
 resource "tfe_variable" "gcp-playground-gcp_credential" {
   key          = "GOOGLE_CREDENTIALS"
-  value        = "REPLACE_ME" 
+  value        = "REPLACE_ME"
   category     = "env"
   sensitive    = true
   workspace_id = tfe_workspace.gcp-playground.id
   description  = "GOOGLE_CREDENTIALS"
 }
 
-resource tfe_variable "gcp-playground-gcp_project" {
+resource "tfe_variable" "gcp-playground-gcp_project" {
   key          = "GOOGLE_PROJECT"
   value        = "hc-11ee2ae13b344bb1ac2d2b21323"
   category     = "env"
@@ -404,33 +404,33 @@ resource "tfe_workspace" "vault-config-as-code-local" {
   }
 }
 
-resource "tfe_workspace" "vault-config-as-code-hcp" {
-  description        = "A workspace that's used to manage my own Vault's configuration as code."
-  allow_destroy_plan = true
-  auto_apply         = true
-  force_delete = true
-  # execution_mode        = "remote"
-  file_triggers_enabled = false
-  # global_remote_state   = false
+# resource "tfe_workspace" "vault-config-as-code-hcp" {
+#   description        = "A workspace that's used to manage my own Vault's configuration as code."
+#   allow_destroy_plan = true
+#   auto_apply         = true
+#   force_delete = true
+#   # execution_mode        = "remote"
+#   file_triggers_enabled = false
+#   # global_remote_state   = false
 
-  name = "vault-config-as-code-hcp"
+#   name = "vault-config-as-code-hcp"
 
-  organization   = var.organization
-  queue_all_runs = false
-  # remote_state_consumer_ids     = []
-  speculative_enabled           = true
-  structured_run_output_enabled = true
-  tag_names                     = ["customerfacing", "vault", "hcp"]
-  terraform_version             = var.v1latest
-  trigger_prefixes              = []
+#   organization   = var.organization
+#   queue_all_runs = false
+#   # remote_state_consumer_ids     = []
+#   speculative_enabled           = true
+#   structured_run_output_enabled = true
+#   tag_names                     = ["customerfacing", "vault", "hcp"]
+#   terraform_version             = var.v1latest
+#   trigger_prefixes              = []
 
-  vcs_repo {
-    identifier         = "ausmartway/vault-config-as-code"
-    branch             = "hcp"
-    ingress_submodules = false
-    oauth_token_id     = local.tfc_oauth_token
-  }
-}
+#   vcs_repo {
+#     identifier         = "ausmartway/vault-config-as-code"
+#     branch             = "hcp"
+#     ingress_submodules = false
+#     oauth_token_id     = local.tfc_oauth_token
+#   }
+# }
 
 # resource tfe_variable enviroment {
 #   key          = "enviroment"

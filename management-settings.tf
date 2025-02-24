@@ -314,22 +314,22 @@ resource "tfe_variable" "boundary_admin_password" {
   description     = "boundary initial admin password"
 }
 
-data hcp_vault_secrets_secret azure_client_id {
+data "hcp_vault_secrets_secret" "azure_client_id" {
   app_name    = "azure"
   secret_name = "ARM_CLIENT_ID"
 }
 
-data hcp_vault_secrets_secret azure_client_secret {
+data "hcp_vault_secrets_secret" "azure_client_secret" {
   app_name    = "azure"
   secret_name = "ARM_CLIENT_SECRET"
 }
 
-data hcp_vault_secrets_secret azure_subscription_id {
+data "hcp_vault_secrets_secret" "azure_subscription_id" {
   app_name    = "azure"
   secret_name = "ARM_SUBSCRIPTION_ID"
 }
-data hcp_vault_secrets_secret azure_tenant_id {
-  app_name = "azure"
+data "hcp_vault_secrets_secret" "azure_tenant_id" {
+  app_name    = "azure"
   secret_name = "ARM_TENANT_ID"
 }
 
