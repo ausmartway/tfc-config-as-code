@@ -315,7 +315,7 @@ resource "tfe_variable" "boundary_admin_password" {
 }
 
 # hcp vault secrets has been sunset and no longer avaliable. I have moved those secrets to Vault Dedicated.
-  
+
 # data "hcp_vault_secrets_secret" "azure_client_id" {
 #   app_name    = "azure"
 #   secret_name = "ARM_CLIENT_ID"
