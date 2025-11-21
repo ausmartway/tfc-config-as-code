@@ -3,4 +3,5 @@ resource "tfe_organization_run_task" "hcp-packer" {
   name        = "hcp-packer"
   enabled     = true
   description = "hcp-packer runtask"
+  organization = var.organization
 }
