@@ -339,39 +339,39 @@ resource "tfe_variable" "boundary_admin_password" {
 #   path = "kv/azure"
 # }
 
-## Add Azure credentials ENV variables 
-resource "tfe_variable" "azure_subscription_id" {
-  key             = "ARM_SUBSCRIPTION_ID"
-  value           = data.hcp_vault_secrets_secret.azure_subscription_id.secret_value
-  category        = "env"
-  variable_set_id = tfe_variable_set.azure.id
-  description     = "Azure Subscription Id"
-}
+# ## Add Azure credentials ENV variables 
+# resource "tfe_variable" "azure_subscription_id" {
+#   key             = "ARM_SUBSCRIPTION_ID"
+#   value           = data.hcp_vault_secrets_secret.azure_subscription_id.secret_value
+#   category        = "env"
+#   variable_set_id = tfe_variable_set.azure.id
+#   description     = "Azure Subscription Id"
+# }
 
-resource "tfe_variable" "azure_tenant_id" {
-  key             = "ARM_TENANT_ID"
-  value           = data.hcp_vault_secrets_secret.azure_tenant_id.secret_value
-  category        = "env"
-  variable_set_id = tfe_variable_set.azure.id
-  description     = "Azure Tenant Id"
-}
+# resource "tfe_variable" "azure_tenant_id" {
+#   key             = "ARM_TENANT_ID"
+#   value           = data.hcp_vault_secrets_secret.azure_tenant_id.secret_value
+#   category        = "env"
+#   variable_set_id = tfe_variable_set.azure.id
+#   description     = "Azure Tenant Id"
+# }
 
-resource "tfe_variable" "azure_client_id" {
-  key             = "ARM_CLIENT_ID"
-  value           = data.hcp_vault_secrets_secret.azure_client_id.secret_value
-  category        = "env"
-  variable_set_id = tfe_variable_set.azure.id
-  description     = "Azure Client Id"
-}
+# resource "tfe_variable" "azure_client_id" {
+#   key             = "ARM_CLIENT_ID"
+#   value           = data.hcp_vault_secrets_secret.azure_client_id.secret_value
+#   category        = "env"
+#   variable_set_id = tfe_variable_set.azure.id
+#   description     = "Azure Client Id"
+# }
 
-resource "tfe_variable" "azure_client_secret" {
-  key             = "ARM_CLIENT_SECRET"
-  value           = data.hcp_vault_secrets_secret.azure_client_secret.secret_value
-  category        = "env"
-  variable_set_id = tfe_variable_set.azure.id
-  sensitive       = true
-  description     = "Azure Client Secret"
-}
+# resource "tfe_variable" "azure_client_secret" {
+#   key             = "ARM_CLIENT_SECRET"
+#   value           = data.hcp_vault_secrets_secret.azure_client_secret.secret_value
+#   category        = "env"
+#   variable_set_id = tfe_variable_set.azure.id
+#   sensitive       = true
+#   description     = "Azure Client Secret"
+# }
 
 resource "tfe_organization_run_task" "snyk" {
   organization = var.organization
