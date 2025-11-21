@@ -314,31 +314,73 @@ resource "tfe_variable" "boundary_admin_password" {
   description     = "boundary initial admin password"
 }
 
-data "hcp_vault_secrets_secret" "azure_client_id" {
-  app_name    = "azure"
-  secret_name = "ARM_CLIENT_ID"
-}
+# hcp vault secrets has been sunset and no longer avaliable. I have moved those secrets to Vault Dedicated.
+  
+# data "hcp_vault_secrets_secret" "azure_client_id" {
+#   app_name    = "azure"
+#   secret_name = "ARM_CLIENT_ID"
+# }
 
-data "hcp_vault_secrets_secret" "azure_client_secret" {
-  app_name    = "azure"
-  secret_name = "ARM_CLIENT_SECRET"
-}
+# data "hcp_vault_secrets_secret" "azure_client_secret" {
+#   app_name    = "azure"
+#   secret_name = "ARM_CLIENT_SECRET"
+# }
 
-data "hcp_vault_secrets_secret" "azure_subscription_id" {
-  app_name    = "azure"
-  secret_name = "ARM_SUBSCRIPTION_ID"
-}
-data "hcp_vault_secrets_secret" "azure_tenant_id" {
-  app_name    = "azure"
-  secret_name = "ARM_TENANT_ID"
-}
-
-
-
+# data "hcp_vault_secrets_secret" "azure_subscription_id" {
+#   app_name    = "azure"
+#   secret_name = "ARM_SUBSCRIPTION_ID"
+# }
+# data "hcp_vault_secrets_secret" "azure_tenant_id" {
+#   app_name    = "azure"
+#   secret_name = "ARM_TENANT_ID"
+# }
 
 # data "vault_generic_secret" "azure" {
 #   path = "kv/azure"
 # }
+
+resource "tfe_variable_set" "enable_workload_identity_for_vault" {
+
+  name = "enable_workload_identity_for_vault"
+  description = "Enable workload identity features for Vault"
+  organization = var.organization
+}
+
+resource "tfe_variable" "tfc_vault_provider_auth" {
+  key             = "tfc_vault_provider_auth"
+  value           = "true"
+  category        = "env"
+  description     = "enable vault provider auth"
+  variable_set_id = tfe_variable_set.enable_workload_identity_for_vault.id
+  
+}
+
+resource "tfe_variable" "tfc_vault_addr" {
+  key             = "tfc_vault_addr"
+  value           = "https://vault-plus-demo-public-vault-16765abc.e222d45b.z1.hashicorp.cloud:8200/"
+  category        = "env"
+  description     = "Vault addr"
+  variable_set_id = tfe_variable_set.enable_workload_identity_for_vault.id
+  
+}
+
+resource "tfe_variable" "tfc_vault_run_role" {
+  key             = "tfc_vault_run_role"
+  value           = "https://vault-plus-demo-public-vault-16765abc.e222d45b.z1.hashicorp.cloud:8200/"
+  category        = "env"
+  description     = "Vault addr"
+  variable_set_id = tfe_variable_set.enable_workload_identity_for_vault.id
+  
+}
+
+resource "tfe_variable" "tfc_vault_namespace" {
+  key             = "tfc_vault_namespace"
+  value           = "admin"
+  category        = "env"
+  description     = "Vault Namespace"
+  variable_set_id = tfe_variable_set.enable_workload_identity_for_vault.id
+  
+}
 
 ## Add Azure credentials ENV variables 
 resource "tfe_variable" "azure_subscription_id" {
