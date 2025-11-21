@@ -256,13 +256,13 @@ resource "tfe_variable" "hcp_vault_namespace" {
 }
 
 ### don't think this is required, the documentation might be wrong https://developer.hashicorp.com/terraform/cloud-docs/dynamic-provider-credentials/vault-configuration#required-environment-variables
-# resource "tfe_variable" "hcp_vault_role" {
-#   key             = "TFC_VAULT_RUN_ROLE"
-#   value           = "tfc_default"
-#   category        = "env"
-#   variable_set_id = tfe_variable_set.enable_workload_identity_auth_to_hcp_vault.id
-#   description     = "hcp vault role"
-# }
+resource "tfe_variable" "hcp_vault_role" {
+  key             = "TFC_VAULT_RUN_ROLE"
+  value           = "tfc_default"
+  category        = "env"
+  variable_set_id = tfe_variable_set.enable_workload_identity_auth_to_hcp_vault.id
+  description     = "hcp vault role"
+}
 
 resource "tfe_variable" "hcp_vault_auth_path" {
   key             = "TFC_VAULT_AUTH_PATH"
