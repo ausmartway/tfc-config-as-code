@@ -241,7 +241,7 @@ resource "tfe_variable_set" "enable_workload_identity_auth_to_hcp_vault" {
 
 resource "tfe_variable" "hcp_vault_addr" {
   key             = "TFC_VAULT_ADDR"
-  value           = "https://vault-cluster-public-vault-bb7b95a8.c950b5f7.z1.hashicorp.cloud:8200"
+  value           = "https://vault-plus-demo-public-vault-16765abc.e222d45b.z1.hashicorp.cloud:8200"
   category        = "env"
   variable_set_id = tfe_variable_set.enable_workload_identity_auth_to_hcp_vault.id
   description     = "hcp vault address"
